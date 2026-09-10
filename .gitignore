@@ -1,0 +1,7 @@
+.lake/
+.worktrees/
+.upstream/
+.cache/
+*.olean
+*.ilean
+__pycache__/

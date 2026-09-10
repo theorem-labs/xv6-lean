@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "baseline": "arxiv-v1",
+  "paper": {"url": "https://arxiv.org/abs/2609.04043v1", "version": 1},
+  "repositories": {
+    "xv6iris": {
+      "url": "https://github.com/mit-pdos/xv6iris.git",
+      "revision": "fa7f0a01c4b40489fac8ad303f079c2dfc7a1476",
+      "tag": "arxiv-v1"
+    },
+    "xv6-riscv": {
+      "url": "https://github.com/mit-pdos/xv6-riscv.git",
+      "revision": "45071c74c56b216a76bc08213d6c7a90b8f0688b"
+    },
+    "sail-riscv": {
+      "url": "https://github.com/zeldovich/sail-riscv.git",
+      "revision": "23dcf8fd923eb8a1958795393d2975632aa940b2"
+    },
+    "iris-lean": {
+      "url": "https://github.com/leanprover-community/iris-lean.git",
+      "revision": "728a17140939e49af9236f7cb0d037da9ec52435",
+      "role": "candidate Lean logic dependency; build and axiom audit required"
+    }
+  }
+}

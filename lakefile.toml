@@ -1,0 +1,16 @@
+name = "xv6-lean"
+version = "0.1.0"
+defaultTargets = ["MachCSL", "Xv6"]
+weakLeanArgs = ["-j2"]
+
+[[require]]
+name = "iris"
+git = "https://github.com/leanprover-community/iris-lean.git"
+rev = "728a17140939e49af9236f7cb0d037da9ec52435"
+subDir = "Iris"
+
+[[lean_lib]]
+name = "MachCSL"
+
+[[lean_lib]]
+name = "Xv6"

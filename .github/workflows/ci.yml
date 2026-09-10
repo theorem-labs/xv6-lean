@@ -1,0 +1,34 @@
+name: Lean build and proof audit
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596
+        with:
+          auto-config: "false"
+          build: "false"
+          test: "false"
+          lint: "false"
+          use-mathlib-cache: "false"
+      - name: Build all project modules
+        run: |
+          python3 tools/check_imports.py
+          python3 tools/lake.py build
+      - name: Audit proof assumptions
+        run: python3 tools/lake.py env lean Audit.lean
+      - name: Check image decoding and importer rejection paths
+        run: |
+          python3 tools/lake.py env lean tests/Images.lean
+          python3 -m unittest discover -s tests -p 'test_*.py'
+      - name: Verify reference provenance and generated files
+        run: |
+          python3 tools/upstream.py xv6iris
+          python3 tools/inventory.py .upstream/xv6iris --check
+          python3 tools/images.py .upstream/xv6iris --check

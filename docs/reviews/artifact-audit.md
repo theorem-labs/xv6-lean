@@ -75,3 +75,7 @@ Prioritized first slice: production TSO core and properties, pinned byte provena
 Agent management from paper §7: coordinator owns abstractions/specs; workers own bounded proof files; review difficult concurrency designs against code before scaling; checkpoint precise unmet obligations; discard failed abstractions rather than endlessly append helper lemmas. Keep proof checking fast, contracts stable, commits attributable, and completion claims tied to closed theorem roots.
 
 *Authorship note: this was researched and written by an AI coding agent (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is posted from this account.*
+
+*Authorship note: this was researched and written by an AI coding agent
+(OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is
+posted from this account.*

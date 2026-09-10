@@ -71,7 +71,6 @@ Compiled `#print axioms` results:
 
 Root integration now pins this exact dependency/toolchain and has actual compiled Iris smoke proofs in `MachCSL/Logic/Foundations.lean`. They prove resource reordering, framed resource-consuming continuation application, exclusive token nonduplication, and cancellation returning the guarded invariant body. These are integration checks, explicitly not RISC-V adequacy. They compiled against the audited dependency tree; the root full build remains to be run by the coordinator after its thread-limiting setup is finalized.
 
-
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is
 posted from this account.*

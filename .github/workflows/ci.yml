@@ -21,8 +21,11 @@ jobs:
         run: |
           python3 tools/check_imports.py
           python3 tools/lake.py build
+          python3 tools/lake.py build +SailTest.ConcurrencyInterfaceV1Free
       - name: Audit proof assumptions
-        run: python3 tools/lake.py env lean Audit.lean
+        run: |
+          python3 tools/lake.py env lean Audit.lean
+          python3 tools/lake.py env python3 tests/test_audit.py
       - name: Check image decoding and importer rejection paths
         run: |
           python3 tools/lake.py env lean tests/Images.lean

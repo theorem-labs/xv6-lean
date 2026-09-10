@@ -14,3 +14,8 @@ name = "MachCSL"
 
 [[lean_lib]]
 name = "Xv6"
+
+[[require]]
+name = "lean-sail"
+git = "https://github.com/theorem-labs/lean-sail.git"
+rev = "4cb7fe0eade622c5ce434b4e9ef8f7d0c509ab6f"

@@ -1,7 +1,10 @@
 {
   "schema_version": 1,
   "baseline": "arxiv-v1",
-  "paper": {"url": "https://arxiv.org/abs/2609.04043v1", "version": 1},
+  "paper": {
+    "url": "https://arxiv.org/abs/2609.04043v1",
+    "version": 1
+  },
   "repositories": {
     "xv6iris": {
       "url": "https://github.com/mit-pdos/xv6iris.git",
@@ -20,6 +23,13 @@
       "url": "https://github.com/leanprover-community/iris-lean.git",
       "revision": "728a17140939e49af9236f7cb0d037da9ec52435",
       "role": "candidate Lean logic dependency; build and axiom audit required"
+    },
+    "lean-sail": {
+      "url": "https://github.com/theorem-labs/lean-sail.git",
+      "revision": "4cb7fe0eade622c5ce434b4e9ef8f7d0c509ab6f",
+      "branch": "xv6-free-v1",
+      "upstream_base": "079463134b9c50450b8393e1566a09fc492a34d9",
+      "role": "opt-in free V1 events; full generated RISC-V model not yet integrated"
     }
   }
 }

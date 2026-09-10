@@ -65,6 +65,45 @@ are separate upgrades with explicit semantics and artifact comparisons.
    tests as universal hardware refinement. Measure proof build costs, and maintain
    reproducible symbol-relative regeneration for future kernel/model updates.
 
+## Additional gates from Fable's design review
+
+Before broad proof fanout, close generic device/power adequacy on a one-instruction
+`jal x0, 0` image with the real configured machine, then close a two-hart spinlock
+slice with nontrivial TSO interference. The first checks global initialization;
+the second checks resource transfer and atomicity. Neither replaces the xv6 goal.
+
+Keep reducibility in the exported safety conclusion. Enumerate and justify every
+self-loop rule so a generic stutter cannot hide stuck hardware behavior. Prove a
+concrete nonempty execution witness; prove that platform/initial-register
+assumptions are satisfiable; and prove distinguishing filesystem lemmas accepting
+the initial image and rejecting an invalid image. Add explicit crash-preservation
+lemmas that retain the current durable disk instead of resetting it to fs.img.
+
+Compute the active upstream theorem dependency closure, separate from the lexical
+inventory. Reproduce the upstream assumption report in an isolated environment.
+Report both the proof's axiom dependencies and the definitions reachable from its
+statement. Generic adequacy alone is not a completed root: final audited roots
+must instantiate the concrete filesystem and observable-trace predicates.
+
+Measure kernel checking of image access and decoder facts before generating a
+large instruction catalog. The current hex ByteArray representation is an exact
+input importer, not a settled scalable proof representation. Packed numeric pages
+and a verified faster decoder are options if measurements require them. Generator
+outputs must remain reproducible, with the Sail compiler revision and backend
+options pinned alongside model sources.
+
+The Sail/Rocq comparison has a specific remaining issue: the paper's Choose arm
+resumes erased `ChooseNat`/`ChooseRange` values as arbitrary integers, whereas the
+Lean interface retains natural/finite result types. A reachable-choice validity
+proof or a compatible erased-choice treatment is required. Do not silently narrow
+paper behaviors. Also relate optional write payloads, cycle count values, and
+reservation hooks explicitly. Conformance replay provides evidence, not a proof
+of this correspondence.
+
+Intermediate boot or function linking theorems may expose explicit unproved
+contracts as hypotheses. They remain visibly conditional and cannot satisfy a
+closed milestone or be counted in completed whole-system coverage.
+
 ## Agent coordination
 
 Follow paper §7: bounded tasks with owned files, named theorem contracts, explicit

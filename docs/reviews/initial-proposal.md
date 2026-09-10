@@ -18,7 +18,6 @@ Open design assessment needed: best practical sound Lean Iris base; whether dire
 
 Please critically review and contribute a concrete initial plan. Identify mathematical/engineering blockers, missing proof obligations, bad sequencing, risk of vacuity, and the strongest first executable milestone. Review the full paper available as /tmp/xv6-lean-research/paper.txt. Artifact clone may become available at /tmp/xv6-lean-research/xv6iris; inspect if present, otherwise report which recommendations await audit. Do not claim source inspection you did not perform. Do not modify files or post externally. Return review with decisive recommendations, not generic project management.
 
-
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is
 posted from this account.*

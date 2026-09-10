@@ -1,6 +1,6 @@
 # Full Lean port: implementation plan
 
-Status: initial design under independent review. This project is incomplete.
+Status: both Fable 5.1 max design reviews approve with required changes. This project is incomplete.
 
 ## Target and baseline
 
@@ -86,9 +86,9 @@ statement. Generic adequacy alone is not a completed root: final audited roots
 must instantiate the concrete filesystem and observable-trace predicates.
 
 Measure kernel checking of image access and decoder facts before generating a
-large instruction catalog. The current hex ByteArray representation is an exact
-input importer, not a settled scalable proof representation. Packed numeric pages
-and a verified faster decoder are options if measurements require them. Generator
+large instruction catalog. Packed 4096-byte numeric pages are the measured proof-access representation;
+hex inputs remain available for extraction checks. The current facts establish
+bounded input-byte observations, not whole-image conversion or ELF loading. Generator
 outputs must remain reproducible, with the Sail compiler revision and backend
 options pinned alongside model sources.
 
@@ -117,8 +117,12 @@ build cost obstructs proof iteration.
 
 The initial proposal is in `reviews/initial-proposal.md`. Claude Code was invoked
 with model `claude-fable-5-1`, effort `max`, to read the full paper, contribute to
-and critique the design. Its completed review and follow-up disposition will be
-recorded under `reviews/`; an invocation alone is not recorded as approval.
+and critique the design. Both completed reviews and the coordinator disposition are recorded under
+`reviews/`; their required changes remain explicit gates.
+
+The language must be parametric in its boot image so the one-instruction gate and
+the final paper-image theorem use the same machine semantics. See [exact theorem targets](THEOREM_TARGETS.md) and
+[abstraction conventions](CONVENTIONS.md).
 
 ## Current decisions and outstanding gates
 
@@ -129,7 +133,8 @@ recorded under `reviews/`; an invocation alone is not recorded as approval.
   separate. Generator integration and full model generation remain unproven.
 - Preserve paper model configuration and module list exactly, including modules
   needed for arbitrary user code even when the kernel does not use them.
-- Raw image import is untrusted tooling. Lean decoding, ELF loading and filesystem
+- Raw image import is untrusted tooling. Packed image access is kernel checked;
+  whole-image correspondence, ELF loading and filesystem
   initialization must eventually be checked, with correspondence to raw bytes.
 - The upstream xv6iris snapshot has no repository license file. Preserve source
   references and notices; do not invent an upstream license or claim ownership of

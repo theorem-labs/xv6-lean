@@ -7,7 +7,7 @@ disk images.
 
 **The full port is not complete.** Current work includes native Iris integration,
 production TSO memory definitions and foundational proofs, exact paper image
-imports, and an event-preserving Lean Sail interface. There is no Lean theorem yet
+imports, kernel-checked ELF structure facts, and an event-preserving Lean Sail interface. There is no Lean theorem yet
 proving xv6 safety or filesystem crash consistency.
 
 The baseline is the authors' [`arxiv-v1` snapshot](https://github.com/mit-pdos/xv6iris/tree/fa7f0a01c4b40489fac8ad303f079c2dfc7a1476).
@@ -22,6 +22,7 @@ The repository pins Lean 4.32.2 and its Iris dependencies.
 ```sh
 python3 tools/lake.py build
 python3 tools/lake.py env lean Audit.lean
+python3 tools/lake.py env python3 tests/test_audit.py
 python3 tools/lake.py env lean tests/Images.lean
 python3 -m unittest discover -s tests -p 'test_*.py'
 ```
@@ -30,10 +31,12 @@ python3 -m unittest discover -s tests -p 'test_*.py'
 toolchain or dependency sources. Set `XV6_LEAN_THREADS` to change its default of 2.
 Ordinary `lake build` also works on hosts with sufficient thread capacity.
 
-The axiom audit accepts only `propext`, `Classical.choice`, and `Quot.sound` for
-current proved declarations and checks Iris's generic adequacy dependency.
-This checks proof assumptions; semantic correspondence, full theorem coverage,
-and non-vacuity remain explicit integration obligations.
+The audit accepts only `propext`, `Classical.choice`, and `Quot.sound` for
+logical dependencies and checks Iris's generic adequacy. It also inspects project
+statement and implementation dependencies for unreviewed computational hooks,
+with explicit pinned-library boundaries. Its closed-system root manifest is
+currently empty. Semantic correspondence, theorem coverage and non-vacuity
+remain separate integration obligations.
 
 To reproduce the paper's reference inventory and imported images:
 
@@ -51,6 +54,8 @@ filesystem initialization are required before the whole-system theorem closes.
 
 - [Plan](docs/PLAN.md): full scope, architecture and proof gates.
 - [Status](docs/STATUS.md): completed work and remaining obligations.
+- [Exact theorem targets](docs/THEOREM_TARGETS.md): source statements and completion contract.
+- [Conventions](docs/CONVENTIONS.md): explicit Iris slots and specification interfaces.
 - [Reviews](docs/reviews/): independent artifact, logic and design audits.
 - [Source inventory](docs/upstream/inventory.json): all reference Rocq files;
   an inventory entry is not a completed Lean proof.

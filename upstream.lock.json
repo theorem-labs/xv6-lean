@@ -22,7 +22,7 @@
     "iris-lean": {
       "url": "https://github.com/leanprover-community/iris-lean.git",
       "revision": "728a17140939e49af9236f7cb0d037da9ec52435",
-      "role": "candidate Lean logic dependency; build and axiom audit required"
+      "role": "native logic dependency; pinned build and generic adequacy axiom audit passed"
     },
     "lean-sail": {
       "url": "https://github.com/theorem-labs/lean-sail.git",

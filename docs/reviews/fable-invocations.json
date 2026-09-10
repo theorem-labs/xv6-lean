@@ -1,0 +1,21 @@
+{
+  "model": "claude-fable-5-1",
+  "effort": "max",
+  "interface": "Claude Code CLI",
+  "reviews": [
+    {
+      "round": "initial",
+      "session_id": "b4e82529-1b2f-4fc2-a970-b1c99e5cb7e5",
+      "permission_mode": "plan",
+      "is_error": false,
+      "artifact": "fable-initial.md"
+    },
+    {
+      "round": "revised",
+      "session_id": "a92f3e0b-ac6c-40b1-8a72-c39b9f753e38",
+      "permission_mode": "dontAsk",
+      "is_error": false,
+      "artifact": "fable-revised.md"
+    }
+  ]
+}

@@ -18,4 +18,8 @@ name = "Xv6"
 [[require]]
 name = "lean-sail"
 git = "https://github.com/theorem-labs/lean-sail.git"
-rev = "4cb7fe0eade622c5ce434b4e9ef8f7d0c509ab6f"
+rev = "28c729b5bb574ae7c32c13353403e57c575d85dd"
+
+[[require]]
+name = "RiscvModel"
+path = "models/riscv"

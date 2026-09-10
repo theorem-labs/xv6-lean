@@ -1,3 +1,8 @@
 import Xv6.Images
 import Xv6.Image.Facts
 import Xv6.Elf.Kernel
+import Xv6.Elf.ImageFacts
+import Xv6.Image.Coverage
+import Xv6.Elf.Representation
+import Xv6.Elf.ImageRepresentation
+import Xv6.Elf.ParserRepresentation

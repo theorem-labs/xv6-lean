@@ -46,7 +46,7 @@ structure Policy where
 The anchors identify this package and pinned Iris/Qq/Batteries/Lean installations;
 new dependencies (including Sail) do not receive a blanket exemption. -/
 def makePolicy (env : Environment) : CommandElabM Policy := do
-  let projectDirs ← #[`MachCSL, `Xv6].mapM fun m => liftIO (moduleBuildDir m)
+  let projectDirs ← #[`MachCSL, `Xv6, `LeanPaperStock].mapM fun m => liftIO (moduleBuildDir m)
   let reviewedDirs ← #[`Init, `Iris.ProgramLogic.Adequacy, `Qq,
       `Batteries.Data.List.Basic].mapM fun m => liftIO (moduleBuildDir m)
   let mut origins := {}

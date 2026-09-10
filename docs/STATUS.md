@@ -11,12 +11,13 @@ whole-system safety or filesystem crash consistency.
 | Reproducible repository/tooling | Implemented; initial GitHub CI passed | Build, imports, image decoding and source regeneration pass |
 | Native Iris build and integration | Complete initial integration | Generic adequacy axiom audit passed |
 | Production TSO memory port | Partial: core + 39 public lemmas | See MachCSL/Memory/STATUS.md for missing layers |
-| Sail free V1 event interface | Implemented and independently reviewed | Pinned theorem-labs/lean-sail xv6-free-v1; generation/correspondence pending |
-| Full generated Lean RISC-V model | Stock generation completed; free type/signature compilation passed | Full instruction compilation and correspondence pending |
-| Machine/device/power language | Not started | Requires semantics contracts |
+| Sail free V1 event interface | Implemented and independently reviewed | Absent-write payload behavior corrected from pinned Rocq source |
+| Generic event execution and result transport | Proved initial composition/inversion laws | Actual machine handlers, blocked steps and restart rules pending |
+| Full generated Lean RISC-V model | Compiled; six execution/reset entry cones audited; real JAL execution proved | Two explicit reservation predicates; full semantic correspondence pending |
+| Machine/device/power language | Device ports in progress; typed register update laws proved | UART, PLIC and Virtio state/MMIO contracts assigned |
 | MachCSL adequacy and first closed slice | Not started | Requires language and ownership |
 | Kernel function proof port | Not started | Requires stable abstractions |
-| Concrete input images and ELF parsing | Exact import, bounded byte proofs and ELF structural facts | Packed/list correspondence, loaded maps and FS initialization pending |
+| Concrete input images and ELF parsing | Exact import, coverage, parser and loaded-map correspondence proved | Raw-encoding correspondence, generated instruction/data maps and FS initialization pending |
 | Whole-system theorem closure | Not started | Requires all dependencies |
 
 `docs/upstream/inventory.json` is an exhaustive lexical index of source files and
@@ -39,6 +40,8 @@ regression suite. Current audits select the project by physical module/package o
 statement and proof/implementation dependencies, and reject unused/private axioms
 and unreviewed computational hooks. Pinned Lean/Iris/Batteries/Qq implementation
 boundaries are explicit. The closed whole-system root manifest remains empty.
+
+The reviewed-plan/ELF/audit checkpoint `36d3860` [passed GitHub CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34537520336).
 
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is

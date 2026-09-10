@@ -1,0 +1,11 @@
+name = "RiscvModel"
+defaultTargets = ["LeanPaperStock"]
+moreLeanArgs = ["--tstack=400000"]
+
+[[lean_lib]]
+name = "LeanPaperStock"
+
+[[require]]
+name = "lean-sail"
+git = "https://github.com/theorem-labs/lean-sail.git"
+rev = "28c729b5bb574ae7c32c13353403e57c575d85dd"

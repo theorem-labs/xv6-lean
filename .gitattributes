@@ -1,0 +1,2 @@
+# Preserve the pinned generator's exact output bytes and provenance digests.
+models/riscv/LeanPaperStock/*.lean whitespace=-blank-at-eof

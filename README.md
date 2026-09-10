@@ -7,7 +7,9 @@ disk images.
 
 **The full port is not complete.** Current work includes native Iris integration,
 production TSO memory definitions and foundational proofs, exact paper image
-imports, kernel-checked ELF structure facts, and an event-preserving Lean Sail interface. There is no Lean theorem yet
+imports, packed/list ELF loading correspondence, and the full generated RISC-V
+model compiled against an event-preserving Lean Sail interface. A concrete JAL
+execution is kernel checked. There is no Lean theorem yet
 proving xv6 safety or filesystem crash consistency.
 
 The baseline is the authors' [`arxiv-v1` snapshot](https://github.com/mit-pdos/xv6iris/tree/fa7f0a01c4b40489fac8ad303f079c2dfc7a1476).
@@ -24,6 +26,9 @@ python3 tools/lake.py build
 python3 tools/lake.py env lean Audit.lean
 python3 tools/lake.py env python3 tests/test_audit.py
 python3 tools/lake.py env lean tests/Images.lean
+python3 tools/lake.py env lean models/riscv/Tests/ModelAudit.lean
+python3 tools/lake.py env lean models/riscv/Tests/RootJal.lean
+python3 tools/check_model.py
 python3 -m unittest discover -s tests -p 'test_*.py'
 ```
 
@@ -57,6 +62,8 @@ filesystem initialization are required before the whole-system theorem closes.
 - [Exact theorem targets](docs/THEOREM_TARGETS.md): source statements and completion contract.
 - [Conventions](docs/CONVENTIONS.md): explicit Iris slots and specification interfaces.
 - [Reviews](docs/reviews/): independent artifact, logic and design audits.
+- [RISC-V model](models/riscv/): generated sources, entry-point audits and a concrete execution proof.
+- [Sail generation](docs/Sail-generation.md) and [correspondence obligations](docs/Sail-correspondence.md).
 - [Source inventory](docs/upstream/inventory.json): all reference Rocq files;
   an inventory entry is not a completed Lean proof.
 - `MachCSL/`: logic and machine-model foundations.

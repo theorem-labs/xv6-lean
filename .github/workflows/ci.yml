@@ -20,12 +20,18 @@ jobs:
       - name: Build all project modules
         run: |
           python3 tools/check_imports.py
+          python3 tools/check_model.py
           python3 tools/lake.py build
           python3 tools/lake.py build +SailTest.ConcurrencyInterfaceV1Free
       - name: Audit proof assumptions
         run: |
           python3 tools/lake.py env lean Audit.lean
           python3 tools/lake.py env python3 tests/test_audit.py
+      - name: Audit generated model and check instruction execution
+        run: |
+          python3 tools/lake.py env lean models/riscv/Tests/ModelAudit.lean
+          python3 tools/lake.py env lean models/riscv/Tests/NormalizationProofs.lean
+          python3 tools/lake.py env lean models/riscv/Tests/RootJal.lean
       - name: Check image decoding and importer rejection paths
         run: |
           python3 tools/lake.py env lean tests/Images.lean

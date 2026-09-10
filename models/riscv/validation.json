@@ -1,0 +1,33 @@
+{
+  "runtime_commit": "28c729b5bb574ae7c32c13353403e57c575d85dd",
+  "build_command": "LEAN_NUM_THREADS=2 lake build",
+  "build_exit_code": 0,
+  "build_log_tail": [
+    "\u2714 [92/99] Built LeanPaperStock.Fetch (1.1s)",
+    "\u2714 [93/99] Built LeanPaperStock.ZicsrInsts (52s)",
+    "\u2714 [94/99] Built LeanPaperStock.InstsEnd (28s)",
+    "\u2714 [95/99] Built LeanPaperStock.DecodeExt (824ms)",
+    "\u2714 [96/99] Built LeanPaperStock.Step (1.8s)",
+    "\u2714 [97/99] Built LeanPaperStock.Model (791ms)",
+    "\u2714 [98/99] Built LeanPaperStock (871ms)",
+    "Build completed successfully (99 jobs)."
+  ],
+  "checks": {
+    "ModelAudit": {
+      "command": "LEAN_NUM_THREADS=2 lake env lean Tests/ModelAudit.lean",
+      "exit_code": 0,
+      "output": "LeanPaperStock.Functions.execute [Platform] (merge_var : instruction) : SailM ExecutionResult\nLeanPaperStock.Functions.try_step [Platform] (step_no : Nat) (exit_wait : Bool) : SailM Bool\nLeanPaperStock.Functions.tick_clock : Unit \u2192 SailM Unit\nLeanPaperStock.Functions.sail_model_init (x_0 : Unit) : SailM Unit\nLeanPaperStock.Functions.init_model (config_filename : String) : SailM Unit\nLeanPaperStock.Functions.init_boot_requirements : Unit \u2192 SailM Unit\nLeanPaperStock.Functions.execute axioms: [propext, Classical.choice, Quot.sound]\nLeanPaperStock.Functions.try_step axioms: [propext, Classical.choice, Quot.sound]\nLeanPaperStock.Functions.tick_clock axioms: [propext, Classical.choice, Quot.sound]\nLeanPaperStock.Functions.sail_model_init axioms: [propext, Classical.choice, Quot.sound]\nLeanPaperStock.Functions.init_model axioms: [propext, Classical.choice, Quot.sound]\nLeanPaperStock.Functions.init_boot_requirements axioms: [propext]\nPASS combined transitive types and bodies: 8401; model/runtime inspected: 3077; no unbound hooks, choice primitive, or FakeReal import\n"
+    },
+    "RootJal": {
+      "command": "LEAN_NUM_THREADS=2 lake env lean Tests/RootJal.lean",
+      "exit_code": 0,
+      "output": "'RootJal.execute_jal_trace' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RootJal.execute_jal_nextPC' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "NormalizationProofs": {
+      "command": "LEAN_NUM_THREADS=2 lake env lean Tests/NormalizationProofs.lean",
+      "exit_code": 0,
+      "output": "'normalizePureArgument' depends on axioms: [propext]\n"
+    }
+  },
+  "scope": "Generated model import closure and actual JAL fixture, not machine adequacy or semantic correspondence"
+}

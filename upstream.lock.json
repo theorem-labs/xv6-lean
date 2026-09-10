@@ -26,10 +26,25 @@
     },
     "lean-sail": {
       "url": "https://github.com/theorem-labs/lean-sail.git",
-      "revision": "4cb7fe0eade622c5ce434b4e9ef8f7d0c509ab6f",
+      "revision": "28c729b5bb574ae7c32c13353403e57c575d85dd",
       "branch": "xv6-free-v1",
       "upstream_base": "079463134b9c50450b8393e1566a09fc492a34d9",
-      "role": "opt-in free V1 events; full generated RISC-V model not yet integrated"
+      "role": "opt-in free V1 events; full generated RISC-V model integrated and entry points audited"
+    },
+    "coq-sail": {
+      "url": "https://github.com/rems-project/coq-sail.git",
+      "revision": "927111b2f61fe6208a7c24539167a7bec5d9d21d",
+      "tag": "0.20.1",
+      "role": "reference outcome/builtin definitions for source correspondence"
     }
+  },
+  "sail_compiler": {
+    "version": "0.20.2",
+    "source_commit": "3b7af38d66466ecadad563158b07ce2f82fe05da",
+    "archive_url": "https://github.com/rems-project/sail/releases/download/0.20.2-binary/sail-Linux-x86_64.tar.gz",
+    "archive_sha256": "26b59bcab2d66e9f220d317dfe45f8b09170ed70e59a824553d6f525134d1ff6",
+    "provenance": "docs/upstream/sail-generation.json",
+    "signature_adapter_commit": "62afcce223acf61d5be9f8aa219188455d21860a",
+    "full_adapter_commit": "68fd8c8fd5fe8e31e3b11c54a0723b12fb788817"
   }
 }

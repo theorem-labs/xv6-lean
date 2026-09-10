@@ -88,7 +88,8 @@ must instantiate the concrete filesystem and observable-trace predicates.
 Measure kernel checking of image access and decoder facts before generating a
 large instruction catalog. Packed 4096-byte numeric pages are the measured proof-access representation;
 hex inputs remain available for extraction checks. The current facts establish
-bounded input-byte observations, not whole-image conversion or ELF loading. Generator
+bounded input-byte observations and packed/list ELF parsing/loading correspondence;
+raw-encoding correspondence and filesystem initialization remain open. Generator
 outputs must remain reproducible, with the Sail compiler revision and backend
 options pinned alongside model sources.
 
@@ -130,7 +131,8 @@ the final paper-image theorem use the same machine semantics. See [exact theorem
   importer goes in the opposite direction and is not a solution to this port.
 - Align on the Iris dependency's Lean 4.32.2 after its build audit.
 - Fork lean-sail for opt-in V1 free events; keep existing sequential semantics
-  separate. Generator integration and full model generation remain unproven.
+  separate. Full generation and compilation are complete, with explicit platform
+  parameters and audited entry points; source semantic correspondence remains open.
 - Preserve paper model configuration and module list exactly, including modules
   needed for arbitrary user code even when the kernel does not use them.
 - Raw image import is untrusted tooling. Packed image access is kernel checked;

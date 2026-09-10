@@ -1,0 +1,16 @@
+{"version": "1.2.0",
+ "packagesDir": ".lake/packages",
+ "packages":
+ [{"url": "https://github.com/theorem-labs/lean-sail.git",
+   "type": "git",
+   "subDir": null,
+   "scope": "",
+   "rev": "28c729b5bb574ae7c32c13353403e57c575d85dd",
+   "name": "«lean-sail»",
+   "manifestFile": "lake-manifest.json",
+   "inputRev": "28c729b5bb574ae7c32c13353403e57c575d85dd",
+   "inherited": false,
+   "configFile": "lakefile.toml"}],
+ "name": "RiscvModel",
+ "lakeDir": ".lake",
+ "fixedToolchain": false}

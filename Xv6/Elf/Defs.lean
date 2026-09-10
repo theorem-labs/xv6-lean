@@ -52,36 +52,45 @@ structure SectionHeader where
   size : Int
   deriving DecidableEq, Repr
 
-def parseHeader (f : Image.Packed) : Option Header := do
-  let entry ← read f 0x18 8
-  let phoff ← read f 0x20 8
-  let shoff ← read f 0x28 8
-  let phentsize ← read f 0x36 2
-  let phnum ← read f 0x38 2
-  let shentsize ← read f 0x3a 2
-  let shnum ← read f 0x3c 2
-  let shstrndx ← read f 0x3e 2
+def parseHeaderWith (readAt : Int → Nat → Option Int) : Option Header := do
+  let entry ← readAt 0x18 8
+  let phoff ← readAt 0x20 8
+  let shoff ← readAt 0x28 8
+  let phentsize ← readAt 0x36 2
+  let phnum ← readAt 0x38 2
+  let shentsize ← readAt 0x3a 2
+  let shnum ← readAt 0x3c 2
+  let shstrndx ← readAt 0x3e 2
   pure ⟨entry, phoff, phentsize, phnum, shoff, shentsize, shnum, shstrndx⟩
 
-def parseProgramHeader (f : Image.Packed) (o : Int) : Option ProgramHeader := do
-  let type ← read f o 4
-  let flags ← read f (o + 4) 4
-  let offset ← read f (o + 8) 8
-  let vaddr ← read f (o + 16) 8
-  let paddr ← read f (o + 24) 8
-  let filesz ← read f (o + 32) 8
-  let memsz ← read f (o + 40) 8
-  let align ← read f (o + 48) 8
+def parseHeader (f : Image.Packed) : Option Header :=
+  parseHeaderWith (read f)
+
+def parseProgramHeaderWith (readAt : Int → Nat → Option Int) (o : Int) : Option ProgramHeader := do
+  let type ← readAt o 4
+  let flags ← readAt (o + 4) 4
+  let offset ← readAt (o + 8) 8
+  let vaddr ← readAt (o + 16) 8
+  let paddr ← readAt (o + 24) 8
+  let filesz ← readAt (o + 32) 8
+  let memsz ← readAt (o + 40) 8
+  let align ← readAt (o + 48) 8
   pure ⟨type, flags, offset, vaddr, paddr, filesz, memsz, align⟩
 
-def parseSectionHeader (f : Image.Packed) (o : Int) : Option SectionHeader := do
-  let name ← read f o 4
-  let type ← read f (o + 4) 4
-  let flags ← read f (o + 8) 8
-  let addr ← read f (o + 16) 8
-  let offset ← read f (o + 24) 8
-  let size ← read f (o + 32) 8
+def parseProgramHeader (f : Image.Packed) (o : Int) : Option ProgramHeader :=
+  parseProgramHeaderWith (read f) o
+
+def parseSectionHeaderWith (readAt : Int → Nat → Option Int) (o : Int) : Option SectionHeader := do
+  let name ← readAt o 4
+  let type ← readAt (o + 4) 4
+  let flags ← readAt (o + 8) 8
+  let addr ← readAt (o + 16) 8
+  let offset ← readAt (o + 24) 8
+  let size ← readAt (o + 32) 8
   pure ⟨name, type, flags, addr, offset, size⟩
+
+def parseSectionHeader (f : Image.Packed) (o : Int) : Option SectionHeader :=
+  parseSectionHeaderWith (read f) o
 
 def table {α : Type} (parse : Int → Option α) (offset step : Int) :
     Nat → Option (List α)

@@ -13,7 +13,7 @@ of the architecture, not a claim that the port or its remaining gates are done.
 | Non-vacuity and durable crashes | Required: reducibility, execution witnesses, satisfiable initialization, discriminating filesystem predicates, justified self-loops, preservation of durable disk. Conditional boot links do not close this gate. |
 | Image/decoder measurements | Packed numeric pages now support ordinary kernel-checked input-byte facts. The benchmark and limitations are recorded separately. Whole-image equivalence, ELF loading, instruction decoding and initialization remain open. |
 | Audit scope | Module-origin coverage and an unused-axiom rejection fixture are implemented. Stronger computational-definition and closed-root audits are implemented, with eleven compiled positive/negative fixtures. Standard axioms remain the only proof allowlist. |
-| Generator provenance and full model gate | Required. Record compiler source/release identity, binary digest, backend/template revision and exact arguments. Actual full stock generation has completed, and its type definitions/specialization compile against the free runtime. Full instruction compilation and semantic correspondence remain separate gates. |
+| Generator provenance and full model gate | Compiler source/release identity, binary digest, adapter revision and exact arguments are recorded. Full generation and instruction compilation pass against the free runtime. Six entry cones and a concrete JAL execution have independent checks; semantic correspondence remains open. |
 | Platform hooks | Pure reservation predicates must be explicit parameters. Unbound effectful hooks must have a distinct stuck event with an empty result; they cannot be silently implemented as harmless values. |
 | Outcome correspondence | Required: a transcription of relevant Rocq outcomes, payload/result equivalences and an arm-by-arm step-rule table. Tests do not replace this obligation. |
 | Functor slots and sealed module contracts | Required before function specifications; conventions are recorded with exact theorem targets. |
@@ -30,8 +30,10 @@ configured CPU/reset entry points, but it is not a checked certificate. We requi
 a complete generated dependency analysis and a justified reachability argument,
 or an explicit compatible interpretation. Any excluded request must have an
 explicit obligation; no silent narrowing of the paper's machine is acceptable.
-The optional Lean write payload also needs an explicit relationship to Rocq's
-mandatory payload before the `some`-only rule can be accepted.
+The optional Lean write payload also requires builtin-level treatment: pinned
+Rocq returns pure `Ok None` for an absent payload. The runtime now reproduces
+that behavior; source review and tests passed. Present payloads still need the
+request-field mapping described in `../Sail-correspondence.md`.
 
 The revised review saw a temporary 136-file compiler output before it was removed.
 That directory was incomplete after an interrupted run; its existence and lack

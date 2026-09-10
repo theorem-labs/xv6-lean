@@ -11,6 +11,10 @@ def main():
              for folder in ("MachCSL", "Xv6")
              for p in (ROOT / folder).rglob("*.lean")}
     files.update({name: ROOT / f"{name}.lean" for name in ("MachCSL", "Xv6")})
+    model = ROOT / "models/riscv"
+    files.update({".".join(p.relative_to(model).with_suffix("").parts): p
+                  for p in (model / "LeanPaperStock").rglob("*.lean")})
+    files["LeanPaperStock"] = model / "LeanPaperStock.lean"
     seen = set()
 
     def visit(name):

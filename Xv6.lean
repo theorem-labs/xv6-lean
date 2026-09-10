@@ -6,3 +6,4 @@ import Xv6.Image.Coverage
 import Xv6.Elf.Representation
 import Xv6.Elf.ImageRepresentation
 import Xv6.Elf.ParserRepresentation
+import Xv6.Machine.Boot

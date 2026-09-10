@@ -19,8 +19,10 @@ validity bound. `PhysicalAddress` therefore aliases `BitVec 64`.
 A `ByteMap width` is the extensional partial function
 `BitVec width → Option (BitVec 8)`. The domain is finite, so every such function
 represents a finite byte map. This removes stdpp map implementation details
-without changing the partial lookup space. The language integration still owes
-an explicit correspondence with its chosen concrete finite-map representation.
+without changing the partial lookup space. `FiniteMap.lean` now proves lookup, round-trip, support, overlay and write
+correspondence with Lean ExtTreeMap. Its exhaustive finite-domain encoder is a
+logical witness and must not be evaluated at 64 bits. Correspondence with the
+source stdpp representation remains open.
 
 The source `read_down` checks the visible timestamp zero and then falls through
 to `None` if no byte exists. Lean expresses that base case directly; since zero
@@ -30,10 +32,10 @@ followed by a right-fold of maximum; Lean uses `zipIdx` and the same fold.
 Their correspondence to Sail `pa_add`/`nth_byte` is not yet proven.
 
 `ReadsBytes` is a relation over one shared view; it must not be replaced by
-independent per-byte view choices. No load/store transition relation is invented
-here: nondeterministic view advancement, exclusive read/write atomicity,
-reservation protection, and the definition of draining fence kinds belong to
-the source's `RiscvLang.mnode_step` and remain to be ported.
+independent per-byte view choices. The source's nondeterministic view advancement, exclusive read/write atomicity,
+reservation protection and draining fences are now implemented in
+`Machine/Node.lean`; their complete memory/reservation invariants are proved in
+`Machine/NodeInvariants.lean` and lifted to arbitrary finite schedules.
 
 ## Source mapping
 
@@ -73,16 +75,56 @@ axiom, or custom axiom appeared. Commands used the explicit compiler selector
 `lean +leanprover/lean4:v4.32.2`, with `LEAN_PATH=.` and dependency `.olean`
 outputs to allow standalone checks before root Lake integration.
 
-Not yet ported: `write_bytes_union` and `flat_store`; the reverse existence
-`flat_latest`; the source's byte pins, word windows, release-history predicates,
-word-set pins, and `ts_ok` ghost interpretation; finite-map/Sail correspondence;
-`RiscvLang` stepping; Iris resource interpretation and adequacy.
+`Bytes.lean` now proves `writeBytes_overlay` (source `write_bytes_union`),
+`flat_writeBytes` (source `flat_store`), modular write footprints, snapshot
+coverage and preservation of disjoint submaps. `ReservationProofs.lean` supplies
+the snapshot/read correspondence required by successful exclusive accesses.
+The source right-fold write order is preserved even when addresses wrap.
 
-Next bounded task: implement the shared byte-write operation and prove the
-snapshot-overlay/flat-store correspondence at the 64-bit carrier, then connect
-this core to the exact Sail event memory interface before higher ghost-state
-proofs depend on it. Keep later changes to the upstream relaxed-R→R model out
-of this paper-baseline port.
+`flat_latest` now proves that every published byte has a latest timestamp.
+Remaining pure and logical layers include byte pins, word windows, release-history predicates, word-set pins and the complete
+`ts_ok` interpretation; source Sail/map correspondence; and Iris resource
+interpretation and adequacy. The machine transition transcription and its
+structural invariants are now implemented, independently of those logical layers.
+
+## Byte assembly and executable reads addendum
+
+`ReadBytes.lean` now ports all byte-assembly and read lemmas in
+`iris/RiscvModelBytes.v:45–207` at the same pinned paper commit. The adjacent
+`pa_add`, `nth_byte`, and `write_bytes` definitions already have counterparts in
+`Defs.lean` and `Bytes.lean`. This updates the earlier milestone description;
+`Machine/Node.lean` also now supplies the source-shaped memory transitions.
+
+| Rocq source | Lean declaration in `MachCSL.Memory` |
+|---|---|
+| `assemble_bytes` | `assembleBytes` |
+| `nth_byte_unsigned` | `nthByte_unsigned` |
+| `bv_eq_of_bytes` | `bv_eq_of_bytes` |
+| `assemble_bytes_bound` | `assembleBytes_bound` |
+| `assemble_bytes_byte` | `assembleBytes_byte` |
+| `nth_byte_assemble_len` | `nthByte_assemble_len` |
+| `read_bytes`, `read_bytes_spec` | `readBytes`, `readBytes_spec` |
+
+The assembler returns `Nat`, representing the source's nonnegative integer
+result; its lower bound is automatic. `readBytes memory address n` gathers the
+`n` bytes in increasing offset order and returns `Option (BitVec (8 * n))`.
+Every address uses modular `addressAdd`; no no-wrap hypothesis is needed, and
+any missing byte makes the read fail. The successful-read theorem identifies
+every returned byte with the corresponding memory lookup. The additional
+`readBytes_of_bytes` and `readBytes_eq_some_iff` prove the converse, including
+zero-width reads. These are general kernel-checked theorems, not tests of a
+particular memory image.
+
+Validation: `python3 tools/lake.py build MachCSL.Memory.ReadBytes` passes with
+Lean 4.32.2. All eight public theorems were audited with `#print axioms`:
+`nthByte_unsigned` needs none; the source-shaped lemmas use only `propext` and
+`Quot.sound`; the converse and combined equivalence additionally use standard
+`Classical.choice`. There are no custom or native decision axioms. Separate
+ordinary `decide` checks confirmed wrapped two-bit-address reads, missing-byte
+failure, and the empty read. The Nat/Int assembler and complete CPU/DMA reader correspondence are now proved
+in `Devices/MemoryBridge.lean`; correspondence with imported Rocq definitions
+remains separate. This module alone establishes neither a fetched instruction
+execution nor kernel safety.
 
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is

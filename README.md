@@ -6,11 +6,13 @@ proof development and closed whole-system theorems over the actual xv6 kernel an
 disk images.
 
 **The full port is not complete.** Current work includes native Iris integration,
-production TSO memory definitions and foundational proofs, exact paper image
-imports, packed/list ELF loading correspondence, and the full generated RISC-V
-model compiled against an event-preserving Lean Sail interface. A concrete JAL
-execution is kernel checked. There is no Lean theorem yet
-proving xv6 safety or filesystem crash consistency.
+TSO memory definitions and proofs, exact paper image imports, ELF loading
+correspondence, and the full generated RISC-V model compiled against an
+event-preserving Lean Sail interface. The machine includes concrete
+UART/PLIC/Virtio DMA and power cycles. Lean checks actual generated boot execution,
+fetched JAL execution, and memory, reservation and observable-trace invariants
+for arbitrary finite thread schedules. The pinned xv6 ELF is connected to boot.
+There is no Lean theorem yet proving xv6 safety or filesystem crash consistency.
 
 The baseline is the authors' [`arxiv-v1` snapshot](https://github.com/mit-pdos/xv6iris/tree/fa7f0a01c4b40489fac8ad303f079c2dfc7a1476).
 It is pinned in [upstream.lock.json](upstream.lock.json), alongside the matching

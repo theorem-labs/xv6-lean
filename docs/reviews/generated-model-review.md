@@ -142,3 +142,7 @@ whole-machine semantic gate remains open. In particular, the two fixed
 reservation predicates do not instantiate the paper's concurrent reservation
 state, and no result of this review substitutes for request/choice correspondence,
 ELF-linked instruction execution, the `mnode_step` relation, or system adequacy.
+
+*Authorship note: this was researched and written by an AI coding agent
+(OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is
+posted from this account.*

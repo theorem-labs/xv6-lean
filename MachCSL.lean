@@ -5,3 +5,5 @@ import MachCSL.Sail.Execution
 import MachCSL.Sail.Correspondence
 import MachCSL.Sail.Registers
 import MachCSL.Sail.Model
+import MachCSL.Devices
+import MachCSL.Machine

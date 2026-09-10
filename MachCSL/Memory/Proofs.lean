@@ -258,6 +258,26 @@ theorem latest_flat (img : ByteMap width) (log : WriteLog width)
   exact read_of_latest img log 0 log.length a t v hl
     (visible_below 0 log.length log t (logByte_some_le img log t a v hl.1))
 
+/-- Source `flat_latest`: every published byte has a latest timestamp witness. -/
+theorem flat_latest (img : ByteMap width) (log : WriteLog width) (a v)
+    (present : flat img log a = some v) : ∃ t, Latest img log a t v := by
+  induction log using reverseInduction with
+  | nil =>
+    refine ⟨0, present, ?_⟩
+    intro t positive
+    exact logByte_beyond img [] t a positive
+  | snoc log message ih =>
+    rw [flat_append] at present
+    cases hm : message.bytes a with
+    | none =>
+      have old : flat img log a = some v := by simpa [overlay, hm] using present
+      obtain ⟨t, latest⟩ := ih old
+      exact ⟨t, latest_append_frame img log message a t v hm latest⟩
+    | some byte =>
+      have eq : byte = v := by simpa [overlay, hm] using present
+      subst byte
+      exact ⟨log.length + 1, latest_append_new img log message a v hm⟩
+
 theorem read_above_top_flat (img : ByteMap width) (log : WriteLog width)
     (h view a) (hv : log.length ≤ view) : read img log h view a = flat img log a := by
   rw [← read_top_flat img log h a]

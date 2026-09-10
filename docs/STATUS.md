@@ -10,14 +10,15 @@ whole-system safety or filesystem crash consistency.
 | Independent design reviews | Both complete: approve with required changes | Claude Code, Fable 5.1, max effort; see reviews/fable-disposition.md |
 | Reproducible repository/tooling | Implemented; initial GitHub CI passed | Build, imports, image decoding and source regeneration pass |
 | Native Iris build and integration | Complete initial integration | Generic adequacy axiom audit passed |
-| Production TSO memory port | Partial: core + 39 public lemmas | See MachCSL/Memory/STATUS.md for missing layers |
+| Production TSO memory port | Core, byte read/write and finite-map/reservation bridges proved | See MachCSL/Memory/STATUS.md for missing layers |
 | Sail free V1 event interface | Implemented and independently reviewed | Absent-write payload behavior corrected from pinned Rocq source |
-| Generic event execution and result transport | Proved initial composition/inversion laws | Actual machine handlers, blocked steps and restart rules pending |
-| Full generated Lean RISC-V model | Compiled; six execution/reset entry cones audited; real JAL execution proved | Two explicit reservation predicates; full semantic correspondence pending |
-| Machine/device/power language | Device ports in progress; typed register update laws proved | UART, PLIC and Virtio state/MMIO contracts assigned |
-| MachCSL adequacy and first closed slice | Not started | Requires language and ownership |
+| Generic event execution and result transport | Proved initial composition/inversion laws | Actual handlers, blocked steps and restart rules implemented; correspondence pending |
+| Full generated Lean RISC-V model | Compiled; six execution/reset entry cones audited; real fetched JAL execution proved | Two explicit reservation predicates; full semantic correspondence pending |
+| Machine/device/power language | Concrete language implemented, including Virtio DMA and power | Boot execution and arbitrary-schedule memory/reservation/trace invariants proved; ownership in progress |
+| TSO ownership | First native Iris byte/timestamp ledger proved and reviewed | Explicit partial registry; full log/view/dirty/meta resources and state interpretation pending |
+| MachCSL adequacy and first closed slice | Actual power-on and fetched-instruction schedule proved | Full ownership interpretation, lifting and adequacy pending |
 | Kernel function proof port | Not started | Requires stable abstractions |
-| Concrete input images and ELF parsing | Exact import, coverage, parser and loaded-map correspondence proved | Raw-encoding correspondence, generated instruction/data maps and FS initialization pending |
+| Concrete input images and ELF parsing | Exact import, coverage, parser and loaded-map correspondence proved | Actual xv6 ELF boot connected; raw-encoding correspondence, dumped maps and FS initialization pending |
 | Whole-system theorem closure | Not started | Requires all dependencies |
 
 `docs/upstream/inventory.json` is an exhaustive lexical index of source files and
@@ -42,6 +43,12 @@ and unreviewed computational hooks. Pinned Lean/Iris/Batteries/Qq implementation
 boundaries are explicit. The closed whole-system root manifest remains empty.
 
 The reviewed-plan/ELF/audit checkpoint `36d3860` [passed GitHub CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34537520336).
+
+The generated-model/ELF/execution checkpoint `3748ed5` [passed GitHub CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34540305097).
+
+Current machine integration is described in `MachCSL/Machine/STATUS.md`; device
+source mappings and independent reviews are linked from their component status
+files. These are structural and component proofs, not closed whole-system roots.
 
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is

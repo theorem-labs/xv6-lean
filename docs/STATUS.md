@@ -692,6 +692,30 @@ The explicit same-hart boot-PMA specialization remains. Source entry
 inhabitation, boot reachability, JAL caller closure and all six whole-system
 roots remain open.
 
+Native source JAL callers and disabled per-CPU ownership (2026-09-11):
+general JAL x1 now executes actual shared-Sv39 fetch, owned decoding, body,
+retirement, clocks and restart. Code alignment and an even target derive
+immediate encodability; signed offsets and halfword/page-crossing PCs are
+covered. The source KPT branch preserves either original tier and arbitrary
+stack depth. The full-tier JAL-plus-mycpu caller restores the exact source
+capability at PC+4 and its saved-register/entry-TP result. Both actual
+push_off JAL sites now obtain their instruction resources from kernel text.
+
+CpuOwn supplies the exact disabled per-CPU virtual/context fields, held-lock
+authority, SIE count eighth and CSR bundle at existing era names. Its native
+boot introduction consumes all real premise resources; token reindexing does
+not mutate physical cells. All six families are independently reviewed with
+strict full physical/type/opaque/constructor audits and zero new exclusions.
+The generic decoder clean build takes 1,062 seconds; its proof artifact is
+large, with no added trust primitive. Bare JAL, complete push_off, boot-PMA
+export, source entry inhabitation and all six whole-system roots remain open.
+
+Validation for the JAL/per-CPU batch: full 1,842-job build; 1,609 reachable
+project modules; 42,139 audited logical declarations including 20,426
+theorems; 60 existing runtime companions, zero closed whole-system roots,
+all 87 generated model pins verified, and all twelve negative/positive
+audit fixtures passed.
+
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is
 posted from this account.*

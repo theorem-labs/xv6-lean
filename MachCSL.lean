@@ -7,3 +7,4 @@ import MachCSL.Sail.Registers
 import MachCSL.Sail.Model
 import MachCSL.Devices
 import MachCSL.Machine
+import MachCSL.Logic.ContextPinMintLink

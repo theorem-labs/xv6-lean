@@ -56,3 +56,9 @@ import Xv6.Kernel.KptHitLink
 import Xv6.Kernel.KptMissLink
 import Xv6.Kernel.KptHardwareLink
 import Xv6.Kernel.KptTranslateLink
+import Xv6.Kernel.Sv39AddressLink
+import Xv6.Kernel.KptAddressLink
+import Xv6.Kernel.KptPublishLink
+import Xv6.Kernel.KernelDatumLink
+import Xv6.Kernel.KernelDatumWordLink
+import Xv6.Kernel.KernelStackLink

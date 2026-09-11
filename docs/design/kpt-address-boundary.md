@@ -1,0 +1,27 @@
+# Source-residue supervisor address translation
+
+The implementation boundary is the complete actual `translateAddr` call for the supported supervisor access family. It composes the proved/approved `Sv39Address` outer prefix and real error/success suffix with `KptTranslate`'s native lookup, hit, miss and A/D rules. The final public contract has no translation-body WP, successful lookup, mapped-path witness, per-address hardware configuration, or restoration callback as an input.
+
+The source comparison is `KptShare.v:320–482` (`tlb_res_pt_translateAddr_at`) and its `HartSKpt.v` per-event counterpart, at pin `fa7f0a01c4b40489fac8ad303f079c2dfc7a1476`. The source opens SATP, TLB, the PMP vectors, a coherent snapshot, the invariant and the publication credential, and rebuilds that residue after translation. Its whole-interpreter proof supplies a write-back payer; the native implementation discharges this through the existing shared event proofs instead of adding that payer as a caller oracle.
+
+`KptAddressDefs` and `KptAddressSpec` are the actual checkpoint. They compile together (454 jobs); no native implementation is claimed by the checkpoint alone. The specification contains six pure fields, three resource fields and one native translation field.
+
+The caller owns five fractional cells: mstatus, current privilege, PMA regions, HTIF base and MENVCFG. The existing source residue owns full SATP, full TLB, and both full PMP vectors. A five-share record derives the exact three-cell `Sv39Address` footprint and six-cell `KptTranslate` footprint, using full shares for these four residue fields. Their union has nine distinct registers. No fractional SATP/PMP resource is duplicated or strengthened.
+
+`Data` names only the four values opened from the source residue. `prepare rs data` is a proof-side register description assembled from those values and the five caller cells. It is not a hardware write or an assertion that the full actual register file equals the supplied `rs`. TOR is derived from the owned PMP vectors and the source PMP predicate. The ambient input refers only to the five caller cells: Supervisor privilege, SXL=2, actual boot PMA regions and disabled HTIF. Effective privilege remains the proved supported fetch-or-MPRV-zero condition. The source permits a more general PMA predicate; this slice explicitly specializes it to the already proved `pmaBoot` hardware configuration.
+
+`opened` exposes the source residue at a `Data` value, including its coherent snapshot, exact SATP facts, full four-cell resource, PMP facts, shared invariant and credential. The resource specification opens and closes the existing existential residue and proves the exact nine-cell partition. No extra register authority is required: the synthetic register description uses precisely the values owned by these cells.
+
+After opening the residue, the proof extracts its snapshot and publication bound/credential. `KptHardware.nativeSpec.mapped` consumes persistent native shared/snapshot/map claims under the invariant mask and derives root equality, the two raw pointers, canonical leaf class and all three physical walk/update configurations. Neither mapping truth nor alignment/range is inferred from a mapping fragment alone. The invariant is closed before native execution proceeds.
+
+The public continuation receives the derived `Path` facts; it does not supply them. This permits composition at arbitrary raw upper pointers while retaining stale A/D coherence. The canonical branch uses the exact outer register prefix, the native translation rule, and the actual success/error suffix. Physical success retains all 44 PPN bits and the 12 virtual page-offset bits. The disabled A/D case retains its genuine translated exception. The noncanonical branch executes the actual checked prefix and returns its access-specific page fault.
+
+`Outcome` distinguishes noncanonical completion from translated hit/miss/A-D completion. Its returned resources contain the same five caller cells and `opened` at `afterData`. That update changes only the TLB field: original SATP and both PMP vector values are retained definitionally and have an explicit preservation contract. `close_residue` turns the returned exposed form back into the complete source residue. No full equality on unrelated register fields is required. Reservations and actual A/D/walk receipts retain exactly the inner branch behavior, and the updated residue includes coherent TLB snapshot ownership.
+
+The continuation uses additive alternatives. Noncanonical completion requires no memory-event guard. Canonical hit branches retain zero/zero/one/two guards, while misses have three leading walk guards before the cached leaf/view selection and then those A/D guards. All result-selection and observed-word facts remain inside their guards. Registers still execute through the actual native fold; these counts describe exposed memory-event guards, not total operational step counts.
+
+The final native link must instantiate all outer-address, translation, hardware and residue component specifications. All errors are preserved; there is no source instruction/function claim, tier capability proof, concrete kernel-table allocation, or supervisor-state initialization in this slice. It adds no ghost slot or runtime name and does not change existing component signatures.
+
+*Authorship note: this was researched and written by an AI coding agent
+(OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is
+posted from this account.*

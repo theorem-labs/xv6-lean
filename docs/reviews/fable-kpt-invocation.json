@@ -1,0 +1,66 @@
+{
+  "session_id": "9b755390-8813-46c0-806f-130f997da955",
+  "command": [
+    "/home/jason/.local/bin/claude",
+    "-p",
+    "--session-id",
+    "9b755390-8813-46c0-806f-130f997da955",
+    "--model",
+    "claude-fable-5-1",
+    "--effort",
+    "max",
+    "--tools",
+    "Read,Glob,Grep",
+    "--allowedTools",
+    "Read,Glob,Grep",
+    "--permission-mode",
+    "dontAsk",
+    "--strict-mcp-config",
+    "--add-dir",
+    "/tmp/xv6-lean-research/fable-kpt-round9",
+    "--output-format",
+    "json"
+  ],
+  "prompt": "/tmp/xv6-lean-research/fable-kpt-review-prompt.txt",
+  "prompt_sha256": "3a2ed400ef133371daaf64f768d6aa14b6d539eb9be1db91f221a24f9cc1a60b",
+  "prompt_bytes": 648036,
+  "primary_manifest": "/tmp/xv6-lean-research/fable-kpt-round9/fable-kpt-primary-manifest.json",
+  "schema": "fable-kpt-invocation-v1",
+  "authorship_note": "Authorship note: this was researched and written by an AI coding agent (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is posted from this account.",
+  "completed": true,
+  "result": {
+    "path": "/tmp/xv6-lean-research/fable-kpt-review.json",
+    "sha256": "16f8481517b6584066bde8a215b5229c359d5bbcaddb1c7abbebdfbfb9f3bebf",
+    "bytes": 10578
+  },
+  "transcript": {
+    "path": "/data/jason/.claude/projects/-data-jason-xv6-lean/9b755390-8813-46c0-806f-130f997da955.jsonl",
+    "sha256": "b7504b83b52f88337ff276c6e9d74263154008b08e978b11e8de1705dff21ccd",
+    "bytes": 4349399
+  },
+  "is_error": false,
+  "subtype": "success",
+  "duration_ms": 949257,
+  "num_turns": 215,
+  "model_usage_keys": [
+    "claude-fable-5-1"
+  ],
+  "subagents_spawned": 0,
+  "permission_denials": [],
+  "observed_tool_calls": {
+    "tool_calls": 214,
+    "tools": {
+      "Glob": 14,
+      "Read": 174,
+      "Grep": 26
+    },
+    "read_calls": 174,
+    "successful_read_calls": 172,
+    "failed_read_calls": 2,
+    "unique_read_paths": 171,
+    "unique_successful_read_paths": 169,
+    "unique_complete_file_reads": 163
+  },
+  "artifact": "fable-kpt-review.md",
+  "input_manifest": "fable-kpt-inputs.json"
+}

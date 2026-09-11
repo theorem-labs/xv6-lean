@@ -184,8 +184,12 @@ the final paper-image theorem use the same machine semantics. See [exact theorem
   publication, ordinary/exclusive shared read events and pure TLB coherence
   are now proved and peer reviewed. Conditional shared A/D writes, full shared
   walks, complete TLB-hit/miss translation and actual lookup dispatch are now
-  proved with native links. Residue-derived outer translation and physical
-  publication from private page-table ownership are next. The full Bare mycpu function has
+  proved with native links. Residue-derived full outer translation and physical
+  publication from already-owned private page tables are now native and
+  independently reviewed. Fable round nine approved their conditional rules
+  with no soundness blocker. Virtual RW words and scratch stacks are also
+  proved. Translated data/fetch execution, regime-parametric cycles and
+  boot establishment remain next. The full Bare mycpu function has
   passed peer and Fable review; its concrete operational witness is proved
   and peer/Fable reviewed; the narrow Bare operational gate is closed.
   Boot reachability and native Iris entry-resource allocation remain open.

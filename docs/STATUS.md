@@ -501,7 +501,8 @@ snapshot/coherence evidence. Shared mapping ownership now derives the three
 address-specific hardware configurations from owned geometry and the explicit
 boot PMA/TOR/disabled-HTIF controls. All eight new prefixes passed independent
 source and full dependency reviews. Outer virtual-address translation and
-private-to-shared physical publication are in progress; translated mycpu and
+private-to-shared physical publication were the next integration target;
+their completed conditional rules are recorded below. Translated mycpu and
 all six whole-xv6 roots remain open.
 
 The reviewed shared-translation checkpoint passes 1,602 build jobs and the
@@ -510,6 +511,41 @@ full audit of 38,022 logical declarations, including 18,055 theorems and
 passed. The frozen archive has 1,376 matching Lean files, all 1,369 project
 modules reachable from the audit umbrellas, and all 87 model pins verified.
 The whole-system root manifest remains empty.
+
+The complete native supervisor `translateAddr` now opens the exact per-hart
+residue, derives the three page-walk hardware configurations from shared
+physical ownership, and dispatches actual TLB hit/miss/A-D behavior. It owns
+nine distinct controls and returns the same residue with the actual resulting
+TLB. Noncanonical addresses follow the generated five-read fault path;
+canonical addresses follow the seven-read prefix and all-result suffix.
+Private-to-shared publication now physically transforms a supplied full
+user-tier tree, preserving its actual bytes, timestamp authority, log and
+view anchors, then allocates the shared invariant and both one-shot tokens.
+These are conditional resource rules; no concrete boot tree is constructed.
+
+Fable 5.1 max round nine found no soundness blocker and approved that narrow
+conditional scope. Its recorded deviations include boot PMA, the supported
+access/permission family and the fetch-or-MPRV-zero effective-privilege
+premise. It does not certify boot establishment, translated mycpu, cross-prover
+correspondence or any whole-system root. Supplied versus actually read review
+inputs and supplementary evidence are recorded separately.
+
+Native virtual RW bytes, contiguous eight-byte words and scratch-stack
+ownership now retain the original mapping, tier and context resources.
+All seven new prefixes passed complete independent reviews. Actual translated
+loads/stores, pristine text windows and the timer capability are the next
+integration work; the six whole-xv6 roots remain open.
+
+[GitHub CI for commit 91e3c05 passed](https://github.com/theorem-labs/xv6-lean/actions/runs/34603186976).
+The newer ea1ef771 and 4dd9a39 runs were still running when this checkpoint
+was assembled; their local build/audit results are recorded above.
+
+The reviewed address/publication/resource integration passed 1,641 build
+jobs and the full audit of 38,660 logical declarations, including 18,400
+theorems and 60 reviewed compiler-only companions. All twelve compiled audit
+fixtures passed. The frozen staged archive has 1,415 matching Lean files,
+all 1,408 project modules reachable from the audit umbrellas, and all 87
+model pins verified. The whole-system root manifest remains empty.
 
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is

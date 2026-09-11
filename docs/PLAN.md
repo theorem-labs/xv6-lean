@@ -55,8 +55,9 @@ are separate upgrades with explicit semantics and artifact comparisons.
    implementations and proofs.
    Current native prerequisites include partial supervisor PMP/interrupt WPs,
    value-agnostic optional clocks, ordinary context-word read/write event WPs,
-   physical stack rules and exact mycpu decode/fetch bytes. Full translation,
-   retirement, virtual tier ownership and function composition remain open.
+   physical stack rules, actual supervisor retirement and exact mycpu decode/fetch
+   bytes. Bare translation and physical permission prefixes are proved; full
+   page-table translation, virtual tier ownership and function composition remain open.
 6. **Kernel subsystems.** Boot and allocator; page tables and arbitrary user-mode
    execution; process/scheduler/FD/pipe layers; UART/PLIC/virtio drivers and DMA;
    buffer and inode caches with reference escrow; journal and recovery with

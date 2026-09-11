@@ -30,3 +30,5 @@ import MachCSL.Machine.SpinlockWitnessReleasePoolProofs
 import MachCSL.Machine.SpinlockWitnessHolderProofs
 import MachCSL.Machine.SupervisorPmpPlan
 import MachCSL.Machine.SupervisorInterruptPlan
+import MachCSL.Machine.SupervisorPhysicalPlan
+import MachCSL.Machine.SupervisorBarePlan

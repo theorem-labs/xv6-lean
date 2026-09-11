@@ -31,6 +31,7 @@ python3 tools/lake.py build
 python3 tools/lake.py env lean Audit.lean
 python3 tools/lake.py env python3 tests/test_audit.py
 python3 tools/lake.py env lean tests/Images.lean
+python3 tools/lake.py env lean tests/KernelSymbols.lean
 python3 tools/lake.py env lean models/riscv/Tests/ModelAudit.lean
 python3 tools/lake.py env lean models/riscv/Tests/RootJal.lean
 python3 tools/check_model.py
@@ -54,6 +55,7 @@ To reproduce the paper's reference inventory and imported images:
 python3 tools/upstream.py xv6iris
 python3 tools/inventory.py .upstream/xv6iris --check
 python3 tools/images.py .upstream/xv6iris --check
+python3 tools/symbol_certificates.py .upstream/xv6iris --check
 ```
 
 These scripts reject the wrong reference commit and unexpected image hashes.

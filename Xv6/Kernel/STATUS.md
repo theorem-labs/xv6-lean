@@ -80,6 +80,12 @@ This module proves image correspondence, not kernel safety or whole-system
 adequacy. Raw-hex decoding versus packed-image correspondence is supplied by the
 separate `Xv6.Image` work; no new assumption for that equality is introduced here.
 
+The newer [symbol occurrence certificate](SymbolSTATUS.md) checks all 222
+imported original ELF names and values against their actual linked symbol/string
+table rows, including complete mycpu and cpus entries. The older numeric metadata
+proofs above do not perform that parsing themselves. Occurrence does not assert
+equality with nm's filtering or duplicate-name selection.
+
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is
 posted from this account.*

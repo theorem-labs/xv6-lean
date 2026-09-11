@@ -37,6 +37,7 @@ jobs:
       - name: Check image decoding and importer rejection paths
         run: |
           python3 tools/lake.py env lean tests/Images.lean
+          python3 tools/lake.py env lean tests/KernelSymbols.lean
           python3 -m unittest discover -s tests -p 'test_*.py'
       - name: Verify reference provenance and generated files
         run: |
@@ -44,6 +45,7 @@ jobs:
           python3 tools/inventory.py .upstream/xv6iris --check
           python3 tools/images.py .upstream/xv6iris --check
           python3 tools/kernel_maps.py .upstream/xv6iris --check --self-test
+          python3 tools/symbol_certificates.py .upstream/xv6iris --check
           python3 tools/inode_certificates.py .upstream/xv6iris --check --self-test
           python3 tools/bitmap_certificates.py .upstream/xv6iris --check --self-test
           python3 tools/directory_certificates.py .upstream/xv6iris --check --self-test

@@ -84,3 +84,7 @@ import MachCSL.Logic.TsoContextReadWPLink
 import MachCSL.Logic.TsoContextWriteWPLink
 import MachCSL.Logic.IcacheCouplingLink
 import MachCSL.Logic.IcacheRefLedgerLink
+import MachCSL.Logic.IcacheSlotCouplingLink
+import MachCSL.Logic.IcacheTypeGhostLink
+import MachCSL.Logic.LogTxLink
+import MachCSL.Logic.SupervisorRetirementLink

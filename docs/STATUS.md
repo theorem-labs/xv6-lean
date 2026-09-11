@@ -61,12 +61,12 @@ The native allocation checkpoint `e955086` [passed GitHub CI](https://github.com
 The native event/filesystem checkpoint `f8a1262` [passed GitHub CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34551920513).
 
 The complete inhabited spinlock gate and native kernel/filesystem prerequisite
-build passes 1,161 jobs. The complete audit checks 29,258 logical declarations,
-including 12,594 theorems, with only the three standard foundational axioms.
-Fifty-six compiler-generated total-recursion companions are excluded only as roots and
+build passes 1,191 jobs. The complete audit checks 30,020 logical declarations,
+including 13,056 theorems, with only the three standard foundational axioms.
+Fifty-seven compiler-generated total-recursion companions are excluded only as roots and
 remain forbidden in logical cones. The initial-allocation caller check retains
 exactly nine reviewed edges. All twelve compiled audit fixtures pass. The
-reviewed staged source contains 928 reachable project modules and passes all
+reviewed staged source contains 958 reachable project modules and passes all
 87 generated-model pin checks. The whole-system root manifest remains empty.
 
 All 21 pure initial snapshot clauses are proved against the actual disk bytes.
@@ -197,6 +197,28 @@ versions, exact statements and a portable parser are archived under
 [docs/upstream/rocq-replay](upstream/rocq-replay/). This is a source replay and
 scoped dependency baseline, not a complete declaration graph or Lean/Rocq
 semantic correspondence certificate.
+
+The native supervisor boundary now includes exact Bare translation, actual
+PMA/PMP and MMIO permission prefixes, and complete instruction-step factoring
+with native successful retirement, both clock choices and guarded restart.
+The source PC package retains seven full mutable registers, two discarded
+configuration cells and the original reservation token. Page-table translation
+and complete fetched function composition remain open.
+
+The inode prerequisites now include exact native slot count/reference/mirror
+coupling and the non-unital generation-type one-shot at registry slot 32.
+Journal transaction ownership at slot 33 preserves positive shares, arbitrary
+finite pin ledgers and the source's anonymous full-token mint/retire laws.
+Full claim/freeze shelter, log-state assembly and machine-code filesystem
+proofs remain open. Independent source and dependency reviews accompany each
+new prefix.
+
+All 222 imported kernel symbols now have kernel-checked witnesses in the actual
+ELF symbol table, preserving exact raw names, addresses and defined-section
+indices. The selected-row parser checks symbol/string table bounds and rejects
+compressed payloads; fifteen ordinary Lean fixtures cover malformed input and
+its deliberate selected-row scope. This supplies symbol occurrence and does
+not assert a global ELF validator or function correctness.
 
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is

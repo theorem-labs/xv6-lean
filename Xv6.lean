@@ -17,3 +17,4 @@ import Xv6.Kernel.MycpuDecodeImage
 import Xv6.Fs.SnapshotConfigBlockProofs
 import Xv6.Kernel.MycpuFetchBytesProofs
 import Xv6.Kernel.SymbolImageProofs
+import Xv6.Kernel.MycpuScalarLink

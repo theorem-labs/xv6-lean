@@ -61,12 +61,12 @@ The native allocation checkpoint `e955086` [passed GitHub CI](https://github.com
 The native event/filesystem checkpoint `f8a1262` [passed GitHub CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34551920513).
 
 The complete inhabited spinlock gate and native kernel/filesystem prerequisite
-build passes 1,191 jobs. The complete audit checks 30,020 logical declarations,
-including 13,056 theorems, with only the three standard foundational axioms.
+build passes 1,214 jobs. The complete audit checks 30,493 logical declarations,
+including 13,333 theorems, with only the three standard foundational axioms.
 Fifty-seven compiler-generated total-recursion companions are excluded only as roots and
 remain forbidden in logical cones. The initial-allocation caller check retains
 exactly nine reviewed edges. All twelve compiled audit fixtures pass. The
-reviewed staged source contains 958 reachable project modules and passes all
+reviewed staged source contains 981 reachable project modules and passes all
 87 generated-model pin checks. The whole-system root manifest remains empty.
 
 All 21 pure initial snapshot clauses are proved against the actual disk bytes.
@@ -184,7 +184,7 @@ The callback checkpoint `72836cb` [passed hosted CI](https://github.com/theorem-
 The closed spinlock-safety checkpoint `6555da6` [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34567416068).
 The readback checkpoint `c251f55` [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34568961728).
 The operational-exclusion checkpoint `fa3b8ad` [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34570645072).
-The inhabited gate `f252d3d` remains pending in hosted CI; local validation is
+The inhabited gate `f252d3d` [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34574274206); local validation is
 recorded separately.
 
 The original Rocq artifact has been replayed successfully in an isolated
@@ -219,6 +219,26 @@ indices. The selected-row parser checks symbol/string table bounds and rejects
 compressed payloads; fifteen ordinary Lean fixtures cover malformed input and
 its deliberate selected-row scope. This supplies symbol occurrence and does
 not assert a global ELF validator or function correctness.
+
+The actual supervisor checked-memory path now has native eight-byte Data/PTE
+read and ordinary Data-store WPs. Four independently fractional register cells
+pay the five actual register reads; real context-word ownership supplies the
+memory rule, with all permitted read views, blocked write retry, exact error
+continuations, unchanged ordinary-store views and reservation behavior.
+Cross-reviews passed both implementations. Canonical PTE A/D pins, fetch widths,
+outer instruction address checks and virtual translation remain open.
+
+Nine arithmetic bodies of the real mycpu instructions now have native
+partial-footprint WPs, including compressed ExecuteAs redirection. Their
+modular return expression and eight actual-hart specializations are proved;
+fetch, four memory bodies, final JR and fetched function composition remain open.
+The native inode claim/freeze shelter preserves full transaction/share indices
+through both phases and has checked empty-authority/boot exclusion laws.
+Journal epochs and append-set receipts now use existing mono-nat slot 3 and
+new slot 34, with genuine membership, same-name updates and isolated genesis
+allocation at epoch one. Complete inode epoch/slot custody and journal assembly
+remain subsequent dependencies. All new prefixes have independent full-source
+and dependency reviews; all six whole-xv6 roots remain open.
 
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is

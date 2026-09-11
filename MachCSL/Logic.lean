@@ -88,3 +88,7 @@ import MachCSL.Logic.IcacheSlotCouplingLink
 import MachCSL.Logic.IcacheTypeGhostLink
 import MachCSL.Logic.LogTxLink
 import MachCSL.Logic.SupervisorRetirementLink
+import MachCSL.Logic.SupervisorReadLink
+import MachCSL.Logic.SupervisorWriteLink
+import MachCSL.Logic.IcacheShelterLink
+import MachCSL.Logic.LogEpochLink

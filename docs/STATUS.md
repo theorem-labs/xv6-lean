@@ -76,6 +76,13 @@ a positive fetched-JAL schedule with no premises. The boot medium is preserved.
 This is the first small-program integration gate, not an xv6 or nontrivial TSO
 resource-transfer theorem. See the component status and independent reviews.
 
+The `7dceb3f` [hosted CI run](https://github.com/theorem-labs/xv6-lean/actions/runs/34554151319)
+was cancelled by the 60-minute job limit during the cold build (583 of 762 jobs).
+Its image-certificate modules took about two minutes each; no Lean failure was
+reported before cancellation, and the audit steps did not run. The workflow now
+allows 120 minutes for the cold image/model build and the complete audit suite.
+This run is not recorded as a pass. Local build/audit results remain separate.
+
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is
 posted from this account.*

@@ -19,3 +19,6 @@ import Xv6.Kernel.MycpuFetchBytesProofs
 import Xv6.Kernel.SymbolImageProofs
 import Xv6.Kernel.MycpuScalarLink
 import Xv6.Kernel.MycpuReturnLink
+import Xv6.Fs.IcacheRegionImageProofs
+import Xv6.Kernel.MycpuBootResourcesLink
+import Xv6.Kernel.MycpuFetchLink

@@ -99,3 +99,10 @@ import MachCSL.Logic.TsoContextBytesLink
 import MachCSL.Logic.TsoContextBytesReadWPLink
 import MachCSL.Logic.SupervisorFetchReadLink
 import MachCSL.Logic.SupervisorMemOuterLink
+import MachCSL.Logic.IcacheRegionSlotLink
+import MachCSL.Logic.IcacheRegionBootLink
+import MachCSL.Logic.SupervisorWriteEALink
+import MachCSL.Logic.SupervisorBareFetchLink
+import MachCSL.Logic.SupervisorBareReadLink
+import MachCSL.Logic.SupervisorBareWriteLink
+import MachCSL.Logic.SupervisorAddressLink

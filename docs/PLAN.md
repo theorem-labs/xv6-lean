@@ -57,8 +57,10 @@ are separate upgrades with explicit semantics and artifact comparisons.
    value-agnostic optional clocks, ordinary context-word read/write event WPs,
    concrete supervisor checked and outer eight-byte read/write WPs,
    generic byte-window ownership and checked physical fetch at widths two/four,
+   actual Bare virtual load/store access and mode-parametric pointer transformation,
    physical stack rules, actual supervisor retirement and exact mycpu decode/fetch
-   bytes plus nine native arithmetic-body rules and the actual final JR body.
+   bytes, actual boot text allocation/sharing and full indexed Bare fetch, plus
+   nine native arithmetic-body rules and the actual final JR body.
    Bare translation and physical permission prefixes are proved; full
    page-table translation, virtual tier ownership and function composition remain open.
 6. **Kernel subsystems.** Boot and allocator; page tables and arbitrary user-mode

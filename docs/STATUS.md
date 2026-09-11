@@ -61,12 +61,12 @@ The native allocation checkpoint `e955086` [passed GitHub CI](https://github.com
 The native event/filesystem checkpoint `f8a1262` [passed GitHub CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34551920513).
 
 The complete inhabited spinlock gate and native kernel/filesystem prerequisite
-build passes 1,249 jobs. The complete audit checks 31,130 logical declarations,
-including 13,705 theorems, with only the three standard foundational axioms.
+build passes 1,297 jobs. The complete audit checks 31,747 logical declarations,
+including 14,028 theorems, with only the three standard foundational axioms.
 Fifty-seven compiler-generated total-recursion companions are excluded only as roots and
 remain forbidden in logical cones. The initial-allocation caller check retains
 exactly nine reviewed edges. All twelve compiled audit fixtures pass. The
-reviewed staged source contains 1,016 reachable project modules and passes all
+reviewed staged source contains 1,064 reachable project modules and passes all
 87 generated-model pin checks. The whole-system root manifest remains empty.
 
 All 21 pure initial snapshot clauses are proved against the actual disk bytes.
@@ -249,17 +249,42 @@ The actual outer eight-byte read/write wrappers now pay their effective-privileg
 reads and preserve both register bundles and native context resources. The actual
 mycpu final JR body preserves fractional configuration cells, eagerly reads
 misa.C and clears return-address bit zero. These are native instruction/access
-rules; virtual fetch, store announcements, four memory bodies and whole-function
-composition remain open.
+rules; four memory bodies and whole-function composition remain open; actual Bare
+virtual access and full indexed fetch are now proved below.
 
 Inode custody now includes the exact guarded top fragment, directory-adjusted
 link multiplicity and root's extra link. Epoch receipts use the actual block
 index and same observation names. Escrow tokens preserve the full registry-name
 pair, transaction/share corpse index, exclusive redemption ticket and committed
-lower bound. New slots 35–37 preserve all previous capacities. Full inode slots,
-region boot assembly, pool escrow and journal state remain in progress.
+lower bound. New slots 35–37 preserve all previous capacities. Pool escrow and journal state remain in progress; full slots and finite-region
+body assembly from supplied clients are now proved below.
 Independent full-source and complete dependency reviews passed each new prefix.
 The original-replay checkpoint `b0eec6e` also [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34576677193).
+
+The actual Bare virtual-read and virtual-store paths now compose all address
+checks, mode/translation reads and physical access. Their native rules derive
+alignment from context-word ownership, with fifteen read-prefix events for loads
+and twenty-one for stores; store announcements and blocked-write behavior remain
+explicit. Mode-parametric supervisor pointer transformation is also proved from
+four fractional cells, with both zero-mask transformations returning the input
+address. Base-register/instruction composition and source KPT tiers remain open.
+
+All fourteen actual mycpu fetches now have native proofs using one nine-cell
+footprint and the pinned words. The arbitrary-response residual retains the
+second-fetch possibility; only the actual owned word proves immediate completion.
+A real boot-era allocation extracts the unique34-byte span once, preserves every
+other client and exact deleted-map remainder, and explicitly persists the byte
+and timestamp clients before sharing overlapping windows across contexts.
+Cold boot is not claimed to have established the input Supervisor/Bare state.
+
+The full source inode slot, covered registry and finite block/body assembly now
+use native resources. The actual thirteen-block/208-inode specialization derives
+all six decoder premises from the checked snapshot; its epoch and byte geometry
+are explicitly tied to block33. Other native client columns remain supplied
+resources, so this is not complete filesystem boot or invariant allocation.
+All new prefixes passed independent source and complete dependency reviews.
+Checkpoint `6d7b7b4` [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34578638183).
+All six whole-xv6 roots remain open.
 
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is

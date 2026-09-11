@@ -41,3 +41,7 @@ import MachCSL.Logic.MemoryExclusiveWPLink
 import MachCSL.Logic.MemoryWriteWPLink
 import MachCSL.Logic.FsViewLink
 import MachCSL.Logic.FsTopProofs
+import MachCSL.Logic.FsTopLink
+import MachCSL.Logic.EventPlanLink
+import MachCSL.Logic.FsStateProofs
+import MachCSL.Logic.FsStateLinkAllocProofs

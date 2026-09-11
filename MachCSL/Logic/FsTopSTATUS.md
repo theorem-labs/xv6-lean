@@ -39,13 +39,25 @@ transitive types, bodies, and referenced constructor fields. Only
 semantic dependency and zero excluded declarations. The audit source is
 retained at `/tmp/xv6-lean-research/FsTopOwnerAudit.lean` in the working
 environment. No `sorry`, custom axiom, `native_decide`, or `bv_decide` is
-used. Independent review is pending.
+used. Independent generic-layer review passed; see
+`docs/reviews/fs-top-review.md`.
 
-No registry extension is included. Slot 25 is reserved for this exact
-camera, with the shared registry extension waiting for the separately owned
-lock camera at slot 24. Source `lockG` also includes a second sleeplock
-holder/count camera; no placeholder or unallocated index is silently used
-for it. Existing registry and capacity files were unchanged.
+`FsTopLink` now extends the actual `Lock.registry` at slot **25**, after
+its exact source lock product at slot **24** and the link camera at 23.
+It preserves the earlier indices and exposes explicit capacities for all
+existing machine, heap, era, observation, UART, link, lock, and invariant
+resources, including an actual `InvGS` constructor. The top camera still
+uses arbitrary source nodes without a validity filter. No existing
+registry file was changed.
+
+The combined `FsTopLink` build passes 399 jobs. A fresh physical-origin
+audit of the four new Lock modules and `FsTopLink` checks all 194
+declarations with only the standard three axioms, no unsafe/partial
+semantic dependency, and zero exclusions. See `LockSTATUS.md` for the
+source mapping and audit command. Independent registry review is pending.
+Source `lockG` also includes a separate sleeplock holder/count camera;
+slot 26 is only proposed for its future implementation, with no
+placeholder camera or full source `lockG` instance claimed.
 
 Next native dependencies remain the nested inode/link/bitmap/filesystem
 resource bundles, combined top/link allocation (including the source spare

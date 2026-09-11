@@ -14,3 +14,6 @@ import MachCSL.Machine.SpinlockImageProofs
 import MachCSL.Machine.SpinlockDecodeProofs
 import MachCSL.Machine.SpinlockFetchProofs
 import MachCSL.Machine.SpinlockScalarProofs
+import MachCSL.Machine.SpinlockControlProofs
+import MachCSL.Machine.AnnotatedPoolProofs
+import MachCSL.Machine.SpinlockCycleProofs

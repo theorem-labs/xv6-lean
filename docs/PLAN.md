@@ -149,6 +149,11 @@ the final paper-image theorem use the same machine semantics. See [exact theorem
   and barriers through the reviewed event-plan interface, then close the
   native holder resource protocol, operational exclusion and interference
   witness before broad kernel proof fanout.
+- The generic interruptible event fold and actual cycle wrapper are now
+  checked. The native lock protocol transfers the counter resource only at
+  successful conditional-write commit, retaining its actual winning log
+  position. Generic annotated-pool transport is checked; its concrete
+  coverage contract remains a required application proof.
 - The upstream xv6iris snapshot has no repository license file. Preserve source
   references and notices; do not invent an upstream license or claim ownership of
   its artifact. Record provenance separately from proof completeness.

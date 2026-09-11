@@ -143,8 +143,9 @@ the final paper-image theorem use the same machine semantics. See [exact theorem
 - The full pure initial `Snapshot.OK` is now proved against the pinned disk.
   Native byte/top/link assembly and initial `P_dur` allocation are also proved,
   with a literal initial-image leaf and an audited initialization-only caller
-  policy. Resource readback, source-instance transfer and crash preservation
-  remain required; a fresh snapshot ghost does not reset the physical disk.
+  policy. Full resource readback is now proved, retaining the exact snapshot
+  while deriving all validity clauses. Source-instance transfer and crash
+  preservation remain required; a fresh snapshot ghost does not reset disk.
 - The second integration image has checked fetch/decoder and complete
   instruction plans, native lock callbacks, actual boot resource extraction
   and eight-way code sharing. Instruction-family preservation and all-schedule
@@ -153,8 +154,10 @@ the final paper-image theorem use the same machine semantics. See [exact theorem
 - The generic interruptible event fold and actual cycle wrapper are now
   checked. The native lock protocol transfers the counter resource only at
   successful conditional-write commit, retaining its actual winning log
-  position. Generic annotated-pool transport is checked; its concrete
-  coverage contract remains a required application proof.
+  position. Concrete annotation updates are now functional, all selected-hart
+  event cases and worker/power cases are proved, and the first actual conflict
+  trace is checked. Other-hart framing and full concrete pool coverage remain
+  required application proofs.
 - The upstream xv6iris snapshot has no repository license file. Preserve source
   references and notices; do not invent an upstream license or claim ownership of
   its artifact. Record provenance separately from proof completeness.

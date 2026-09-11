@@ -53,6 +53,9 @@ import MachCSL.Logic.EventPlanHeadProofs
 import MachCSL.Logic.FsDurAllocLink
 import MachCSL.Logic.FsDurAssembleProofs
 import MachCSL.Logic.FsDurSnapshotLink
+import MachCSL.Logic.FsDurReadProofs
+import MachCSL.Logic.FsDurReadOverlapProofs
+import MachCSL.Logic.FsDurReadbackLink
 import MachCSL.Logic.SpinlockInitProofs
 import MachCSL.Logic.SpinlockWPProofs
 import MachCSL.Logic.SpinlockMachineSafetyProofs

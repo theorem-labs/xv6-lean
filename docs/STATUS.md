@@ -60,15 +60,14 @@ The native allocation checkpoint `e955086` [passed GitHub CI](https://github.com
 
 The native event/filesystem checkpoint `f8a1262` [passed GitHub CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34551920513).
 
-The current native spinlock safety and durable snapshot integration build
-passes 972 jobs. Its complete project audit checks 26,065 logical declarations,
-including 10,607 theorems, using only the three standard foundational axioms.
-Forty-six compiler-generated total-recursion runtime companions are excluded
-only as roots and remain forbidden in logical cones. The whole-system root
-manifest remains empty. The initial-allocation audit checks all nine reviewed
-caller edges and rejects additional runtime users. All twelve compiled audit
-regression fixtures pass. The exact staged source has 739 reachable project
-modules and passes all 87 generated-model pin checks.
+The current operational spinlock and native readback integration build passes
+1,010 jobs. The complete audit checks 26,700 logical declarations, including
+10,981 theorems, with only the three standard foundational axioms. Forty-nine
+compiler-generated total-recursion companions are excluded only as roots and
+remain forbidden in logical cones. The initial-allocation caller check retains
+exactly nine reviewed edges. All twelve compiled audit fixtures pass. The
+reviewed staged source contains777 reachable project modules and passes all
+87 generated-model pin checks. The whole-system root manifest remains empty.
 
 All 21 pure initial snapshot clauses are proved against the actual disk bytes.
 The native six-part `fsSnap` and existential `P_dur` now have checked initial
@@ -77,8 +76,9 @@ root slack and the uncarved remainder. The literal image leaf instantiates
 these rules with the checked snapshot and proves flattened home-byte equality
 with the same physical `Image.disk`. A whole-import caller audit restricts
 these pure-input constructors to reviewed initialization wrappers and leaves;
-runtime snapshot readback, source-instance transfer and crash preservation
-remain open. Initial allocation does not replace the current physical disk.
+full native snapshot readback now reconstructs all validity clauses from the
+resources and returns those same resources. Source-instance transfer and crash
+preservation remain open. Initial allocation does not replace the current physical disk.
 
 The complete seventeen-instruction spinlock family is preserved by the actual
 generated Sail cycle, including both clock choices. Native event callbacks,
@@ -90,13 +90,17 @@ powered-off generation-zero state, with the original durable medium and all
 CPU, device and power interleavings. It has no handler or resource-contract
 premise. This closes the safety part of the second small-program gate.
 
-Operational holder exclusion remains open. Fable's fifth review requires
-unique annotation updates fixed by the actual event; the concrete pool proof
-is implementing that requirement. The separate positive execution proof is
-constructing actual sub-instruction interference. Both exclusion and the
-complete seven-message witness are required before the two-hart gate closes.
-The all-view code-integrity lemmas are proved, but their preservation across
-all annotated pool steps remains an application obligation.
+Operational holder exclusion remains open. The concrete transition now has
+unique annotation updates fixed by actual event/state data, as required by
+Fable's fifth review. All selected-hart instruction events and every worker,
+stale-thread and power case have checked local transport. Other-hart and
+occurrence preservation must still assemble these into complete coverage.
+
+The positive execution proves actual boot, both fetched setup sequences,
+CPU0's zero reservation and a separately counted CPU1 blocked read in the
+full twelve-entry pool, preserving the durable disk. It is before either
+swap commits. The blocked-unlock continuation and complete seven-message
+witness remain required, together with exclusion, to close the two-hart gate.
 
 `MachCSL.Logic.JalMachineSafety.safe` proves actual reducibility for every thread
 in every finite reachable configuration, together with the model's observation
@@ -129,8 +133,9 @@ The native protocol and code resources have separate independent reviews.
 The earlier two-hart foundations commit `9fa51cd` [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34559749537).
 
 The full pure filesystem-image checkpoint `c9f2955` [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34561944930).
-The subsequent event-resource and native callback checkpoints remain pending
-in hosted CI; local proofs and audit results are recorded separately.
+The event-resource checkpoint `c22a247` [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34563919603).
+Later callback and closed spinlock-safety checkpoints remain pending in hosted
+CI; local proofs and audit results are recorded separately.
 
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is

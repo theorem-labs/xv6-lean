@@ -60,39 +60,43 @@ The native allocation checkpoint `e955086` [passed GitHub CI](https://github.com
 
 The native event/filesystem checkpoint `f8a1262` [passed GitHub CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34551920513).
 
-The current native spinlock integration build passes 938 jobs. Its complete project audit
-checks 25,532 logical declarations, including 10,229 theorems, using only the three
-standard foundational axioms. Forty-six compiler-generated total-recursion
-runtime companions are excluded only as roots and remain forbidden in logical
-cones. The whole-system root manifest remains empty.
+The current native spinlock safety and durable snapshot integration build
+passes 972 jobs. Its complete project audit checks 26,065 logical declarations,
+including 10,607 theorems, using only the three standard foundational axioms.
+Forty-six compiler-generated total-recursion runtime companions are excluded
+only as roots and remain forbidden in logical cones. The whole-system root
+manifest remains empty. The initial-allocation audit checks all nine reviewed
+caller edges and rejects additional runtime users. All twelve compiled audit
+regression fixtures pass. The exact staged source has 739 reachable project
+modules and passes all 87 generated-model pin checks.
 
-The latest reviewed layer proves all 21 pure initial snapshot clauses against
-the actual disk bytes, including every inode record, indirect entry, bitmap bit,
-owned block and home-map coverage condition. Native fractional filesystem byte
-views and the complete arbitrary-node top camera are checked. This does not
-allocate the source's native durable filesystem interpretation `P_dur`.
+All 21 pure initial snapshot clauses are proved against the actual disk bytes.
+The native six-part `fsSnap` and existential `P_dur` now have checked initial
+allocation rules, including exact byte carving, full inode/top/link resources,
+root slack and the uncarved remainder. The literal image leaf instantiates
+these rules with the checked snapshot and proves flattened home-byte equality
+with the same physical `Image.disk`. A whole-import caller audit restricts
+these pure-input constructors to reviewed initialization wrappers and leaves;
+runtime snapshot readback, source-instance transfer and crash preservation
+remain open. Initial allocation does not replace the current physical disk.
 
-Native exclusive RAM reads and present-payload RAM writes now have checked WPs,
-including actual blocked retries, reservation validity, TSO updates and view
-receipts. The spinlock image has checked bytes, all seventeen actual decoder
-and universal fetch plans, and seven straight-line register instruction plans.
-All memory/control instruction plans and native lock resource transfer are now
-proved. Instruction-family preservation and operational holder exclusion remain
-under implementation. The two-hart gate
-requires all-schedule safety, exclusion and a concrete interference witness.
+The complete seventeen-instruction spinlock family is preserved by the actual
+generated Sail cycle, including both clock choices. Native event callbacks,
+76-byte boot resource extraction, eight-way code sharing, cyclic hart WPs and
+the eleven-worker boot handler compose into
+`MachCSL.Logic.SpinlockMachineSafety.safe`. It proves reducibility and
+observation consistency for every finite actual schedule from an arbitrary
+powered-off generation-zero state, with the original durable medium and all
+CPU, device and power interleavings. It has no handler or resource-contract
+premise. This closes the safety part of the second small-program gate.
 
-The native event-composition layer is now proved and linked, with explicit
-eligibility for ordinary versus held-snapshot proof rules. The exact lock
-product and top inode cameras occupy slots 24 and 25. Control instruction
-plans and the generated cycle wrapper are checked, as is generic annotation
-transport over the identical actual pool schedule. Concrete protocol callbacks are proved, including actual log-position receipts
-and failed-swap framing. Instruction-family preservation and annotation coverage
-remain to be proved.
-
-The native filesystem hierarchy now factors into byte footprints and ghosts,
-with exact inode/link packing, same-name gathering and fresh initial link/top
-allocation including root slack. Durable byte flattening/carving is the next
-dependency of native `P_dur`; fresh ghost allocation is not a reboot transfer.
+Operational holder exclusion remains open. Fable's fifth review requires
+unique annotation updates fixed by the actual event; the concrete pool proof
+is implementing that requirement. The separate positive execution proof is
+constructing actual sub-instruction interference. Both exclusion and the
+complete seven-message witness are required before the two-hart gate closes.
+The all-view code-integrity lemmas are proved, but their preservation across
+all annotated pool steps remains an application obligation.
 
 `MachCSL.Logic.JalMachineSafety.safe` proves actual reducibility for every thread
 in every finite reachable configuration, together with the model's observation
@@ -113,16 +117,20 @@ This run is not recorded as a pass. Local build/audit results remain separate.
 
 The `d6e1c8` [hosted run](https://github.com/theorem-labs/xv6-lean/actions/runs/34557164757)
 also reached the old 60-minute limit during its build, with later audit steps
-skipped. Newer runs use the expanded limit; their results remain pending.
+skipped. Newer runs use the expanded limit.
 
 The expanded-timeout `9857e27` [hosted CI run](https://github.com/theorem-labs/xv6-lean/actions/runs/34558122240)
 passed the complete build, proof/model audits, image tests and provenance
-checks. It includes the closed JAL gate. Later commits remain pending in CI.
+checks. It includes the closed JAL gate.
 
 The actual boot resource extraction accounts for all 76 code/lock/counter bytes,
 returns both exact residual maps, and supplies eight fractional code bundles.
 The native protocol and code resources have separate independent reviews.
 The earlier two-hart foundations commit `9fa51cd` [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34559749537).
+
+The full pure filesystem-image checkpoint `c9f2955` [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34561944930).
+The subsequent event-resource and native callback checkpoints remain pending
+in hosted CI; local proofs and audit results are recorded separately.
 
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is

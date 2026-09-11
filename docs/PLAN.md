@@ -1,6 +1,6 @@
 # Full Lean port: implementation plan
 
-Status: both Fable 5.1 max design reviews approve with required changes. This project is incomplete.
+Status: Fable 5.1 max has completed five reviews; their required changes are tracked. This project is incomplete.
 
 ## Target and baseline
 
@@ -141,14 +141,15 @@ the final paper-image theorem use the same machine semantics. See [exact theorem
   whole-image correspondence and ELF loading are now checked, including raw hex
   decoding. Complete filesystem initialization remains open.
 - The full pure initial `Snapshot.OK` is now proved against the pinned disk.
-  Next connect native byte, top-map and link resources into the actual nested
-  filesystem interpretation and durable allocation; pure validity does not
-  replace `P_dur` or its crash-preservation proof.
+  Native byte/top/link assembly and initial `P_dur` allocation are also proved,
+  with a literal initial-image leaf and an audited initialization-only caller
+  policy. Resource readback, source-instance transfer and crash preservation
+  remain required; a fresh snapshot ghost does not reset the physical disk.
 - The second integration image has checked fetch/decoder and complete
   instruction plans, native lock callbacks, actual boot resource extraction
-  and eight-way code sharing. Close instruction-family preservation, cyclic
-  safety, operational exclusion and the interference witness before broad
-  kernel proof fanout.
+  and eight-way code sharing. Instruction-family preservation and all-schedule
+  native safety are now proved. Close operational exclusion with unique actual
+  event annotations and the interference witness before broad kernel fanout.
 - The generic interruptible event fold and actual cycle wrapper are now
   checked. The native lock protocol transfers the counter resource only at
   successful conditional-write commit, retaining its actual winning log

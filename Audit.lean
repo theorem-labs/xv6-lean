@@ -5,6 +5,8 @@ import Lean.Compiler.ExternAttr
 import Lean.Compiler.ImplementedByAttr
 import Lean.Util.Path
 
+audit_fs_initial_allocation
+
 /-!
 Audit imported project declarations by their defining module's build directory,
 including private declarations and declarations in unrelated namespaces.

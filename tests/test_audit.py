@@ -48,6 +48,12 @@ def main():
          "theorem statementHook (h : Iris.unreviewedHook = 0) : Iris.unreviewedHook = 0 := h\n",
          "unreviewed opaque data declaration Iris.unreviewedHook"),
         ("missing_closed_root", "theorem sample : True := True.intro\n", "missing closed root Missing.finalTheorem"),
+        ("runtime_initial_snapshot", "import Xv6.Fs.NativeSnapshotImage\n"
+         "open Iris Iris.BI MachCSL.Logic\n"
+         "theorem runtimeMint (frame : IProp FsTop.registry) :\n"
+         "    iprop(frame ⊢ |==> (FsDurSnapshot.registryPdur Xv6.Fs.Image.NativeSnapshot.committed ∗ frame)) :=\n"
+         "  Xv6.Fs.Image.NativeSnapshot.allocate_durable frame\n",
+         "Unclassified initial snapshot allocation caller runtimeMint"),
     ]
     with tempfile.TemporaryDirectory(prefix="xv6-audit-") as directory:
         tmp = Path(directory)

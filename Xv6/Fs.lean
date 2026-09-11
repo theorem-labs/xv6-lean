@@ -22,3 +22,4 @@ import Xv6.Fs.LinkImage
 import Xv6.Fs.SnapshotProofs
 import Xv6.Fs.SnapshotHomeProofs
 import Xv6.Fs.SnapshotImage
+import Xv6.Fs.NativeSnapshotImageAudit

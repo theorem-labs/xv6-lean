@@ -49,3 +49,10 @@ import MachCSL.Logic.FsDurBytesLink
 import MachCSL.Logic.SpinlockProtocolLink
 import MachCSL.Logic.SpinlockBootResourcesLink
 import MachCSL.Logic.SpinlockCodeProofs
+import MachCSL.Logic.EventPlanHeadProofs
+import MachCSL.Logic.FsDurAllocLink
+import MachCSL.Logic.FsDurAssembleProofs
+import MachCSL.Logic.FsDurSnapshotLink
+import MachCSL.Logic.SpinlockInitProofs
+import MachCSL.Logic.SpinlockWPProofs
+import MachCSL.Logic.SpinlockMachineSafetyProofs

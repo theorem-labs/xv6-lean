@@ -199,8 +199,9 @@ the final paper-image theorem use the same machine semantics. See [exact theorem
   complete cycles, source-capability adapters and exact kernel-text window
   production are now native and independently reviewed. The complete fourteen-cycle
   function and full-tier source wrapper are proved, as are actual sparse boot-text
-  allocation and static-map name installation in the actual era. JAL callers,
-  the source Bare branch and tier-generic dispatch are next. General PMA-to-boot execution specialization and boot establishment
+  allocation and static-map name installation in the actual era. The source Bare branch, original-tier KPT adapter and exact source
+  dispatcher are now native and independently reviewed. JAL callers and
+  the disabled per-CPU ownership layer for push_off are next. General PMA-to-boot execution specialization and boot establishment
   remain explicit obligations. The full Bare mycpu function has
   passed peer and Fable review; its concrete operational witness is proved
   and peer/Fable reviewed; the narrow Bare operational gate is closed.

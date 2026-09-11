@@ -667,6 +667,31 @@ All four families passed complete independent source review and fresh strict
 physical/type/opaque/constructor audits, with standard axioms only and zero
 new exclusions. Their 22 Lean modules add no assumed execution rule.
 
+Validation for the full-function/boot-text batch (a59241d): full 1,789-job
+build; 1,556 reachable project modules; 41,516 audited logical declarations
+including 20,089 theorems; 60 existing runtime companions and zero closed
+whole-system roots; all twelve audit fixtures and all 87 model pins passed.
+Fable round eleven passed the stated conditional full-tier wrapper and
+native boot-allocation scope, with no soundness blocker. Its two missing
+kernel-rocq source files are tracked as a separate review-evidence gap.
+
+Exact source mycpu body across translation regimes (2026-09-11):
+the source Bare branch obtains SATP and both PMP cells from actual owned
+slot resources, joins the full 53-cell packet, and converts identity virtual
+save words with value-polymorphic mapping closures. The KPT branch preserves
+either original source tier through all fourteen native cycles. The final
+MycpuSconf dispatcher opens the original capability once and routes its
+actual regime, returning the exact same tier, stack count, text, PMA and
+caller frame with the source saved-register and CPU-address conclusions.
+
+All seventeen new Lean modules passed complete independent review and
+fresh physical/type/opaque/constructor audits (120/55/35 declarations),
+standard axioms only and zero new exclusions. No regime, Config, physical
+save words or component-WP premise remains in the final native dispatcher.
+The explicit same-hart boot-PMA specialization remains. Source entry
+inhabitation, boot reachability, JAL caller closure and all six whole-system
+roots remain open.
+
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is
 posted from this account.*

@@ -203,6 +203,50 @@
       "input_manifest": "fable-kpt-supplement-inputs.json",
       "invocation_record": "fable-kpt-supplement-invocation.json",
       "read_coverage": "fable-kpt-supplement-read-coverage.json"
+    },
+    {
+      "round": "native-mycpu-function-and-boot-text",
+      "session_id": "54579143-869e-4699-954f-99c91876f104",
+      "command": [
+        "/home/jason/.local/bin/claude",
+        "-p",
+        "--session-id",
+        "54579143-869e-4699-954f-99c91876f104",
+        "--model",
+        "claude-fable-5-1",
+        "--effort",
+        "max",
+        "--tools",
+        "Read,Glob,Grep",
+        "--allowedTools",
+        "Read,Glob,Grep",
+        "--permission-mode",
+        "dontAsk",
+        "--strict-mcp-config",
+        "--add-dir",
+        "/tmp/xv6-lean-research/fable-function-boot-round11",
+        "--output-format",
+        "json"
+      ],
+      "prompt_sha256": "99332c794d165230e58f9d44846bd19288707ae97bb289dbd9ada20e1958c4e7",
+      "prompt_bytes": 651469,
+      "is_error": false,
+      "subtype": "success",
+      "duration_ms": 826209,
+      "num_turns": 121,
+      "model_usage_keys": [
+        "claude-fable-5-1"
+      ],
+      "subagents_spawned": 0,
+      "tools": [
+        "Read",
+        "Glob",
+        "Grep"
+      ],
+      "artifact": "fable-function-boot-review.md",
+      "input_manifest": "fable-function-boot-inputs.json",
+      "invocation_record": "fable-function-boot-invocation.json",
+      "read_coverage": "fable-function-boot-read-coverage.json"
     }
   ]
 }

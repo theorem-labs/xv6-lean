@@ -7,3 +7,8 @@ import Xv6.Elf.Representation
 import Xv6.Elf.ImageRepresentation
 import Xv6.Elf.ParserRepresentation
 import Xv6.Machine.Boot
+import Xv6.Machine.Correspondence
+import Xv6.Kernel.Audit
+import Xv6.Fs
+import Xv6.Generated.EncodingCertificateKernelElf
+import Xv6.Generated.EncodingCertificateFsImg

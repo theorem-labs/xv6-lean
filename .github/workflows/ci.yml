@@ -7,7 +7,7 @@ permissions:
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       - uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596
@@ -41,3 +41,4 @@ jobs:
           python3 tools/upstream.py xv6iris
           python3 tools/inventory.py .upstream/xv6iris --check
           python3 tools/images.py .upstream/xv6iris --check
+          python3 tools/kernel_maps.py .upstream/xv6iris --check --self-test

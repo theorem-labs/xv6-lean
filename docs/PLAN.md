@@ -89,7 +89,7 @@ Measure kernel checking of image access and decoder facts before generating a
 large instruction catalog. Packed 4096-byte numeric pages are the measured proof-access representation;
 hex inputs remain available for extraction checks. The current facts establish
 bounded input-byte observations and packed/list ELF parsing/loading correspondence;
-raw-encoding correspondence and filesystem initialization remain open. Generator
+full raw-encoding correspondence is now checked; complete filesystem initialization remains open. Generator
 outputs must remain reproducible, with the Sail compiler revision and backend
 options pinned alongside model sources.
 
@@ -136,8 +136,8 @@ the final paper-image theorem use the same machine semantics. See [exact theorem
 - Preserve paper model configuration and module list exactly, including modules
   needed for arbitrary user code even when the kernel does not use them.
 - Raw image import is untrusted tooling. Packed image access is kernel checked;
-  whole-image correspondence, ELF loading and filesystem
-  initialization must eventually be checked, with correspondence to raw bytes.
+  whole-image correspondence and ELF loading are now checked, including raw hex
+  decoding. Complete filesystem initialization remains open.
 - The upstream xv6iris snapshot has no repository license file. Preserve source
   references and notices; do not invent an upstream license or claim ownership of
   its artifact. Record provenance separately from proof completeness.

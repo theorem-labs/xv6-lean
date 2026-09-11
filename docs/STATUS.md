@@ -15,10 +15,12 @@ whole-system safety or filesystem crash consistency.
 | Generic event execution and result transport | Proved initial composition/inversion laws | Actual handlers, blocked steps and restart rules implemented; correspondence pending |
 | Full generated Lean RISC-V model | Compiled; six execution/reset entry cones audited; real fetched JAL execution proved | Two explicit reservation predicates; full semantic correspondence pending |
 | Machine/device/power language | Concrete language implemented, including Virtio DMA and power | Boot execution and arbitrary-schedule memory/reservation/trace invariants proved; ownership in progress |
-| TSO ownership | First native Iris byte/timestamp ledger proved and reviewed | Explicit partial registry; full log/view/dirty/meta resources and state interpretation pending |
+| TSO ownership | Native Iris byte/timestamp ledger, log, view and dirty-set resources proved and reviewed | Actual-state TSO interpretation and full boot ownership allocation proved; heap metadata and full state composition pending |
+| Register and device ownership | Actual dependent register bridge and three device-half bridges proved and reviewed | Global eight-hart and full reservation ownership proved; whole-state integration pending |
+| Filesystem image readers | Superblock, inode encoding/decoding, W3 and rounded-region predicates ported | Initial superblock/log, live-inode and all rounded-region checks proved; full filesystem initialization pending |
 | MachCSL adequacy and first closed slice | Actual power-on and fetched-instruction schedule proved | Full ownership interpretation, lifting and adequacy pending |
 | Kernel function proof port | Not started | Requires stable abstractions |
-| Concrete input images and ELF parsing | Exact import, coverage, parser and loaded-map correspondence proved | Actual xv6 ELF boot connected; raw-encoding correspondence, dumped maps and FS initialization pending |
+| Concrete input images and ELF parsing | Full hex/packed certificates, ELF loading, independent dumped-map and boot-image equality proved | Full FS initialization remains open |
 | Whole-system theorem closure | Not started | Requires all dependencies |
 
 `docs/upstream/inventory.json` is an exhaustive lexical index of source files and
@@ -49,6 +51,8 @@ The generated-model/ELF/execution checkpoint `3748ed5` [passed GitHub CI](https:
 Current machine integration is described in `MachCSL/Machine/STATUS.md`; device
 source mappings and independent reviews are linked from their component status
 files. These are structural and component proofs, not closed whole-system roots.
+
+The concrete-machine/initial-ownership checkpoint `41eb69c` [passed GitHub CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34543983862).
 
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is

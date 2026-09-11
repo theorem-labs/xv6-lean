@@ -32,9 +32,13 @@ Source mapping at `fa7f0a01c4b40489fac8ad303f079c2dfc7a1476`:
 There is no `SystemBoot.v` at this pin.
 
 The upstream language uses a filtered union of dumped `KernelInstrs.kernel_bytes`
-and `KernelData.kernel_data`, defaulted to zero. This specialization instead
-consumes the actual parsed ELF directly. Equality to those separately generated
-Rocq maps remains an explicit representation obligation. This module does not
+and `KernelData.kernel_data`, defaulted to zero. `Correspondence.lean` now proves
+that this specialization using the actual parsed ELF has identical bytes at every
+integer address, and that the complete boot images agree. It uses the independently
+imported source maps and `Xv6.Kernel.fileBytes_eq_fileImage`, preserves the source's
+upper-only filter at `0x8000a2a0`, and proves that the BSS/default contribution is
+zero. The checked input correspondence is described in `Xv6/Kernel/STATUS.md`.
+This module does not
 claim kernel safety, ELF instruction decoding correctness, filesystem-image
 well-formedness, the full reset postcondition for arbitrary initial registers,
 or any exported system adequacy theorem.

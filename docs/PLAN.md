@@ -140,6 +140,15 @@ the final paper-image theorem use the same machine semantics. See [exact theorem
 - Raw image import is untrusted tooling. Packed image access is kernel checked;
   whole-image correspondence and ELF loading are now checked, including raw hex
   decoding. Complete filesystem initialization remains open.
+- The full pure initial `Snapshot.OK` is now proved against the pinned disk.
+  Next connect native byte, top-map and link resources into the actual nested
+  filesystem interpretation and durable allocation; pure validity does not
+  replace `P_dur` or its crash-preservation proof.
+- The second integration image has checked fetch/decoder plans and initial
+  scalar execution plans. Compose actual exclusive reads, conditional writes
+  and barriers through the reviewed event-plan interface, then close the
+  native holder resource protocol, operational exclusion and interference
+  witness before broad kernel proof fanout.
 - The upstream xv6iris snapshot has no repository license file. Preserve source
   references and notices; do not invent an upstream license or claim ownership of
   its artifact. Record provenance separately from proof completeness.

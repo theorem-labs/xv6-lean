@@ -37,3 +37,7 @@ import MachCSL.Logic.TsoAppendProofs
 import MachCSL.Logic.TsoStoreLink
 import MachCSL.Logic.TsoReadAtLink
 import MachCSL.Logic.BarrierWPLink
+import MachCSL.Logic.MemoryExclusiveWPLink
+import MachCSL.Logic.MemoryWriteWPLink
+import MachCSL.Logic.FsViewLink
+import MachCSL.Logic.FsTopProofs

@@ -10,3 +10,7 @@ import MachCSL.Machine.BootPmpProofs
 import MachCSL.Machine.JalLoopPlanLink
 import MachCSL.Machine.BootPmpPlan
 import MachCSL.Machine.BootHartIdProofs
+import MachCSL.Machine.SpinlockImageProofs
+import MachCSL.Machine.SpinlockDecodeProofs
+import MachCSL.Machine.SpinlockFetchProofs
+import MachCSL.Machine.SpinlockScalarProofs

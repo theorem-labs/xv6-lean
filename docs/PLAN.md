@@ -60,7 +60,9 @@ are separate upgrades with explicit semantics and artifact comparisons.
    actual Bare virtual load/store access and mode-parametric pointer transformation,
    physical stack rules, actual supervisor retirement and exact mycpu decode/fetch
    bytes, actual boot text allocation/sharing and full indexed Bare fetch, plus
-   nine native arithmetic-body rules and the actual final JR body.
+   all fourteen native body rules on a common cycle footprint, actual dispatch/
+   decode/preparation and setup/retirement/clock/restart composition, plus
+   source calling-convention and pure register-sequence proofs.
    Bare translation and physical permission prefixes are proved; full
    page-table translation, virtual tier ownership and function composition remain open.
 6. **Kernel subsystems.** Boot and allocator; page tables and arbitrary user-mode

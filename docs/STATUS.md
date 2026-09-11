@@ -61,12 +61,12 @@ The native allocation checkpoint `e955086` [passed GitHub CI](https://github.com
 The native event/filesystem checkpoint `f8a1262` [passed GitHub CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34551920513).
 
 The complete inhabited spinlock gate and native kernel/filesystem prerequisite
-build passes 1,297 jobs. The complete audit checks 31,747 logical declarations,
-including 14,028 theorems, with only the three standard foundational axioms.
-Fifty-seven compiler-generated total-recursion companions are excluded only as roots and
+build passes 1,343 jobs. The complete audit checks 32,752 logical declarations,
+including 14,635 theorems, with only the three standard foundational axioms.
+Fifty-eight compiler-generated total-recursion companions are excluded only as roots and
 remain forbidden in logical cones. The initial-allocation caller check retains
 exactly nine reviewed edges. All twelve compiled audit fixtures pass. The
-reviewed staged source contains 1,064 reachable project modules and passes all
+reviewed staged source contains 1,110 reachable project modules and passes all
 87 generated-model pin checks. The whole-system root manifest remains empty.
 
 All 21 pure initial snapshot clauses are proved against the actual disk bytes.
@@ -231,8 +231,8 @@ translation remain open; the physical fetch-width rules are now proved below.
 Nine arithmetic bodies of the real mycpu instructions now have native
 partial-footprint WPs, including compressed ExecuteAs redirection. Their
 modular return expression and eight actual-hart specializations are proved;
-fetch, four memory bodies and fetched function composition remain open;
-the actual final JR body is now proved below.
+all four memory bodies and the final JR are now proved; fetched function
+composition and source KPT/SIE capability remain open.
 The native inode claim/freeze shelter preserves full transaction/share indices
 through both phases and has checked empty-authority/boot exclusion laws.
 Journal epochs and append-set receipts now use existing mono-nat slot 3 and
@@ -249,8 +249,8 @@ The actual outer eight-byte read/write wrappers now pay their effective-privileg
 reads and preserve both register bundles and native context resources. The actual
 mycpu final JR body preserves fractional configuration cells, eagerly reads
 misa.C and clears return-address bit zero. These are native instruction/access
-rules; four memory bodies and whole-function composition remain open; actual Bare
-virtual access and full indexed fetch are now proved below.
+rules; all four memory bodies, actual Bare virtual access and full indexed
+fetch are now proved. Whole-function composition remains open.
 
 Inode custody now includes the exact guarded top fragment, directory-adjusted
 link multiplicity and root's extra link. Epoch receipts use the actual block
@@ -284,6 +284,31 @@ are explicitly tied to block33. Other native client columns remain supplied
 resources, so this is not complete filesystem boot or invariant allocation.
 All new prefixes passed independent source and complete dependency reviews.
 Checkpoint `6d7b7b4` [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34578638183).
+All six whole-xv6 roots remain open.
+
+All fourteen mycpu instruction bodies now have native rules on one unique
+28-cell register bundle. The four real memory bodies preserve the actual
+virtual-memory paths, arbitrary read views, blocked stores and reservations.
+The actual active-hart factor, interrupt suppression, decoder transfer, ELP
+check and nextPC preparation are proved, with exactly one ExecuteAs redirection.
+Setup and successful retirement, both clocks and reservation-clearing restart
+compose on that same bundle. The thirteen-register calling convention and
+the source register chain's restored SP/RA/S0 and modular return expression
+are checked separately as pure bookkeeping. Complete active-step/fetched
+function composition and the source KPT/SIE regime remain open.
+
+Native filesystem invariants now include the exact top-map transaction registry,
+arm/disarm/release, clean accessor and both ordinary and armed retag rules.
+New slots38–41 hold arm entries, cache contents, dirty flags and exception sets
+while preserving every earlier capacity. The byte-view invariant has all nine
+source components, actual logged-byte authority at Disk12, cache halves and
+exception authority, with a fixed recovery-value function. Its read crossings
+derive home membership and preserve byte fractions, cache halves and the real
+seal or recovery handle. Region packaging, byte-view allocation, runtime writes,
+recovery installation and complete filesystem boot remain open. Independent
+source and full dependency reviews passed all new layers.
+
+Checkpoint `36d4757` [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34580798907).
 All six whole-xv6 roots remain open.
 
 *Authorship note: this was researched and written by an AI coding agent

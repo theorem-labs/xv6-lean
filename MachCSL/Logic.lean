@@ -106,3 +106,5 @@ import MachCSL.Logic.SupervisorBareFetchLink
 import MachCSL.Logic.SupervisorBareReadLink
 import MachCSL.Logic.SupervisorBareWriteLink
 import MachCSL.Logic.SupervisorAddressLink
+import MachCSL.Logic.IcacheTopRetagProofs
+import MachCSL.Logic.FsBytesInvariantLink

@@ -22,3 +22,9 @@ import Xv6.Kernel.MycpuReturnLink
 import Xv6.Fs.IcacheRegionImageProofs
 import Xv6.Kernel.MycpuBootResourcesLink
 import Xv6.Kernel.MycpuFetchLink
+import Xv6.Kernel.CalleeSavedLink
+import Xv6.Kernel.MycpuMemoryLink
+import Xv6.Kernel.MycpuRegisterSequenceLink
+import Xv6.Kernel.MycpuActiveLink
+import Xv6.Kernel.MycpuCycleBodyLink
+import Xv6.Kernel.MycpuCycleShellLink

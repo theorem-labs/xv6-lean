@@ -176,6 +176,14 @@ the final paper-image theorem use the same machine semantics. See [exact theorem
   trace is checked. Other-hart framing, full concrete pool coverage, actual
   annotation existence and an inhabited holder checkpoint on the same final
   seven-message run are all proved. Supervisor kernel composition is next.
+- Native direct physical PTE reads and conditional writes now preserve the
+  actual generated prefixes, pinned byte families, reservations and all event
+  branches. Next compose A/D update and kernel leaf validation, then discharge
+  shared KPT access and the complete hardware walk. The native full Bare mycpu
+  function is being chained from its fourteen actual cycle contracts.
+- The native logged-byte mint and exact pure filesystem recovery algebra are
+  proved. Next carve current physical disk resources and install recovered boot
+  clients without resetting disk or invoking initial-image allocation.
 - The upstream xv6iris snapshot has no repository license file. Preserve source
   references and notices; do not invent an upstream license or claim ownership of
   its artifact. Record provenance separately from proof completeness.

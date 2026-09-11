@@ -24,3 +24,4 @@ import Xv6.Fs.SnapshotHomeProofs
 import Xv6.Fs.SnapshotImage
 import Xv6.Fs.NativeSnapshotImageAudit
 import Xv6.Fs.SnapshotRegionProofs
+import Xv6.Fs.RecoveryExamplesProofs

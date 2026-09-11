@@ -61,12 +61,12 @@ The native allocation checkpoint `e955086` [passed GitHub CI](https://github.com
 The native event/filesystem checkpoint `f8a1262` [passed GitHub CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34551920513).
 
 The complete inhabited spinlock gate and native kernel/filesystem prerequisite
-build passes 1,371 jobs. The complete audit checks 33,138 logical declarations,
-including 14,887 theorems, with only the three standard foundational axioms.
+build passes 1,403 jobs. The complete audit checks 33,694 logical declarations,
+including 15,282 theorems, with only the three standard foundational axioms.
 Fifty-eight compiler-generated total-recursion companions are excluded only as roots and
 remain forbidden in logical cones. The initial-allocation caller check retains
 exactly nine reviewed edges. All twelve compiled audit fixtures pass. The
-reviewed staged source contains 1,138 reachable project modules and passes all
+reviewed staged source contains 1,170 reachable project modules and passes all
 87 generated-model pin checks. The whole-system root manifest remains empty.
 
 All 21 pure initial snapshot clauses are proved against the actual disk bytes.
@@ -331,6 +331,24 @@ Checkpoint `b9358cf` [passed hosted CI](https://github.com/theorem-labs/xv6-lean
 The published cycle-prerequisite checkpoint `a047a09` passed its local
 1343-job build, 32752-declaration audit and all12 compiled audit fixtures;
 its hosted run is in progress. All six whole-xv6 roots remain open.
+
+Native pinned byte-family reads and conditional stores now fold through the
+actual checked supervisor PTE wrappers. Ordinary reads preserve every allowed
+TSO view and canonical result; exclusive rereads retain the actual physical
+snapshot. Conditional stores retain blocked retries and derive their successful
+Boolean, authored receipt, new pins and cleared reservation from the actual
+Sail event. Shared KPT access and the full A/D update/walk remain subsequent.
+
+The filesystem byte mint now constructs the actual fixed-view invariant with
+all native cache, dirty, exception and committed-byte clients. Pure recovery
+matches the source total decoder and ordered replay, preserves the raw fallback,
+and includes equal-payload writes in the exception set. Kernel examples cover
+short headers, unclamped counts, duplicate order and changed/equal payloads.
+Runtime disk carving and actual-era recovered boot installation are in progress.
+All six prefixes passed independent source and complete dependency reviews.
+
+Checkpoint `a6c0d99` [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34584176730).
+All six whole-xv6 roots remain open.
 
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is

@@ -111,3 +111,8 @@ import MachCSL.Logic.FsBytesInvariantLink
 import MachCSL.Logic.TsoPinnedReadLink
 import MachCSL.Logic.TsoPinnedStoreLink
 import MachCSL.Logic.IcacheRegionInvariantLink
+import MachCSL.Logic.FsBytesBootstrapLink
+import MachCSL.Logic.TsoPinnedReadWPLink
+import MachCSL.Logic.TsoPinnedWriteWPLink
+import MachCSL.Logic.SupervisorPteReadLink
+import MachCSL.Logic.SupervisorPteWriteLink

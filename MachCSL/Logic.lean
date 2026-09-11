@@ -122,3 +122,4 @@ import MachCSL.Logic.FsCrashLink
 import MachCSL.Logic.SupervisorPteADLink
 import MachCSL.Logic.FsCfgSnapLink
 import MachCSL.Logic.SupervisorBitsLink
+import MachCSL.Logic.KptGhostLink

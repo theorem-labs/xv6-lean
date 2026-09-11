@@ -131,8 +131,9 @@ program continuation is the genuine final returned-cycle WP.
 
 ### HartTp Defs/Spec checkpoint
 
-The proposed `Xv6/Kernel/HartTpDefs.lean` and `HartTpSpec.lean` now spell
-out that next interface. `Index = BitVec 5`, `GprFile = Index → BitVec 64`.
+The approved `Xv6/Kernel/HartTpDefs.lean` and `HartTpSpec.lean` spell
+out that interface; Pure/Proofs/Link now implement every field. The five
+modules are frozen with 349 build jobs and a 155-declaration full audit. `Index = BitVec 5`, `GprFile = Index → BitVec 64`.
 `physical` explicitly enumerates x1 through x31 as
 `Option {r : Register // RegisterType r = BitVec 64}`; zero is `none`.
 There is no register-constructor arithmetic, an unchecked type cast or
@@ -164,9 +165,9 @@ WP, an assumed register-read success callback, nor a resource transport
 claim between different harts. The complete generated write callback and
 the mycpu footprint adapter remain separate execution proof obligations.
 
-The proposed native Spec has no supplied proof constructor at this checkpoint;
-its implementation must be reviewed separately after these actual
-definitions/signatures compile. Source register-map correspondence is
+The native Spec and PureSpec now have checked proof constructors;
+independent implementation review has passed, and the subsequent disabled
+Bare function adapter is proved in MycpuOff. Source register-map correspondence is
 direct index-by-index; this does not discharge the repository's separate
 whole-model Rocq/Lean correspondence obligation.
 

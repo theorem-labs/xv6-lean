@@ -180,7 +180,10 @@ the final paper-image theorem use the same machine semantics. See [exact theorem
   actual generated prefixes, pinned byte families, reservations and all event
   branches. Kernel leaf validation and the complete
   direct-slot A/D update now compose natively. The actual direct-slot three-level walk is proved.
-  Shared KPT access and TLB integration are next. The full Bare mycpu function
+  Direct-slot TLB-miss composition and fill/lookup are now proved. Shared KPT
+  access, arbitrary raw upper pointers and TLB-hit coherence are next. The
+  exact tree and three native ghost cameras are proved; physical tree ownership
+  and invariant publication are in progress. The full Bare mycpu function
   has passed peer and Fable review; its concrete operational witness is in
   progress before the Bare integration gate can close.
 - The native logged-byte mint and exact pure filesystem recovery algebra are
@@ -191,8 +194,9 @@ the final paper-image theorem use the same machine semantics. See [exact theorem
   byte-bootstrap resources, retaining Pfs and the actual era. Complete
   configuration kits, physical extent agreement and crash preservation remain.
 - Native SIE/SPP/SPIE ownership at slot44 now implements the exact mstatus
-  tie and fractional bit rules. HartTp is being connected to actual GPR
-  ownership; full handler/tier capabilities and migration remain subsequent.
+  tie and fractional bit rules. HartTp owns the actual full GPR file, and
+  the disabled Bare function adapter restores all53 cells and bit fragments.
+  Full handler/tier capabilities and migration remain subsequent.
 - The upstream xv6iris snapshot has no repository license file. Preserve source
   references and notices; do not invent an upstream license or claim ownership of
   its artifact. Record provenance separately from proof completeness.

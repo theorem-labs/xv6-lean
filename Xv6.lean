@@ -34,3 +34,8 @@ import Xv6.Kernel.KptLeafLink
 import Xv6.Fs.FsBootImage
 import Xv6.Kernel.Sv39WalkLink
 import Xv6.Kernel.MycpuBareResultProofs
+import Xv6.Kernel.HartTpLink
+import Xv6.Kernel.PtTreeExamples
+import Xv6.Kernel.Sv39TlbLink
+import Xv6.Kernel.Sv39MissLink
+import Xv6.Kernel.MycpuOffLink

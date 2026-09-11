@@ -19,7 +19,7 @@ whole-system safety or filesystem crash consistency.
 | Register, device and disk ownership | Global dependent registers, device halves, reservations and complete disk-image laws proved | Complete two-hart spinlock gate proved and independently reviewed; supervisor kernel resources next |
 | Filesystem image readers | Complete initial fsimg_wf (W1–W9), durable inode, links and full initial Snapshot.OK proved | Native allocation, readback, source-instance transport and cloning proved; runtime bootstrap and crash preservation in progress |
 | MachCSL adequacy and first closed slice | Closed JAL schedule-safety theorem builds over the actual eight-hart/device/power machine | JAL and inhabited two-hart TSO spinlock gates closed; all six whole-xv6 roots remain open |
-| Kernel function proof port | Exact mycpu bytes/decodes and native context load/register-fold prerequisites proved | Native PMP/interrupt rules and physical context stores/stack proved; translation and full function WP next |
+| Kernel function proof port | Full fourteen-cycle Bare mycpu WP and native disabled capability adapter proved | Concrete operational witness in progress; shared KPT, virtual stack and full source contract remain |
 | Concrete input images and ELF parsing | Full hex/packed certificates, ELF loading, independent dumped-map and boot-image equality proved | Initial FS checker and native resource allocation proved; live boot installation remains open |
 | Whole-system theorem closure | Not started | Requires all dependencies |
 
@@ -408,6 +408,42 @@ Ghost updates are not CSR execution or handler installation. HartTp and a
 nonduplicating function adapter remain separate. All four new prefixes passed
 independent source and full physical/type/opaque/constructor audits. All six
 whole-xv6 roots remain open.
+
+Native HartTp now owns all 31 physical GPRs with the exact x0 fact and
+hart-pinned TP. The disabled Bare mycpu adapter consumes those cells and the
+source mstatus/off fragments, partitions 53 physical cells into 39 function
+cells plus 14 framed cells, and restores the same capabilities and full GPR
+map after the actual fourteen cycles. Only A0/A5 change in the returned map;
+SIE and TP are derived from ownership. The full source tier/virtual-stack
+contract and concrete operational witness remain separate.
+
+The pure page-table tree now preserves arbitrary raw upper flags and proves
+shallow maps/blocks, actual semantic pointer validation, A/D variance and
+fixed-depth canonicalization. Its 640 declarations passed complete independent
+source and dependency review. Shared tree ownership and publication are next.
+
+Native level-zero TLB fill/lookup preserves every other entry and the actual
+callback read. The complete direct-slot translation miss composes all three
+walk reads, every A/D branch and its exact TLB result, retaining all slots,
+credentials, reservations and receipts. General raw-pointer walks, shared
+invariant access and TLB-hit coherence remain open. Each of the five new
+prefixes has independent review and a complete declaration dependency audit.
+
+Native shared-KPT ghost allocation now supplies the exact persistent mapping
+and two one-shot cameras at45–47. Bound ownership includes the existing log
+receipt; all earlier capacities and machine view/log identities are preserved.
+All353 declarations passed independent source and full dependency review.
+Physical tree ownership and invariant publication remain subsequent.
+
+Checkpoint `a95463c` [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34593493192).
+All six whole-xv6 theorem roots remain open.
+
+The reviewed tree/TLB/capability checkpoint passes a1500-job local build and
+the full36809-declaration audit (17353 theorems,59 verified compiler-only
+companions and zero closed whole-system roots). The added KPT ghost layer
+is included in those counts. All12 compiled audit fixtures passed. The
+frozen staged archive has1274 matching Lean files, all1267 project modules
+reachable from audited umbrellas, and all87 generated model pins verified.
 
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is

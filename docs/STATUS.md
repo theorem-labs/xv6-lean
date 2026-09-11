@@ -61,12 +61,12 @@ The native allocation checkpoint `e955086` [passed GitHub CI](https://github.com
 The native event/filesystem checkpoint `f8a1262` [passed GitHub CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34551920513).
 
 The complete inhabited spinlock gate and native kernel/filesystem prerequisite
-build passes 1,135 jobs. The complete audit checks 28,603 logical declarations,
-including 12,202 theorems, with only the three standard foundational axioms.
+build passes 1,161 jobs. The complete audit checks 29,258 logical declarations,
+including 12,594 theorems, with only the three standard foundational axioms.
 Fifty-six compiler-generated total-recursion companions are excluded only as roots and
 remain forbidden in logical cones. The initial-allocation caller check retains
 exactly nine reviewed edges. All twelve compiled audit fixtures pass. The
-reviewed staged source contains 902 reachable project modules and passes all
+reviewed staged source contains 928 reachable project modules and passes all
 87 generated-model pin checks. The whole-system root manifest remains empty.
 
 All 21 pure initial snapshot clauses are proved against the actual disk bytes.
@@ -88,7 +88,9 @@ reads its minting facts from existing native ownership and preserves that
 source; snapshot cloning retains the original at its original names. Coverage,
 record decoding, exact signed block sets and logged-era installation provide
 checked prerequisites for runtime configuration bootstrap. The native bitmap resource and inode-region record/marker allocation prelude
-are now proved, preserving the actual supplied logged bytes. Full inode slots,
+are now proved, preserving the actual supplied logged bytes. Native count,
+freeze-mirror and window-pin cameras and the complete per-inode claim/reference/
+freeze ledger algebra and boot allocation are also proved. Full inode slots,
 bitmap/cache/log invariants and crash preservation remain later layers.
 
 The complete seventeen-instruction spinlock family is preserved by the actual
@@ -130,12 +132,19 @@ See the final Fable disposition and spinlock-complete-gate-peer-review.md.
 Kernel work now follows the exact disabled-SIE mycpu boundary. All fourteen
 mixed-width instructions and all 32 actual ELF-backed bytes are checked,
 including the actual compressed expansions under source supervisor settings.
+The concrete fetch windows now cover all 34 required ELF-backed bytes, including
+the final compressed instruction’s four-byte fetch and its two following bytes.
+The stock model’s Ziccif-enabled query is checked explicitly.
 Native running-context loads preserve the full heap/TSO and byte resources
 for every permitted view, including own-author dirty forwarding. The finite
 register fold preserves source fractions and pays actual register subevents.
 The actual supervisor PMP and interrupt-suppression subprograms now have
 native finite-register WPs. Ordinary registered context stores and physical
-word/stack save/readback/rejoin rules are proved. Translation/A-D/TLB behavior,
+word/stack save/readback/rejoin rules are proved. Native eight-byte context
+read/write WPs now discharge the actual memory events, including every allowed
+read view, blocked-write retries, successful reservation clearing and unchanged
+ordinary-write views. Both optional clock choices preserve the source three-cell
+linear clock resource. Translation/A-D/TLB behavior,
 virtual stack/tier assertions and enclosing cycle composition remain required
 before a complete function WP is claimed.
 

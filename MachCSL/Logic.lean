@@ -79,3 +79,8 @@ import MachCSL.Logic.FsInodeRegionLink
 import MachCSL.Logic.FsInodeRegionBytesProofs
 import MachCSL.Logic.SupervisorPmpLink
 import MachCSL.Logic.SupervisorInterruptLink
+import MachCSL.Logic.SupervisorClockLink
+import MachCSL.Logic.TsoContextReadWPLink
+import MachCSL.Logic.TsoContextWriteWPLink
+import MachCSL.Logic.IcacheCouplingLink
+import MachCSL.Logic.IcacheRefLedgerLink

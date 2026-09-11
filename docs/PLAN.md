@@ -53,6 +53,10 @@ are separate upgrades with explicit semantics and artifact comparisons.
    stack budgets, ABI and nonreturning stack reclamation, spinlocks/sleeplocks,
    boot allocation accounting, and context switches. Specs stay separate from
    implementations and proofs.
+   Current native prerequisites include partial supervisor PMP/interrupt WPs,
+   value-agnostic optional clocks, ordinary context-word read/write event WPs,
+   physical stack rules and exact mycpu decode/fetch bytes. Full translation,
+   retirement, virtual tier ownership and function composition remain open.
 6. **Kernel subsystems.** Boot and allocator; page tables and arbitrary user-mode
    execution; process/scheduler/FD/pipe layers; UART/PLIC/virtio drivers and DMA;
    buffer and inode caches with reference escrow; journal and recovery with

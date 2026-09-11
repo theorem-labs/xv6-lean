@@ -116,3 +116,7 @@ import MachCSL.Logic.TsoPinnedReadWPLink
 import MachCSL.Logic.TsoPinnedWriteWPLink
 import MachCSL.Logic.SupervisorPteReadLink
 import MachCSL.Logic.SupervisorPteWriteLink
+import MachCSL.Logic.FsBootBytesLink
+import MachCSL.Logic.FsBootRecoveryLink
+import MachCSL.Logic.FsCrashLink
+import MachCSL.Logic.SupervisorPteADLink

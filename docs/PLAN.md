@@ -178,12 +178,16 @@ the final paper-image theorem use the same machine semantics. See [exact theorem
   seven-message run are all proved. Supervisor kernel composition is next.
 - Native direct physical PTE reads and conditional writes now preserve the
   actual generated prefixes, pinned byte families, reservations and all event
-  branches. Next compose A/D update and kernel leaf validation, then discharge
-  shared KPT access and the complete hardware walk. The native full Bare mycpu
-  function is being chained from its fourteen actual cycle contracts.
+  branches. Kernel leaf validation and the complete
+  direct-slot A/D update now compose natively. Shared KPT access and the complete
+  hardware walk are next. The native full Bare mycpu function has passed peer
+  review and is under Fable review before publication.
 - The native logged-byte mint and exact pure filesystem recovery algebra are
-  proved. Next carve current physical disk resources and install recovered boot
-  clients without resetting disk or invoking initial-image allocation.
+  proved. Current physical disk carving and recovered boot installation now preserve
+  the actual era and every other client. Native crash history, generation-bound
+  log-mirror custody and durable-resource readback now supply the recovery facts.
+  Next route the native snapshot into source configuration resources, then
+  discharge physical extent agreement and crash preservation.
 - The upstream xv6iris snapshot has no repository license file. Preserve source
   references and notices; do not invent an upstream license or claim ownership of
   its artifact. Record provenance separately from proof completeness.

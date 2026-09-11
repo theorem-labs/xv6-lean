@@ -350,6 +350,36 @@ All six prefixes passed independent source and complete dependency reviews.
 Checkpoint `a6c0d99` [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34584176730).
 All six whole-xv6 roots remain open.
 
+
+
+Native kernel leaf validation now retains all five validity reads and both
+additional extension reads. The complete direct-slot A/D update composes
+cached, disabled, exclusive-reread and conditional-write branches, returning
+the same five register cells and original per-byte publication anchors.
+Its successful write derives its authored timestamp and clears the actual
+reservation; the generated false-write internal error remains explicit.
+The complete three-level walk and shared KPT invariant remain in progress.
+
+Current-disk carving now preserves the exact unused byte remainder at the
+existing physical name. Native recovered boot installs all real cache, dirty,
+exception, committed-byte and pool clients while retaining the actual Era
+interpretation and five other client columns. The literal disk specialization
+derives its header and coverage premises from the checked image.
+
+Native crash resources add slots42/43 for append-only committed history and
+two-half log-mirror agreement, preserving all earlier capacities. Generation
+ownership identifies the current era before mirror access. Durable-resource
+readback derives snapshot validity and HeaderWF for recovered boot; no runtime
+Initial constructor is used. Physical extent agreement, disk writes and crash
+preservation remain open. All five new prefixes passed independent source
+and complete type/opaque/constructor dependency reviews.
+
+Checkpoints `a76fb8a`, `a047a09` and `495569d` passed hosted CI:
+[byte invariants](https://github.com/theorem-labs/xv6-lean/actions/runs/34586717604),
+[cycle prerequisites](https://github.com/theorem-labs/xv6-lean/actions/runs/34589635810),
+and [PTE/region prerequisites](https://github.com/theorem-labs/xv6-lean/actions/runs/34591553434).
+All six whole-xv6 roots remain open.
+
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is
 posted from this account.*

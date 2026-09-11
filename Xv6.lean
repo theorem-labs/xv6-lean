@@ -30,3 +30,5 @@ import Xv6.Kernel.MycpuCycleBodyLink
 import Xv6.Kernel.MycpuCycleShellLink
 import Xv6.Kernel.MycpuCycleEntryLink
 import Xv6.Kernel.MycpuCycleLink
+import Xv6.Kernel.KptLeafLink
+import Xv6.Fs.FsBootImage

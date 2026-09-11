@@ -1,7 +1,7 @@
 # Proposed concrete operational annotation for the spinlock image
 
-Author: OpenAI Codex subagent `lean_logic_audit`. This is a Defs/Spec proposal,
-not an implemented preservation theorem. It builds on the frozen native
+Author: OpenAI Codex subagent `lean_logic_audit`. This records the reviewed
+design, now implemented through `SpinlockPoolReachability`, building on native
 resource callbacks, `SpinlockFamily`, and exact `EventPlanHead` equivalence.
 The underlying relation remains `Machine.Step SpinlockImage.image`.
 
@@ -131,14 +131,13 @@ existing guards and enabled condition.
 
 ## Bounded implementation sequence and exported contracts
 
-First implement only `SpinlockPoolDefs/Spec` with the above concrete predicates,
-then small proofs of data latest-word current/all-view reads, append frame/new-word,
-owned-register agreement, and blocked-exclusive reindexing. Next prove actual
-register/pin/restart transport and **one actual exclusive-read/conditional-write
-pair** using the complete source guard and snapshot semantics. Freeze/audit
-that slice before expanding to all memory/barrier cases.
+Implementation was staged through `SpinlockPoolDefs/Spec`, latest-word and
+register helpers, and one exclusive-read/conditional-write pair before extending
+to all local events and whole-pool coverage. Each slice was frozen, audited and
+independently reviewed. `SpinlockPoolCoverProofs.actual` now inhabits the full
+contract; `SpinlockPoolReachability.annotate_run` lifts every actual finite run.
 
-The intended later contracts are:
+The design's coverage contracts are:
 
 ```lean
 hart_step_preserves
@@ -170,8 +169,9 @@ memory invariant is imposed on the arbitrary powered-off initial state.
 
 The eventual counter accounting should count committed counter-store messages,
 not completed releases: between increment and unlock those differ by one.
-Operational exclusion, an explicit interference execution, and the final
-all-run theorem remain required before calling this the closed two-hart gate.
+Operational exclusion and the arbitrary-run annotation theorem are now proved.
+The explicit interference execution remains required before calling this the
+closed two-hart gate.
 
 ## Deterministic annotation correction after Fable review
 
@@ -194,8 +194,11 @@ restart, exclusive-read and swap-write transports discharge the graph equation.
 A run-annotation uniqueness statement must
 also fix the actual scheduled pool occurrence: erasing labels does not by itself
 distinguish identical worker expressions at different list positions. The current
-bounded checkpoint proves local graph functionality, but not whole-run uniqueness;
-the complete `SpinlockPoolSpec`, particularly `covers`, remains uninhabited.
+run layer proves both local graph functionality and annotation uniqueness for
+the same recorded schedule. `ScheduledEvent` retains the occurrence index,
+selected successor expression, physical post-state, observations and fork list.
+Every actual `PoolSteps` run obtains such records without restricting its
+choices; no uniqueness is inferred from an erased configuration trace alone.
 
 `Holds` already requires power on and the current generation, so stale holders
 do not survive a power cycle as live holders. A physical-PC corollary is scoped
@@ -205,10 +208,11 @@ terminal family; such a claim needs a separate PC-commit invariant. The holder
 window itself is defined by the exact phase transitions at the write events.
 
 The checked `swap_write_exclusive` lemma justifies the winner bound
-`B ≤ g.views cpu`; weakening that bound is unnecessary. Subsequent coverage
-must explicitly frame view growth on reads, the non-draining fence, UART state,
+`B ≤ g.views cpu`; weakening that bound is unnecessary. The coverage proof
+explicitly frames view growth on reads, the non-draining fence, UART state,
 PLIC pin writes, reset-disk memory/log preservation and other harts' append
-receipts. These are proof obligations, not callbacks assumed by the contract.
+receipts. These obligations are discharged by the concrete coverage proof,
+not supplied as callbacks to the final theorem.
 
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is

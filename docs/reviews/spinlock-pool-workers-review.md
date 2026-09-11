@@ -3,10 +3,11 @@
 Reviewer: OpenAI Codex subagent `lean_logic_audit`, independently reviewing
 coordinator-authored `SpinlockPoolWorkerFrames`, `SpinlockPoolPowerOffProofs`
 and `SpinlockPoolWorkerCoverProofs`, with a subsequent independent review of
-`SpinlockPoolBootProofs` and `SpinlockPoolPowerOnProofs`.
+`SpinlockPoolBootProofs`, `SpinlockPoolPowerOnProofs` and
+`SpinlockPoolBoundaryProofs`.
 Verdict: **PASS for the stated frame and worker coverage scope**. The frame
 modules rebuilt together (502 Lake jobs); the coverage module's compiled
-theorems and boot/power-on modules were included in the fresh audit of all 49 originating declarations and full
+theorems and boot/power-on/boundary modules were included in the fresh audit of all 53 originating declarations and full
 logical cones, explicitly including opaque theorem bodies and inductive
 constructors, found only the standard three axioms and no unsafe/partial
 dependency or compiler-companion exclusion.
@@ -44,6 +45,15 @@ forks receive the correct labels. Power-on uses the actual `BootShape`, includin
 the generation equation and durable-disk retention, and establishes the entire
 new `PoolInv`. No second boot precondition or chosen reset witness is assumed.
 The full cover still needs the live-hart cases and final dispatch.
+
+Boundary addendum: **PASS**. The four critical-body `Family` cases imply a
+holder phase. `boundary_holds` requires an actual residual `.pure ()`, obtains
+its terminal family from the residual plan, and relates the owned physical PC
+to the symbolic PC through the proved injectivity of instruction addresses.
+`boundary_exclusion` then uses holder exclusion. Its explicit `PoolInv` premise
+is discharged by the later arbitrary-run theorem; it asserts no interior-PC
+property. These three theorems and their generated helper rebuilt as part of
+the 545-job run-layer check.
 
 Evidence: `/tmp/xv6-lean-research/SpinlockPoolWorkerPeerAudit.lean` and
 `/tmp/xv6-lean-research/spinlock-pool-worker-peer-audit.log`.

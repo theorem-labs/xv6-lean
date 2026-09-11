@@ -77,8 +77,8 @@ inductive Transition [Platform] : AnnotatedPool.Transition Label where
   | powerOn {g g'} (off : g.power = false) :
       Transition (.power, .worker) g [.powerOn] (.power, .worker) g' (freshForks g')
 
-/-- Final application obligations. The complete contract is not yet inhabited;
-Covers must be proved from actual cases, never supplied by a closed client. -/
+/-- Final application obligations, inhabited by SpinlockPoolCoverProofs.actual.
+Covers is proved from actual cases, never supplied by a closed client. -/
 structure SpinlockPoolSpec [Platform] : Prop where
   initial : ∀ initial : State, initial.power = false → initial.generation = 0 →
     PoolInv ([(.power, .worker)], initial)

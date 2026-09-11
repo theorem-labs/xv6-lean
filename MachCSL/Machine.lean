@@ -24,3 +24,5 @@ import MachCSL.Machine.SpinlockCodeIntegrityProofs
 import MachCSL.Machine.SpinlockPoolStoreTransports
 import MachCSL.Machine.SpinlockPoolPowerOnProofs
 import MachCSL.Machine.SpinlockWitnessPoolProofs
+import MachCSL.Machine.SpinlockWitnessHeldPoolProofs
+import MachCSL.Machine.SpinlockPoolReachability

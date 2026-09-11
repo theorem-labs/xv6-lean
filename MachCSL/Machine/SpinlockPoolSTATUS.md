@@ -1,65 +1,72 @@
-# Operational spinlock annotation: bounded checkpoint
+# Operational spinlock annotation and arbitrary-run exclusion
 
 Author: OpenAI Codex subagent `lean_logic_audit`.
 
-The twelve modules `SpinlockPoolDefs`, `Spec`, `Words`, `Head`, `Registers`,
-`Exclusive`, `Swap`, `UpdateDefs`, `UpdateProofs`, `UpdateTransports`,
-`MemoryTransports` and `StoreTransports` build together (524 Lake jobs).
-A fresh audit of all 282 declarations originating
-in these modules, including private helpers and full logical dependency cones
-with explicit opaque theorem-body and constructor traversal, found only
-`propext`, `Classical.choice` and `Quot.sound`; no unsafe/partial logical
-dependency or excluded compiler companion was found.
+The complete operational annotation contract is inhabited by
+`SpinlockPool.actual`. `covers` discharges every actual machine transition:
+all hart events and blocked arms, UART/PLIC/reset-disk workers, stale harts,
+power-off and every actual `BootFacts` power-on witness. No preservation
+callback, ghost resource, extra boot premise or pairwise reservation
+disjointness is supplied by a client.
 
-`PoolInv` retains all eight live hart occurrences, actual residual programs,
-178 owned-register agreements, exact reservations, latest lock/counter words,
-winning messages/views, reset disk and unchanged code. `Holds` checks both
-power and current generation. `initial` and `holder_exclusion` are proved;
-the latter is conditional on this concrete invariant.
+`annotate_run` quantifies over every finite actual `PoolSteps` run from an
+arbitrary powered-off generation-zero state, retaining its durable medium.
+It preserves the exact step count, observations, fork order and erased final
+configuration. It supplies a schedule recording the actual selected occurrence
+and physical result of each step, proves its annotation unique, and proves
+that at most one current-generation hart lies in the full holder window.
+The window begins at the successful reserved-zero swap write and ends at the
+successful unlock zero write, including all intervening Sail continuations.
+`reachable_boundary_exclusion` gives that physical-PC corollary directly for
+actual `PoolSteps`, current-generation `.pure ()` expression membership and
+PC indices 10–13, without requiring clients to supply labels or a schedule.
+No interior-PC corollary,
+fairness, progress, erased-trace occurrence uniqueness or final interference
+witness is claimed.
 
-The bounded transports consume actual `Machine.Step` witnesses. They cover
-owned/pin register reads, owned writes, restart with either clock flag, PLIC
-framing of cursor control, blocked/successful exclusive lock reads and
-blocked/successful conditional swap writes. The last includes both old words:
-zero acquires at the actual new log position with the actual counter pair;
-one appends the spinner's write while retaining the existing owner/position.
-The exclusive read and conditional write remain separate events. Latest-word
-current/all-view reads, new-word append, untouched-address framing and blocked
-exclusive reservation reindexing are ordinary kernel proofs.
+The pure invariant retains exact eight-hart occurrence counts, residual plans,
+178 owned-register agreements, actual reservations, latest lock/counter bytes,
+winning log positions/views, reset disk and all 68 code bytes. Native Iris
+authorities are not duplicated. `OwnerPresent` and occurrence uniqueness justify
+the selected owner's phase; source `HartStep` supplies untouched other-register,
+reservation/view and log-prefix facts. All concrete events discharge the owner,
+code and device facts used in the whole-pool assembly theorem.
 
-The local event set additionally covers code reads via `CodeUnwritten` at every
-allowed view, latest-counter reads justified by the holder's timestamp/view
-bounds, the exact identity of the non-draining fence, and blocked/successful
-counter stores and unlocks. Counter stores increment modulo 32 bits, record the
-actual append timestamp, preserve the original winning receipt/view and drop
-the no-longer-valid `counterTime ≤ B` bound. Unlock clears the holder phase
-only at the successful zero store. Both store effect records retain the
-pre-state owner identity for the subsequent other-hart framing proof.
+Code reads use `CodeUnwritten` at every allowed view. Counter reads use actual
+latest timestamps and holder view bounds. Counter stores increment modulo
+32 bits, record the real append timestamp and preserve the earlier winning
+receipt; stored phases deliberately omit the obsolete `counterTime ≤ B` bound.
+Blocked exclusive reads clear their reservation, blocked writes retain it,
+and the exact non-draining fence is a state identity. Successful lock reads and
+conditional writes remain distinct events; failed spinners append one without
+changing the current owner or winning position.
 
-This checkpoint does **not** inhabit `SpinlockPoolSpec`: whole-pool coverage,
-other-hart framing, integration with worker/power coverage,
-the operational all-run exclusion theorem and interference witness remain.
-The relation-level `CursorEdge` alone does not establish unique annotations.
-Following the independent Fable review, `Transition.hart` now additionally
-requires the graph of `nextCursor`. `latest_word_unique`, `latest_pair_of_word`
-and `boundary_index_of_pc` prove canonical data selection; successful acquire
-and counter-store timestamps are the actual pre-log length plus one.
-`transition_functional` proves unique successor/fork labels for the same selected
-occurrence and concrete pre/post step. `read_transition`, `write_transition`,
-`restart_transition`, `exclusive_transition` and `reserved_swap_transition`
-inhabit this stronger transition for all actual successors in the bounded slice.
-Run uniqueness still requires coverage and the same occurrence-indexed schedule.
-See `docs/design/spinlock-pool.md`; no intermediate physical-PC exclusion is
-claimed from a terminal `Plan` postcondition.
+Following the independent Fable review, `Transition.hart` includes the graph of
+the partial function `nextCursor`. Latest-word pairs and boundary instruction
+indices have proved uniqueness; acquisitions and counter stores use pre-log
+length plus one. Missing canonical data returns `none`. `transition_functional`
+and `scheduled_steps_functional` fix annotations for the same recorded schedule,
+while `steps_have_schedule` covers every actual annotated execution.
 
-Audit correction: an earlier local driver traversed `ConstantInfo.value?`
-without `allowOpaque := true`; its axiom traversal was complete, but its separate
-implementation traversal omitted opaque theorem bodies. The coordinator reran
-the original 182-declaration checkpoint with explicit opaque traversal, and the
-final 282-declaration audit above uses the corrected traversal throughout.
+Validation: 545 Lake jobs pass. A fresh audit of all **424 declarations in 23
+owned modules**, including private helpers, opaque theorem bodies and inductive
+constructors throughout the logical cones, found only `propext`,
+`Classical.choice` and `Quot.sound`; there were no unsafe/partial dependencies
+or excluded compiler companions. The coordinator-owned worker/boot/power/boundary
+modules were independently reviewed and audited separately (53 declarations
+in six modules). See `docs/reviews/spinlock-pool-workers-review.md`.
 
-Audit evidence: `/tmp/xv6-lean-research/SpinlockPoolAudit.lean` and
-`/tmp/xv6-lean-research/spinlock-pool-audit.log` (local review artifacts).
+Audit correction: an earlier local driver omitted opaque theorem bodies from
+its separate implementation traversal (its axiom traversal was complete).
+The coordinator reran that original checkpoint with explicit
+`allowOpaque := true`; all audits reported above use the corrected traversal.
+Evidence: `/tmp/xv6-lean-research/SpinlockPoolAudit.lean`,
+`spinlock-pool-audit.log`, `SpinlockPoolWorkerPeerAudit.lean` and
+`spinlock-pool-worker-peer-audit.log` in the same local research directory.
+
+The explicit interference execution remains a separate final gate obligation.
+This machine-code integration result is not the full xv6 kernel port or the
+source context-indexed lock API.
 
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is

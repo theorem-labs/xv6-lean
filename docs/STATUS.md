@@ -16,11 +16,11 @@ whole-system safety or filesystem crash consistency.
 | Full generated Lean RISC-V model | Compiled; six execution/reset entry cones audited; real fetched JAL execution proved | Two explicit reservation predicates; full semantic correspondence pending |
 | Machine/device/power language | Concrete language implemented, including Virtio DMA and power | Boot execution and arbitrary-schedule memory/reservation/trace invariants proved; ownership in progress |
 | TSO ownership | Native byte/timestamp, log, view, dirty-set and full heap metadata resources proved and reviewed | Coherent seven-conjunct era boot allocation proved; hardware ownership lifting pending |
-| Register, device and disk ownership | Global dependent registers, device halves, reservations and complete disk-image laws proved | Native event WPs and interruptible event composition proved; exact lock camera linked; concrete lock callbacks proved; cyclic instruction-family and pool coverage pending |
-| Filesystem image readers | Complete initial fsimg_wf (W1–W9), durable inode, links and full initial Snapshot.OK proved | Native filesystem hierarchy, link packing/gathering and root-slack camera allocation proved; guarded durable byte ledger proved; slot carving and crash transport pending |
+| Register, device and disk ownership | Global dependent registers, device halves, reservations and complete disk-image laws proved | Native spinlock safety and whole-pool coverage proved; arbitrary-run exclusion checked; final interference trace in progress |
+| Filesystem image readers | Complete initial fsimg_wf (W1–W9), durable inode, links and full initial Snapshot.OK proved | Native snapshot allocation and full resource readback proved; source-instance transport and crash preservation in progress |
 | MachCSL adequacy and first closed slice | Closed JAL schedule-safety theorem builds over the actual eight-hart/device/power machine | Universal boot/cycle/worker proofs, eleven-fork handler and native adequacy linked; independent final review passed; two-hart TSO spinlock gate next |
 | Kernel function proof port | Not started | Requires stable abstractions |
-| Concrete input images and ELF parsing | Full hex/packed certificates, ELF loading, independent dumped-map and boot-image equality proved | Initial FS checker proved; Iris FS resource initialization remains open |
+| Concrete input images and ELF parsing | Full hex/packed certificates, ELF loading, independent dumped-map and boot-image equality proved | Initial FS checker and native resource allocation proved; live boot installation remains open |
 | Whole-system theorem closure | Not started | Requires all dependencies |
 
 `docs/upstream/inventory.json` is an exhaustive lexical index of source files and
@@ -60,13 +60,13 @@ The native allocation checkpoint `e955086` [passed GitHub CI](https://github.com
 
 The native event/filesystem checkpoint `f8a1262` [passed GitHub CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34551920513).
 
-The current operational spinlock and native readback integration build passes
-1,010 jobs. The complete audit checks 26,700 logical declarations, including
-10,981 theorems, with only the three standard foundational axioms. Forty-nine
+The current operational exclusion and durable run integration build passes
+1,042 jobs. The complete audit checks 27,232 logical declarations, including
+11,313 theorems, with only the three standard foundational axioms. Fifty
 compiler-generated total-recursion companions are excluded only as roots and
 remain forbidden in logical cones. The initial-allocation caller check retains
 exactly nine reviewed edges. All twelve compiled audit fixtures pass. The
-reviewed staged source contains777 reachable project modules and passes all
+reviewed staged source contains 809 reachable project modules and passes all
 87 generated-model pin checks. The whole-system root manifest remains empty.
 
 All 21 pure initial snapshot clauses are proved against the actual disk bytes.
@@ -79,6 +79,10 @@ these pure-input constructors to reviewed initialization wrappers and leaves;
 full native snapshot readback now reconstructs all validity clauses from the
 resources and returns those same resources. Source-instance transfer and crash
 preservation remain open. Initial allocation does not replace the current physical disk.
+Native transport now has checked mixed-fraction run laws and bidirectional
+whole-footprint/run correspondence. The logged filesystem view is connected
+to the existing signed byte camera at its own runtime name. Installation and
+source-instance cloning remain the next resource-transfer obligations.
 
 The complete seventeen-instruction spinlock family is preserved by the actual
 generated Sail cycle, including both clock choices. Native event callbacks,
@@ -90,17 +94,20 @@ powered-off generation-zero state, with the original durable medium and all
 CPU, device and power interleavings. It has no handler or resource-contract
 premise. This closes the safety part of the second small-program gate.
 
-Operational holder exclusion remains open. The concrete transition now has
-unique annotation updates fixed by actual event/state data, as required by
-Fable's fifth review. All selected-hart instruction events and every worker,
-stale-thread and power case have checked local transport. Other-hart and
-occurrence preservation must still assemble these into complete coverage.
+Operational holder exclusion is proved for every actual finite execution.
+Complete coverage includes other-hart and occurrence preservation, all worker
+and power cases, and every permitted boot witness. Annotation updates are
+unique for the same explicit occurrence-indexed actual schedule, as required
+by Fable's fifth review. A direct physical-machine corollary excludes two
+current harts at completed-instruction boundaries in the four body instructions;
+it does not make an interior-continuation PC claim.
 
 The positive execution proves actual boot, both fetched setup sequences,
-CPU0's zero reservation and a separately counted CPU1 blocked read in the
-full twelve-entry pool, preserving the durable disk. It is before either
-swap commits. The blocked-unlock continuation and complete seven-message
-witness remain required, together with exclusion, to close the two-hart gate.
+CPU 0's zero reservation and a separately counted CPU 1 blocked read. It then
+commits CPU 0's lock and counter writes, lets CPU 1 reserve the held lock,
+and counts CPU 0's blocked unlock before CPU 1's failed swap commits. The
+full twelve-entry pool and durable disk are retained. The final release/retry
+sequence and exact seven-message result remain required to close this gate.
 
 `MachCSL.Logic.JalMachineSafety.safe` proves actual reducibility for every thread
 in every finite reachable configuration, together with the model's observation
@@ -134,7 +141,8 @@ The earlier two-hart foundations commit `9fa51cd` [passed hosted CI](https://git
 
 The full pure filesystem-image checkpoint `c9f2955` [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34561944930).
 The event-resource checkpoint `c22a247` [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34563919603).
-Later callback and closed spinlock-safety checkpoints remain pending in hosted
+The callback checkpoint `72836cb` [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34565105437).
+Later closed spinlock-safety and readback checkpoints remain pending in hosted
 CI; local proofs and audit results are recorded separately.
 
 *Authorship note: this was researched and written by an AI coding agent

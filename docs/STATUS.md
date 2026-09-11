@@ -569,6 +569,30 @@ passed. The frozen staged archive has 1,434 matching Lean files, all 1,427
 project modules reachable from the audit umbrellas, and all 87 model pins
 verified. No whole-system root is declared closed.
 
+Configured Sv39 execution and cycle ownership (2026-09-11): the exact static
+map now has native claim allocation and total lookup proofs (79 declarations).
+The regime shell owns all fifty common registers and the separately folded
+Bare/KPT translation resource (149 declarations). The concrete Sv39 witness
+executes all fourteen generated cycles with complete register/state equalities,
+three complete page-table pages, correct CPU result and a positive actual
+twelve-thread pool derivation (222 declarations). Native barrier publication
+now converts the supplied private table at the actual event and installs its
+shared invariant in the continuation (57 declarations). Each component passed
+independent full-file review and a fresh full dependency audit, with the
+standard three axioms only and zero exclusions. See the four corresponding
+peer reviews in docs/reviews. The witness is configured execution; boot
+reachability, native entry-resource allocation, full translated function
+composition and all six whole-xv6 roots remain open.
+
+Validation for the configured-Sv39/shell/publication batch: the full build
+passed 1,685 jobs. The frozen archive contains 1,459 byte-matched Lean files;
+all 1,452 project modules are reachable and all 87 generated model modules
+and pins pass checks. The global audit checked 39,528 logical declarations,
+including 18,921 theorems, with the unchanged 60 reviewed runtime companions
+and empty whole-system root manifest. All twelve compiled audit fixtures
+passed. These checks establish the stated component results, not whole-xv6
+closure.
+
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is
 posted from this account.*

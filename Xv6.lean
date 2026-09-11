@@ -64,3 +64,7 @@ import Xv6.Kernel.KernelDatumWordLink
 import Xv6.Kernel.KernelStackLink
 import Xv6.Kernel.KptMemoryLink
 import Xv6.Kernel.KernelTextDatumLink
+import Xv6.Kernel.KernelMapStaticLink
+import Xv6.Kernel.MycpuRegimeShellLink
+import Xv6.Kernel.MycpuKptWitnessProofs
+import Xv6.Kernel.KptPublishBarrierLink

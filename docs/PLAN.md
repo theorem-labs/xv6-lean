@@ -240,6 +240,17 @@ restoration, including both nesting-depth branches. A later milestone must
 handle initially enabled execution and migration. Native boot map/text/PMA
 allocation remains separate from full source-entry boot inhabitation.
 
+The normalized push_off bodies and both source-packet fetch arms are now
+native and independently reviewed. Compose actual interrupt dispatch,
+fetch, all24 decoders, landing/Zca/nextPC preparation, the exactly-one
+ExecuteAs selector, bodies, retirement, clocks and restart. The stack-frame
+adapter must carve four real words and retain at least two for nested
+mycpu calls; the per-CPU adapter must consume actual updated noff/intena
+words before restoring depth+1 ownership. Neither ghost reindexing nor
+resource closing substitutes for a machine store. Initially enabled
+execution/migration and complete boot/source-entry establishment remain
+subsequent obligations before the whole-system roots can close.
+
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is
 posted from this account.*

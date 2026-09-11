@@ -775,6 +775,36 @@ Complete disabled push_off, enabled/migrating execution, full source-entry
 boot inhabitation, physical KPT construction and all six whole-system roots
 remain open. No whole-system root is added by this batch.
 
+Native push_off body and fetch components (2026-09-11):
+all ten scalar bodies, the actual disabled CSR body, all six stack-save/
+restore bodies and all four noff/intena word bodies are native. Four-byte
+memory now passes through actual effective-address, Bare/Sv39 translation,
+PMA/PMP and data events. Word resources close from actual returned bytes;
+ghost count reindexing is not a physical store. Both stack and per-CPU
+body adapters preserve the original tier and actual regime, with exact
+reservation/guard/read-receipt behavior.
+
+The actual sstatus legalizer preserves saved SPELP/MPELP bits and returns
+unchanged MS under disabled source facts; the CSR instruction still performs
+its real MS write and post-read and returns old status in a5. Its production
+proofs are kernel checked. Seven executable smoke checks passed separately;
+abandoned expensive raw/cbv fixture attempts are not successful certificates.
+Generic Bare fetch now covers compressed/base classifications, and the
+RegimeFetch native rule connects both actual regimes to the exact common50
+source-share packet. All eight component groups passed independent full
+Codex reviews, strict physical/private/type/opaque/constructor audits and
+zero new exclusions. The complete 2,001-job build passed. The global audit
+checked 44,517 logical declarations including 21,880 theorems, retaining
+60 existing runtime companions and zero closed whole-system roots. All
+twelve compiled audit fixtures passed. The staged import and model checks
+verify module reachability and all 87 model pins.
+
+The complete post-fetch prefix, complete cycles and source-function frame/
+CPU-count composition are next. Complete disabled push_off, initially
+enabled/migrating execution, source-entry boot inhabitation, physical KPT
+construction and all six whole-system roots remain open. These new modules
+are outside the Fable round12 snapshot; they have separate Codex reviews.
+
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is
 posted from this account.*

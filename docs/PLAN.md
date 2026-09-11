@@ -196,8 +196,11 @@ the final paper-image theorem use the same machine semantics. See [exact theorem
   fetch/memory/register body adapters are now proved and independently reviewed.
   The exact hardware, translation slot, sconf and disabled source capability
   resources are also proved. Fixed-anchor all-fourteen-body composition, actual
-  complete cycles and source-capability adapters are next; general PMA-to-boot
-  execution specialization and boot establishment remain explicit obligations. The full Bare mycpu function has
+  complete cycles, source-capability adapters and exact kernel-text window
+  production are now native and independently reviewed. Full function phase
+  composition and source wrappers, JAL callers and actual boot text carving
+  are next. General PMA-to-boot execution specialization and boot establishment
+  remain explicit obligations. The full Bare mycpu function has
   passed peer and Fable review; its concrete operational witness is proved
   and peer/Fable reviewed; the narrow Bare operational gate is closed.
   Boot reachability and native Iris entry-resource allocation remain open.

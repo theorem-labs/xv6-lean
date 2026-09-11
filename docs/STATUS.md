@@ -621,6 +621,32 @@ and empty whole-system root manifest. All twelve compiled audit fixtures
 passed. These checks establish the stated component results; full function
 composition and all six whole-xv6 roots remain open.
 
+Native shared-Sv39 cycle and source entry composition (2026-09-11):
+all fourteen decoded bodies preserve one fixed virtual save area. The actual
+indexed cycle now internally composes dispatch, shared fetch, owned decoding,
+execution, retirement, clocks and restart, preserving every branch guard and
+receipt. The exact source disabled capability opens to the fifty-cell shell;
+its full-tier entry adapter extracts arbitrary scratch words and restores the
+full source stack/capability after SP restoration. Boot-PMA specialization
+remains an explicit same-hart owned register resource.
+
+KernelTextImage proves the exact sparse23,748-byte source text assertion,
+its finite separating-conjunction equivalence, attachment of actual static RX
+claims to existing physical/pristine bytes, and all fourteen native mycpu
+fetch windows. The final aligned return includes its two successor bytes.
+All five component families passed complete independent review and fresh
+physical/type/opaque/constructor audits, with standard axioms only and zero
+new exclusions. Full fourteen-cycle function/result and source wrappers,
+JAL callers, boot text extraction and whole-system closure remain open.
+
+Validation for the shared-cycle/source-entry/text batch: full build1,767
+jobs passes. The frozen archive contains1,541 byte-matched Lean files;
+all1,534 project modules are reachable and all87 generated model modules
+and pins pass checks. The global audit checks41,160 logical declarations,
+including19,870 theorems, with unchanged60 reviewed runtime companions and
+empty whole-system root manifest. All twelve compiled audit fixtures pass.
+Full-function/source-wrapper composition and whole-system roots remain open.
+
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is
 posted from this account.*

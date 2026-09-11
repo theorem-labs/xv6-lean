@@ -1,13 +1,17 @@
-# Source text for the two push_off mycpu calls
+# Source text for all three push_off mycpu calls
 
-The five `PushOffMycpuCalls` modules prove the exact two source call-site
+The five `PushOffMycpuCalls` modules prove the exact three source call-site
 encodings, target/alignment geometry and native instruction-resource
 production. This is a resource theorem with no execution WP dependency.
 
 `CodePushOff.v:74–76` specifies the call at push_off+0x10 as JAL x1 with
 immediate3370 and encoding0x52b000ef. Lines86–88 specify push_off+0x18,
 immediate3362 and encoding0x523000ef. Imported symbols place push_off at
-0x80000b80 and mycpu at0x800018ba. The pure target theorem checks both
+0x80000b80 and mycpu at0x800018ba. The third site at +0x2c (CodePushOff.v:122–124) uses immediate3342
+and encoding0x50f000ef. It is called by the zero-depth branch in
+ProofPushOff.v:810–816. The prior Fin2 producer deliberately covered only
++0x10/+0x18; the Fin3 extension preserves these two entries unchanged.
+The pure target theorem checks all three
 actual sign-extended JAL additions, and the encoder theorem checks the
 actual JAL bit layout. The byte theorem checks all four Nat-indexed source
 map lookups at each site, against the encoded word's little-endian bytes.
@@ -42,8 +46,9 @@ Validation: final native build passed1,134 jobs; strict fresh audit checked
 all34 physical declarations across five modules, including full type,
 opaque-body and constructor cones. Only the standard three foundational
 axioms occur, with no unsafe/partial dependencies and zero exclusions.
-Audit script/log: `PushOffMycpuCallsAudit.lean` and
-`push-off-mycpu-calls-audit.log` in the same research directory.
+The Fin3 extension also builds1,134 jobs and is independently audited by
+`PushOffMycpuCallsFin3OwnerAudit.lean` with log
+`push-off-mycpu-calls-fin3-audit.log` in the same research directory.
 
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is

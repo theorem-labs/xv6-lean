@@ -11,7 +11,7 @@ structure PureSpec : Prop where
     KernelTextImage.sourceMap (address site + (j : Int)) = some b ∧
       KernelTextImage.value b = nthByte (PushOffMycpuCalls.encoding site) j
 
-/-- Actual source text supplies both push_off JAL-x1 sites. No default byte,
+/-- Actual source text supplies all three push_off JAL-x1 sites. No default byte,
 assumed decoder success or caller code-resource premise is introduced. -/
 structure Spec {GF : BundledGFunctors} (capacity : Capacity GF) : Prop where
   code : ∀ era tier site,

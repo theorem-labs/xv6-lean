@@ -698,7 +698,7 @@ retirement, clocks and restart. Code alignment and an even target derive
 immediate encodability; signed offsets and halfword/page-crossing PCs are
 covered. The source KPT branch preserves either original tier and arbitrary
 stack depth. The full-tier JAL-plus-mycpu caller restores the exact source
-capability at PC+4 and its saved-register/entry-TP result. Both actual
+capability at PC+4 and its saved-register/entry-TP result. The first two
 push_off JAL sites now obtain their instruction resources from kernel text.
 
 CpuOwn supplies the exact disabled per-CPU virtual/context fields, held-lock
@@ -715,6 +715,35 @@ project modules; 42,139 audited logical declarations including 20,426
 theorems; 60 existing runtime companions, zero closed whole-system roots,
 all 87 generated model pins verified, and all twelve negative/positive
 audit fixtures passed.
+
+Native boot PMA and four-byte memory components (2026-09-11):
+the actual map/text allocator now exports each hart's PMA once and retains
+its exact other 179 registers and all sparse-text boot clients. The opened
+KPT mycpu caller preserves either original source tier through fifteen
+cycles. PushOffCode covers all 24 instructions and their exact 60-byte
+fetch footprint, and the call producer now covers all three mycpu sites.
+Its decoded/normalized AST inventory is not yet a decoder certificate.
+
+KernelDatumWord4 connects actual four-byte virtual claims with physical
+context ownership and a funded replacement wand. Native physical read/store
+rules preserve exact data permissions and event behavior. The width-generic
+context store and write adapter construct actual heap/TSO updates for
+n <= 2^64, retaining blocked retries, one authored message, unchanged CPU
+views and own reservation clearing. All ten families pass independent
+reviews and strict full physical/type/opaque/constructor audits, with no
+new exclusions or whole-system roots.
+
+Validation for this batch: the complete 1,887-job build passed; the audit
+checked 42,596 logical declarations including 20,667 theorems, retaining
+60 existing runtime companions and zero closed whole-system roots. There
+are 1,654 reachable project modules. All twelve compiled regression
+fixtures and all 87 staged model pins pass; the staged import audit also
+confirms complete module reachability.
+
+The complete disabled push_off function, its CSR and virtual data execution
+bridges, unopened Bare/KPT caller native linkage, full source-entry boot
+inhabitation, physical KPT construction, and all six whole-system roots
+remain open at this publication boundary.
 
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is

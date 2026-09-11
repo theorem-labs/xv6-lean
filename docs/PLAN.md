@@ -222,6 +222,16 @@ the final paper-image theorem use the same machine semantics. See [exact theorem
   references and notices; do not invent an upstream license or claim ownership of
   its artifact. Record provenance separately from proof completeness.
 
+The next source-function milestone is complete disabled push_off. Its exact
+24-instruction/60-byte fetch inventory and all three mycpu call sites are
+now available; actual decoder certificates are the next code obligation.
+Four-byte physical read/store and generic ordinary byte-window write WPs
+are implemented. Connect them through actual effective-address/privilege,
+Sv39/Bare translation, LOAD/STORE and source capability restoration, then
+compose noff/intena updates and the CSR-off instruction with both depth
+branches. The actual boot map/text/PMA allocator is implemented; full
+supervisor configuration and source-entry inhabitation remain separate.
+
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is
 posted from this account.*

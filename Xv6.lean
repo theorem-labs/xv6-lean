@@ -32,3 +32,5 @@ import Xv6.Kernel.MycpuCycleEntryLink
 import Xv6.Kernel.MycpuCycleLink
 import Xv6.Kernel.KptLeafLink
 import Xv6.Fs.FsBootImage
+import Xv6.Kernel.Sv39WalkLink
+import Xv6.Kernel.MycpuBareResultProofs

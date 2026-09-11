@@ -380,6 +380,35 @@ Checkpoints `a76fb8a`, `a047a09` and `495569d` passed hosted CI:
 and [PTE/region prerequisites](https://github.com/theorem-labs/xv6-lean/actions/runs/34591553434).
 All six whole-xv6 roots remain open.
 
+The full fourteen-cycle Bare mycpu CPS now derives every intermediate
+configuration from one supervisor entry condition, preserves39 register cells
+and performs both real stack saves/reloads. It accepts arbitrary actual clock
+successors and returns the proved PC/RA/SP/S0/A0 and all native resources.
+Independent peer review and Fable's seventh review found no soundness blocker.
+Fable requested a concrete operational execution witness before the Bare gate
+closes; it is in progress. The separate pure reference_result check is proved.
+Supervisor entry resource inhabitation remains an actual boot-path obligation.
+
+The direct-slot Sv39 walk now composes three actual ordinary PTE reads and
+37 actual register reads, deriving the read leaf's A/D variant and returning
+all three slots, view receipts, four cells and the original reservation.
+Shared KPT requires the source's more general raw upper PTEs with G/RSW;
+that tree and its event-local invariant access are subsequent work.
+
+Native FsCfgSnap preparation now loans/clones from the supplied durable
+resource, reads that instance's own state, derives recovery/header/geometry
+facts, and allocates and routes the same fresh link/top names with current-disk
+boot clients. It retains original Pfs/snapshot, full Era interpretation, other
+clients and exact byte remainder. Complete configuration kits remain open.
+
+SupervisorBits adds the exact native one-bit camera at44, preserving0–43.
+It ties SIE/SPP/SPIE fragments to the actual full mstatus cell, retains every
+eighth/quarter/half under fresh attachment and derives off/count agreement.
+Ghost updates are not CSR execution or handler installation. HartTp and a
+nonduplicating function adapter remain separate. All four new prefixes passed
+independent source and full physical/type/opaque/constructor audits. All six
+whole-xv6 roots remain open.
+
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is
 posted from this account.*

@@ -179,15 +179,20 @@ the final paper-image theorem use the same machine semantics. See [exact theorem
 - Native direct physical PTE reads and conditional writes now preserve the
   actual generated prefixes, pinned byte families, reservations and all event
   branches. Kernel leaf validation and the complete
-  direct-slot A/D update now compose natively. Shared KPT access and the complete
-  hardware walk are next. The native full Bare mycpu function has passed peer
-  review and is under Fable review before publication.
+  direct-slot A/D update now compose natively. The actual direct-slot three-level walk is proved.
+  Shared KPT access and TLB integration are next. The full Bare mycpu function
+  has passed peer and Fable review; its concrete operational witness is in
+  progress before the Bare integration gate can close.
 - The native logged-byte mint and exact pure filesystem recovery algebra are
   proved. Current physical disk carving and recovered boot installation now preserve
   the actual era and every other client. Native crash history, generation-bound
   log-mirror custody and durable-resource readback now supply the recovery facts.
-  Next route the native snapshot into source configuration resources, then
-  discharge physical extent agreement and crash preservation.
+  Native snapshot readback now routes into the source region link/top and
+  byte-bootstrap resources, retaining Pfs and the actual era. Complete
+  configuration kits, physical extent agreement and crash preservation remain.
+- Native SIE/SPP/SPIE ownership at slot44 now implements the exact mstatus
+  tie and fractional bit rules. HartTp is being connected to actual GPR
+  ownership; full handler/tier capabilities and migration remain subsequent.
 - The upstream xv6iris snapshot has no repository license file. Preserve source
   references and notices; do not invent an upstream license or claim ownership of
   its artifact. Record provenance separately from proof completeness.

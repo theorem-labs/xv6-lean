@@ -120,3 +120,5 @@ import MachCSL.Logic.FsBootBytesLink
 import MachCSL.Logic.FsBootRecoveryLink
 import MachCSL.Logic.FsCrashLink
 import MachCSL.Logic.SupervisorPteADLink
+import MachCSL.Logic.FsCfgSnapLink
+import MachCSL.Logic.SupervisorBitsLink

@@ -83,6 +83,20 @@
         "claude-fable-5-1"
       ],
       "artifact": "fable-spinlock-gate.md"
+    },
+    {
+      "round": "mycpu-bare-function",
+      "session_id": "5c78471b-01db-44d2-bebb-214da861bced",
+      "is_error": false,
+      "subtype": "success",
+      "duration_ms": 1177085,
+      "tools": "disabled",
+      "same_session_as": "two-hart-spinlock",
+      "model_usage_keys": [
+        "claude-fable-5-1"
+      ],
+      "artifact": "fable-mycpu-bare.md",
+      "input_manifest": "fable-mycpu-bare-inputs.json"
     }
   ]
 }

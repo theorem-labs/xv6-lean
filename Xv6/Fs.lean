@@ -9,3 +9,6 @@ import Xv6.Fs.DirectoryProofs
 import Xv6.Fs.ValidityImage
 import Xv6.Fs.DurableLinksImage
 import Xv6.Fs.DurableInodeImage
+import Xv6.Fs.DurableBlocksImage
+import Xv6.Fs.TreeDiskImage
+import Xv6.Fs.UserFilesImage

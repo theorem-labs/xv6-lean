@@ -7,7 +7,7 @@ whole-system safety or filesystem crash consistency.
 |---|---|---|
 | Full paper reading | Complete (47 pages) | Codex coordinator and audit agents |
 | Baseline audit | Paper tag identified | Exact pins and image hashes recorded |
-| Independent design reviews | Both complete: approve with required changes | Claude Code, Fable 5.1, max effort; see reviews/fable-disposition.md |
+| Independent design reviews | Initial plan and revised plan complete; focused JAL review also complete | Claude Code, Fable 5.1, max effort; see reviews/fable-disposition.md and reviews/fable-jal-loop.md |
 | Reproducible repository/tooling | Implemented; initial GitHub CI passed | Build, imports, image decoding and source regeneration pass |
 | Native Iris build and integration | Complete initial integration | Generic adequacy axiom audit passed |
 | Production TSO memory port | Core, byte read/write and finite-map/reservation bridges proved | See MachCSL/Memory/STATUS.md for missing layers |
@@ -16,9 +16,9 @@ whole-system safety or filesystem crash consistency.
 | Full generated Lean RISC-V model | Compiled; six execution/reset entry cones audited; real fetched JAL execution proved | Two explicit reservation predicates; full semantic correspondence pending |
 | Machine/device/power language | Concrete language implemented, including Virtio DMA and power | Boot execution and arbitrary-schedule memory/reservation/trace invariants proved; ownership in progress |
 | TSO ownership | Native byte/timestamp, log, view, dirty-set and full heap metadata resources proved and reviewed | Coherent seven-conjunct era boot allocation proved; hardware ownership lifting pending |
-| Register, device and disk ownership | Global dependent registers, device halves, reservations and complete disk-image laws proved | Native register and plain RAM-read WPs, reset-disk WP and device update bridges proved; other hardware WPs pending |
-| Filesystem image readers | Complete initial fsimg_wf (W1–W9), durable inode and separate link checks proved | Actual complete disk readers certified; durable used sets, tree/resource initialization next |
-| MachCSL adequacy and first closed slice | Actual power-on/fetched schedule; native invariant and full machine resource allocation proved | Repeated symbolic JAL, hardware lifting, initial WPs and adequacy pending |
+| Register, device and disk ownership | Global dependent registers, device halves, reservations and complete disk-image laws proved | Native register, plain RAM-read and UART worker WPs, reset-disk WP and event-plan fold proved; PLIC and remaining hardware WPs pending |
+| Filesystem image readers | Complete initial fsimg_wf (W1–W9), durable inode and separate link checks proved | Durable used sets, tree projection and four full user ELF file contents proved; resource initialization next |
+| MachCSL adequacy and first closed slice | Actual power-on/fetched schedule; native invariant and full machine resource allocation proved | Repeated symbolic JAL traces and universal reset facts proved; all-successor cycle WPs, boot handler and adequacy pending |
 | Kernel function proof port | Not started | Requires stable abstractions |
 | Concrete input images and ELF parsing | Full hex/packed certificates, ELF loading, independent dumped-map and boot-image equality proved | Initial FS checker proved; Iris FS resource initialization remains open |
 | Whole-system theorem closure | Not started | Requires all dependencies |
@@ -55,6 +55,8 @@ files. These are structural and component proofs, not closed whole-system roots.
 The concrete-machine/initial-ownership checkpoint `41eb69c` [passed GitHub CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34543983862).
 
 The whole-image correspondence checkpoint `2047134` [passed GitHub CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34546951658).
+
+The native allocation checkpoint `e955086` [passed GitHub CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34549355945).
 
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is

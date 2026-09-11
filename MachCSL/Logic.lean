@@ -19,3 +19,8 @@ import MachCSL.Logic.TsoReadLink
 import MachCSL.Logic.MemoryReadWPLink
 import MachCSL.Logic.ResetDiskWPLink
 import MachCSL.Logic.EraDevicesLink
+import MachCSL.Logic.ObservationInvariantLink
+import MachCSL.Logic.UartGhostLink
+import MachCSL.Logic.PowerWPLink
+import MachCSL.Logic.UartWPLink
+import MachCSL.Logic.EventWPLink

@@ -16,6 +16,31 @@
       "permission_mode": "dontAsk",
       "is_error": false,
       "artifact": "fable-revised.md"
+    },
+    {
+      "round": "symbolic-jal-clock",
+      "session_id": "ec4fe016-29ad-484f-94a5-63ecea136874",
+      "permission_mode": "dontAsk",
+      "initial_attempt": {
+        "is_error": true,
+        "subtype": "error_during_execution",
+        "reason": "interrupted after extended read-only investigation",
+        "model_usage_keys": [
+          "claude-haiku-4-5-20251001",
+          "claude-fable-5-1"
+        ]
+      },
+      "final_attempt": {
+        "is_error": false,
+        "subtype": "success",
+        "duration_ms": 110552,
+        "tools": "disabled",
+        "same_session": true,
+        "model_usage_keys": [
+          "claude-fable-5-1"
+        ]
+      },
+      "artifact": "fable-jal-loop.md"
     }
   ]
 }

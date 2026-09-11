@@ -62,3 +62,5 @@ import Xv6.Kernel.KptPublishLink
 import Xv6.Kernel.KernelDatumLink
 import Xv6.Kernel.KernelDatumWordLink
 import Xv6.Kernel.KernelStackLink
+import Xv6.Kernel.KptMemoryLink
+import Xv6.Kernel.KernelTextDatumLink

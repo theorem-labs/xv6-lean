@@ -547,6 +547,28 @@ fixtures passed. The frozen staged archive has 1,415 matching Lean files,
 all 1,408 project modules reachable from the audit umbrellas, and all 87
 model pins verified. The whole-system root manifest remains empty.
 
+The native data/text/timer integration now supplies actual translated
+ordinary eight-byte loads and stores from source virtual words, pristine RX
+text windows including cross-page instruction splits, and the source per-hart
+timer capability. All three prefixes passed complete independent source and
+full dependency reviews. Actual generated data faults remain in the raw
+program factors; successful access is derived internally from owned resources.
+
+Fable round ten reviewed the missing-source supplement and reaffirmed the
+conditional translation/publication PASS. The eight missing source files and
+four correspondence checks are now covered. Boot resource inhabitation,
+publication/SATP execution and all six whole-system roots remain open.
+
+[GitHub CI for commit ea1ef771 passed](https://github.com/theorem-labs/xv6-lean/actions/runs/34607865045).
+The 4dd9a39 and c45baf7 proof-audit runs were still in progress at this check.
+
+The reviewed data/text/timer integration passed 1,660 build jobs and the
+full audit of 39,025 logical declarations, including 18,648 theorems and
+60 reviewed compiler-only companions. All twelve compiled audit fixtures
+passed. The frozen staged archive has 1,434 matching Lean files, all 1,427
+project modules reachable from the audit umbrellas, and all 87 model pins
+verified. No whole-system root is declared closed.
+
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is
 posted from this account.*

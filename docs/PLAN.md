@@ -188,8 +188,10 @@ the final paper-image theorem use the same machine semantics. See [exact theorem
   publication from already-owned private page tables are now native and
   independently reviewed. Fable round nine approved their conditional rules
   with no soundness blocker. Virtual RW words and scratch stacks are also
-  proved. Translated data/fetch execution, regime-parametric cycles and
-  boot establishment remain next. The full Bare mycpu function has
+  proved. Translated data execution and pristine text resources are now proved and
+  independently reviewed. Fable round ten closed the missing-source review
+  gaps. Actual fetch, regime-parametric cycles, configured Sv39 execution
+  and boot establishment are next. The full Bare mycpu function has
   passed peer and Fable review; its concrete operational witness is proved
   and peer/Fable reviewed; the narrow Bare operational gate is closed.
   Boot reachability and native Iris entry-resource allocation remain open.

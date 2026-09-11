@@ -8,3 +8,4 @@ import MachCSL.Sail.Model
 import MachCSL.Devices
 import MachCSL.Machine
 import MachCSL.Logic.ContextPinMintLink
+import MachCSL.Logic.TimerCapLink

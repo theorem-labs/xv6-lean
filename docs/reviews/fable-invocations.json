@@ -157,6 +157,52 @@
       "input_manifest": "fable-kpt-inputs.json",
       "invocation_record": "fable-kpt-invocation.json",
       "read_coverage": "fable-kpt-read-coverage.json"
+    },
+    {
+      "round": "shared-kpt-missing-source-supplement",
+      "session_id": "fb1e3441-498b-4dce-9a1f-f995702ec55a",
+      "command": [
+        "/home/jason/.local/bin/claude",
+        "-p",
+        "--session-id",
+        "fb1e3441-498b-4dce-9a1f-f995702ec55a",
+        "--model",
+        "claude-fable-5-1",
+        "--effort",
+        "max",
+        "--tools",
+        "Read,Glob,Grep",
+        "--allowedTools",
+        "Read,Glob,Grep",
+        "--permission-mode",
+        "dontAsk",
+        "--strict-mcp-config",
+        "--add-dir",
+        "/tmp/xv6-lean-research/fable-kpt-round9",
+        "--add-dir",
+        "/tmp/xv6-lean-research/fable-kpt-round9-supplement",
+        "--output-format",
+        "json"
+      ],
+      "prompt_sha256": "1c8d14223b21968564376d45497602cea69b685020e52eee7d48b236e3f8a822",
+      "prompt_bytes": 528865,
+      "is_error": false,
+      "subtype": "success",
+      "duration_ms": 634513,
+      "num_turns": 73,
+      "model_usage_keys": [
+        "claude-fable-5-1"
+      ],
+      "subagents_spawned": 0,
+      "tools": [
+        "Read",
+        "Glob",
+        "Grep"
+      ],
+      "artifact": "fable-kpt-supplement-review.md",
+      "input_manifest": "fable-kpt-supplement-inputs.json",
+      "invocation_record": "fable-kpt-supplement-invocation.json",
+      "read_coverage": "fable-kpt-supplement-read-coverage.json"
     }
   ]
 }

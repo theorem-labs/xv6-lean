@@ -72,6 +72,11 @@ whole-system theorem roots remain open. The suggested small inhabitation
 exercise is future work and must satisfy the actual tree and ownership
 contracts; no witness is inferred from this review.
 
+Subsequent evidence: Fable round ten has now reviewed that immutable
+supplement and reaffirmed the conditional PASS. All eight missing-source
+inspection gaps are closed; see fable-kpt-supplement-review.md and its
+separate disposition. The paragraphs above describe the round-nine handoff.
+
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is
 posted from this account.*

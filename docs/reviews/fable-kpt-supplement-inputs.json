@@ -1,0 +1,333 @@
+{
+  "schema": "fable-kpt-supplement-v1",
+  "authorship_note": "Authorship note: this was researched and written by an AI coding agent (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is posted from this account.",
+  "created_utc": "2026-09-11T15:28:47.049759+00:00",
+  "original_session": "9b755390-8813-46c0-806f-130f997da955",
+  "original_primary_sha256": "45a7b465591de508b40168db0070a9457f4ef4e25d0aea1de60b9993232f4511",
+  "source_pin": "fa7f0a01c4b40489fac8ad303f079c2dfc7a1476",
+  "files": [
+    {
+      "path": ".upstream/xv6iris/iris/CtxValues.v",
+      "original_path": "/data/jason/xv6-lean/.upstream/xv6iris/iris/CtxValues.v",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/.upstream/xv6iris/iris/CtxValues.v",
+      "sha256": "8279815f42ad21f14c332000b57e07a80836c86c3c5f1cca0315ce7a1df2561a",
+      "bytes": 23097,
+      "role": "missing-source-named-by-Fable9",
+      "extent": "complete-file"
+    },
+    {
+      "path": ".upstream/xv6iris/iris/KptTree.v",
+      "original_path": "/data/jason/xv6-lean/.upstream/xv6iris/iris/KptTree.v",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/.upstream/xv6iris/iris/KptTree.v",
+      "sha256": "15b3095abfeb93068c5868412e1824846b49d419602a64d6c1f56a76d054c052",
+      "bytes": 74530,
+      "role": "missing-source-named-by-Fable9",
+      "extent": "complete-file"
+    },
+    {
+      "path": ".upstream/xv6iris/iris/KMap.v",
+      "original_path": "/data/jason/xv6-lean/.upstream/xv6iris/iris/KMap.v",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/.upstream/xv6iris/iris/KMap.v",
+      "sha256": "4bf47aafdad0ae58d5bbdea27ce0f182e34dc807a090f05ea0f2219957499e5e",
+      "bytes": 12001,
+      "role": "missing-source-named-by-Fable9",
+      "extent": "complete-file"
+    },
+    {
+      "path": ".upstream/xv6iris/iris/PtAdBits.v",
+      "original_path": "/data/jason/xv6-lean/.upstream/xv6iris/iris/PtAdBits.v",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/.upstream/xv6iris/iris/PtAdBits.v",
+      "sha256": "c227fa93ebb75b428b91115cc3d6e26356975206ebfe2558cec19f12b4b031a2",
+      "bytes": 25340,
+      "role": "missing-source-named-by-Fable9",
+      "extent": "complete-file"
+    },
+    {
+      "path": ".upstream/xv6iris/iris/CommonWalk.v",
+      "original_path": "/data/jason/xv6-lean/.upstream/xv6iris/iris/CommonWalk.v",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/.upstream/xv6iris/iris/CommonWalk.v",
+      "sha256": "168e90993c6bd5a23432730eda592f167925e3927e1dd58fc8d1e5342827a1b7",
+      "bytes": 89766,
+      "role": "missing-source-named-by-Fable9",
+      "extent": "complete-file"
+    },
+    {
+      "path": ".upstream/xv6iris/iris/PtreeType.v",
+      "original_path": "/data/jason/xv6-lean/.upstream/xv6iris/iris/PtreeType.v",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/.upstream/xv6iris/iris/PtreeType.v",
+      "sha256": "6f79fdbe9fa65ab0bd376e6d9c25bf47281046657ea8554cb10d78e7db42d3ba",
+      "bytes": 1481,
+      "role": "missing-source-named-by-Fable9",
+      "extent": "complete-file"
+    },
+    {
+      "path": ".upstream/xv6iris/iris/HartBarrier.v",
+      "original_path": "/data/jason/xv6-lean/.upstream/xv6iris/iris/HartBarrier.v",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/.upstream/xv6iris/iris/HartBarrier.v",
+      "sha256": "71ce53568976e4ae6e41de6e326398d46d71ad74c5079111b9ad90eba0c4cb3b",
+      "bytes": 15444,
+      "role": "missing-source-named-by-Fable9",
+      "extent": "complete-file"
+    },
+    {
+      "path": ".upstream/xv6iris/iris/SRegime.v",
+      "original_path": "/data/jason/xv6-lean/.upstream/xv6iris/iris/SRegime.v",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/.upstream/xv6iris/iris/SRegime.v",
+      "sha256": "5615d36263f25dc57ced03723ddee923b99a1340f5b21a99ba56fe1e4b800c7f",
+      "bytes": 102535,
+      "role": "missing-source-named-by-Fable9",
+      "extent": "complete-file"
+    },
+    {
+      "path": ".upstream/xv6iris/iris/HartSKpt.v",
+      "original_path": "/tmp/xv6-lean-research/fable-kpt-round9/fable-kpt-snapshot/.upstream/xv6iris/iris/HartSKpt.v",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/.upstream/xv6iris/iris/HartSKpt.v",
+      "sha256": "aeb78d6f95ce0325dfb6e31f57ca8bc5e03bc7ae767d6a0fe03c3d234f93d60b",
+      "bytes": 71478,
+      "role": "source-regime-clarification-already-supplied-in-round9",
+      "extent": "complete-file"
+    },
+    {
+      "path": "docs/design/context-pin-mint-boundary.md",
+      "original_path": "/data/jason/xv6-lean/docs/design/context-pin-mint-boundary.md",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/docs/design/context-pin-mint-boundary.md",
+      "sha256": "a38ca2001320710ac0471910660b24e8222c404368fcce3b1197d1e348ba3258",
+      "bytes": 6399,
+      "role": "seven-integration-designs-requested-by-coordinator",
+      "extent": "complete-file"
+    },
+    {
+      "path": "docs/design/sv39-address-boundary.md",
+      "original_path": "/data/jason/xv6-lean/docs/design/sv39-address-boundary.md",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/docs/design/sv39-address-boundary.md",
+      "sha256": "811f4a47df4071b74a3a63a03158bf704c889c136cbfc578ed42e8b564158f27",
+      "bytes": 5513,
+      "role": "seven-integration-designs-requested-by-coordinator",
+      "extent": "complete-file"
+    },
+    {
+      "path": "docs/design/kpt-address-boundary.md",
+      "original_path": "/data/jason/xv6-lean/docs/design/kpt-address-boundary.md",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/docs/design/kpt-address-boundary.md",
+      "sha256": "98a60aa326b3dd6eb2df4aa144be2b604a6e653ea62221696192f52966e7f913",
+      "bytes": 5522,
+      "role": "seven-integration-designs-requested-by-coordinator",
+      "extent": "complete-file"
+    },
+    {
+      "path": "docs/design/kpt-publish-boundary.md",
+      "original_path": "/data/jason/xv6-lean/docs/design/kpt-publish-boundary.md",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/docs/design/kpt-publish-boundary.md",
+      "sha256": "2156564b02a343cfbe4ba0661201d1b54458cb86ebd13cfa3c48b5b75c26a966",
+      "bytes": 8042,
+      "role": "seven-integration-designs-requested-by-coordinator",
+      "extent": "complete-file"
+    },
+    {
+      "path": "docs/design/kernel-datum-boundary.md",
+      "original_path": "/data/jason/xv6-lean/docs/design/kernel-datum-boundary.md",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/docs/design/kernel-datum-boundary.md",
+      "sha256": "e91532b68451bbd52336a1f6e575d4c9e29481c15abece0daca76d0bd7fdea40",
+      "bytes": 2488,
+      "role": "seven-integration-designs-requested-by-coordinator",
+      "extent": "complete-file"
+    },
+    {
+      "path": "docs/design/kernel-datum-word-boundary.md",
+      "original_path": "/data/jason/xv6-lean/docs/design/kernel-datum-word-boundary.md",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/docs/design/kernel-datum-word-boundary.md",
+      "sha256": "2cca918559bb37eaf63048b3f41e6b975cff4ce5c3b6064b953a52bc775b0da9",
+      "bytes": 1780,
+      "role": "seven-integration-designs-requested-by-coordinator",
+      "extent": "complete-file"
+    },
+    {
+      "path": "docs/design/kernel-stack-boundary.md",
+      "original_path": "/data/jason/xv6-lean/docs/design/kernel-stack-boundary.md",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/docs/design/kernel-stack-boundary.md",
+      "sha256": "6b61f4d92ef43e1a9f7468b3b6e989f597b8233ff96d37a30f76549e6df9f7c5",
+      "bytes": 1649,
+      "role": "seven-integration-designs-requested-by-coordinator",
+      "extent": "complete-file"
+    },
+    {
+      "path": "research-evidence/kpt-publish-build.log",
+      "original_path": "/tmp/xv6-lean-research/kpt-publish-build.log",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/research-evidence/kpt-publish-build.log",
+      "sha256": "83438f15e1ced5d5980eb8e64cd842167886110fd5585f263e4e495551d846d5",
+      "bytes": 1436,
+      "role": "publication-validation-evidence",
+      "extent": "complete-file"
+    },
+    {
+      "path": "research-evidence/KptPublishOwnerAudit.lean",
+      "original_path": "/tmp/xv6-lean-research/KptPublishOwnerAudit.lean",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/research-evidence/KptPublishOwnerAudit.lean",
+      "sha256": "ec1bf78822a94fdc065fd3ed68b86aea172c53c6b2bfc64bf31c092abddc7c83",
+      "bytes": 2300,
+      "role": "publication-validation-evidence",
+      "extent": "complete-file"
+    },
+    {
+      "path": "research-evidence/kpt-publish-owner-audit.log",
+      "original_path": "/tmp/xv6-lean-research/kpt-publish-owner-audit.log",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/research-evidence/kpt-publish-owner-audit.log",
+      "sha256": "5f025f06cd883989c4a2158444cbddd8757e01e705a89befad300bbf12c54a31",
+      "bytes": 285,
+      "role": "publication-validation-evidence",
+      "extent": "complete-file"
+    },
+    {
+      "path": "research-evidence/KptPublishRootAudit.lean",
+      "original_path": "/tmp/xv6-lean-research/KptPublishRootAudit.lean",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/research-evidence/KptPublishRootAudit.lean",
+      "sha256": "4d6c8f84c12b6ff1c341058f17152b0fa165909ae81b9b9ed17b555d43697c48",
+      "bytes": 1692,
+      "role": "publication-validation-evidence",
+      "extent": "complete-file"
+    },
+    {
+      "path": "research-evidence/kpt-publish-root-audit.log",
+      "original_path": "/tmp/xv6-lean-research/kpt-publish-root-audit.log",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/research-evidence/kpt-publish-root-audit.log",
+      "sha256": "e2f98546beec6fbdf14a73c7bde2790b25aa62183b15c064d99e0934de990bb0",
+      "bytes": 169,
+      "role": "publication-validation-evidence",
+      "extent": "complete-file"
+    },
+    {
+      "path": "research-evidence/KptPublishChecks.lean",
+      "original_path": "/tmp/xv6-lean-research/KptPublishChecks.lean",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/research-evidence/KptPublishChecks.lean",
+      "sha256": "de6d3a4ec1447b31b8f355695baa82d73cfd24808158008c0923d019d000c1c1",
+      "bytes": 1517,
+      "role": "publication-validation-evidence",
+      "extent": "complete-file"
+    },
+    {
+      "path": "research-evidence/kpt-publish-checks.log",
+      "original_path": "/tmp/xv6-lean-research/kpt-publish-checks.log",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/research-evidence/kpt-publish-checks.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "publication-validation-evidence",
+      "extent": "complete-file"
+    },
+    {
+      "path": "research-evidence/kpt-publish-root-reviewed.json",
+      "original_path": "/tmp/xv6-lean-research/kpt-publish-root-reviewed.json",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/research-evidence/kpt-publish-root-reviewed.json",
+      "sha256": "c63795d79315dbce56a1961b18f296b96814c86b67753f70bbc9b0a8ada66ffd",
+      "bytes": 1297,
+      "role": "publication-validation-evidence",
+      "extent": "complete-file"
+    },
+    {
+      "path": "research-evidence/fable-kpt-supplement-edge-replay.json",
+      "original_path": "/tmp/xv6-lean-research/fable-kpt-supplement-edge-replay.json",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/research-evidence/fable-kpt-supplement-edge-replay.json",
+      "sha256": "c774cf324ff32b1698c39801a4e8faac8b8dc8cb8f3fccf500e24aa1d9993758",
+      "bytes": 589,
+      "role": "publication-validation-evidence",
+      "extent": "complete-file"
+    },
+    {
+      "path": "docs/reviews/kpt-publish-peer-review.md",
+      "original_path": "/data/jason/xv6-lean/docs/reviews/kpt-publish-peer-review.md",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/docs/reviews/kpt-publish-peer-review.md",
+      "sha256": "dc71e236cd4437a6d69712fafefcfc458c49796f9992d57847a9e35fb8b8f291",
+      "bytes": 2247,
+      "role": "coordinator-reviewed-publication",
+      "extent": "complete-file"
+    },
+    {
+      "path": "research-evidence/fable-kpt-review.json",
+      "original_path": "/tmp/xv6-lean-research/fable-kpt-review.json",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/research-evidence/fable-kpt-review.json",
+      "sha256": "16f8481517b6584066bde8a215b5229c359d5bbcaddb1c7abbebdfbfb9f3bebf",
+      "bytes": 10578,
+      "role": "original-unchanged-Fable9-result",
+      "extent": "complete-file"
+    },
+    {
+      "path": "Xv6/Kernel/KptPublishDefs.lean",
+      "original_path": "/tmp/xv6-lean-research/fable-kpt-round9/fable-kpt-snapshot/Xv6/Kernel/KptPublishDefs.lean",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/Xv6/Kernel/KptPublishDefs.lean",
+      "sha256": "e2b96450056241b3c0f1a7d266579a4ab0aaff9b51596d36c79f07c90d45e36a",
+      "bytes": 2004,
+      "role": "exact-seven-original-root-reviewed-publication-files",
+      "extent": "complete-file"
+    },
+    {
+      "path": "Xv6/Kernel/KptPublishLink.lean",
+      "original_path": "/tmp/xv6-lean-research/fable-kpt-round9/fable-kpt-snapshot/Xv6/Kernel/KptPublishLink.lean",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/Xv6/Kernel/KptPublishLink.lean",
+      "sha256": "6d357fbeee54cfabd981a51e5f8877ecb1c013de622cd0f0b8b382445ad19428",
+      "bytes": 1215,
+      "role": "exact-seven-original-root-reviewed-publication-files",
+      "extent": "complete-file"
+    },
+    {
+      "path": "Xv6/Kernel/KptPublishProofs.lean",
+      "original_path": "/tmp/xv6-lean-research/fable-kpt-round9/fable-kpt-snapshot/Xv6/Kernel/KptPublishProofs.lean",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/Xv6/Kernel/KptPublishProofs.lean",
+      "sha256": "a2d2c902f87a4aa4ac58699c8acae9ecd165bb9325a6209a3073e78a60e00485",
+      "bytes": 5968,
+      "role": "exact-seven-original-root-reviewed-publication-files",
+      "extent": "complete-file"
+    },
+    {
+      "path": "Xv6/Kernel/KptPublishPureProofs.lean",
+      "original_path": "/tmp/xv6-lean-research/fable-kpt-round9/fable-kpt-snapshot/Xv6/Kernel/KptPublishPureProofs.lean",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/Xv6/Kernel/KptPublishPureProofs.lean",
+      "sha256": "1371ec10824277a78625a1141478467638e87f542024c3ad26a54c39169a8da8",
+      "bytes": 911,
+      "role": "exact-seven-original-root-reviewed-publication-files",
+      "extent": "complete-file"
+    },
+    {
+      "path": "Xv6/Kernel/KptPublishSlotProofs.lean",
+      "original_path": "/tmp/xv6-lean-research/fable-kpt-round9/fable-kpt-snapshot/Xv6/Kernel/KptPublishSlotProofs.lean",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/Xv6/Kernel/KptPublishSlotProofs.lean",
+      "sha256": "32da008c3d1ca7b30c8a8761d6b1e761898f1e84ef89b3846061a0a9a4481f33",
+      "bytes": 8256,
+      "role": "exact-seven-original-root-reviewed-publication-files",
+      "extent": "complete-file"
+    },
+    {
+      "path": "Xv6/Kernel/KptPublishSpec.lean",
+      "original_path": "/tmp/xv6-lean-research/fable-kpt-round9/fable-kpt-snapshot/Xv6/Kernel/KptPublishSpec.lean",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/Xv6/Kernel/KptPublishSpec.lean",
+      "sha256": "eef267bdf0bddca6ccd04b585d0c946920fa8649d34299e14ef08c1371333af7",
+      "bytes": 7838,
+      "role": "exact-seven-original-root-reviewed-publication-files",
+      "extent": "complete-file"
+    },
+    {
+      "path": "Xv6/Kernel/KptPublishTreeProofs.lean",
+      "original_path": "/tmp/xv6-lean-research/fable-kpt-round9/fable-kpt-snapshot/Xv6/Kernel/KptPublishTreeProofs.lean",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/Xv6/Kernel/KptPublishTreeProofs.lean",
+      "sha256": "355c48cc794de1bd62470a57ad35e7a09072d5a51a6034f848e8d23cf1c37bef",
+      "bytes": 5699,
+      "role": "exact-seven-original-root-reviewed-publication-files",
+      "extent": "complete-file"
+    },
+    {
+      "path": "research-evidence/fable-kpt-build-supplement.py",
+      "original_path": "/tmp/xv6-lean-research/fable-kpt-build-supplement.py",
+      "snapshot_path": "/tmp/xv6-lean-research/fable-kpt-round9-supplement/snapshot/research-evidence/fable-kpt-build-supplement.py",
+      "sha256": "08617ca25cd5fff06b0b5efa5f4c94fc497ea6182159cda2f6e645409210dfaa",
+      "bytes": 7060,
+      "role": "packet-construction-script",
+      "extent": "complete-file"
+    }
+  ],
+  "review_status": "Prepared only; not supplied to Claude or reviewed by Fable9.",
+  "limitations": [
+    "The seven design selection is explicit because the result did not identify its three missing designs. KptAddress design had already been supplied/read.",
+    "The six checks are local kernel lemmas (four byte-family cases, empty slots, depth-zero inert children), not allocation or execution inhabitation.",
+    "No new physical tree, era-named tokens, publication event site, or operational translated witness is included.",
+    "Original logs and audit source are unchanged coordinator/author evidence. The six-check replay has a separate exact command/exit-code receipt.",
+    "The original packet and snapshot remain untouched."
+  ]
+}

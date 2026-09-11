@@ -1,0 +1,64 @@
+{
+  "session_id": "5a663e65-8e81-416d-b2b5-c8fa0480889b",
+  "command": [
+    "/home/jason/.local/bin/claude",
+    "-p",
+    "--session-id",
+    "5a663e65-8e81-416d-b2b5-c8fa0480889b",
+    "--model",
+    "claude-fable-5-1",
+    "--effort",
+    "max",
+    "--tools",
+    "Read,Glob,Grep",
+    "--allowedTools",
+    "Read,Glob,Grep",
+    "--permission-mode",
+    "dontAsk",
+    "--strict-mcp-config",
+    "--add-dir",
+    "/tmp/xv6-lean-research/fable-source-call-round12",
+    "--output-format",
+    "json"
+  ],
+  "prompt": "/tmp/xv6-lean-research/fable-source-call-review-prompt.txt",
+  "snapshot": "/tmp/xv6-lean-research/fable-source-call-round12",
+  "primary_files": 85,
+  "packet_bytes": 379203,
+  "prompt_bytes": 382421,
+  "prompt_sha256": "5046ad9b4cd1cf36cf2fea6b8281fceaef3e78891eb4bccbbb6037565ed4b993",
+  "authorship_note": "Authorship note: this was researched and written by an AI coding agent (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is posted from this account.",
+  "completed": true,
+  "result": {
+    "path": "/tmp/xv6-lean-research/fable-source-call-review.json",
+    "sha256": "d893148aeb6b591edfa7ca5103bcf8debe1cb4c41b0312a71950eb25809725d0",
+    "bytes": 9972
+  },
+  "transcript": {
+    "path": "/data/jason/.claude/projects/-data-jason-xv6-lean/5a663e65-8e81-416d-b2b5-c8fa0480889b.jsonl",
+    "sha256": "1a4a812a8a92bd151d4ecb8019bf081d9436b667482245e70bab1c806e8fdbba",
+    "bytes": 3010268
+  },
+  "duration_ms": 1438070,
+  "num_turns": 136,
+  "model_usage_keys": [
+    "claude-haiku-4-5-20251001",
+    "claude-fable-5-1"
+  ],
+  "subagents_spawned": 0,
+  "permission_denials": [],
+  "observed_tool_calls": {
+    "tool_calls": 135,
+    "tools": {
+      "Glob": 12,
+      "Grep": 56,
+      "Read": 67
+    },
+    "read_calls": 67,
+    "successful_read_calls": 65,
+    "failed_read_calls": 2,
+    "unique_read_paths": 61,
+    "unique_successful_read_paths": 60,
+    "unique_complete_file_reads": 48
+  }
+}

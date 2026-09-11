@@ -247,6 +247,51 @@
       "input_manifest": "fable-function-boot-inputs.json",
       "invocation_record": "fable-function-boot-invocation.json",
       "read_coverage": "fable-function-boot-read-coverage.json"
+    },
+    {
+      "round": "source-dispatch-and-jal-callers",
+      "session_id": "5a663e65-8e81-416d-b2b5-c8fa0480889b",
+      "command": [
+        "/home/jason/.local/bin/claude",
+        "-p",
+        "--session-id",
+        "5a663e65-8e81-416d-b2b5-c8fa0480889b",
+        "--model",
+        "claude-fable-5-1",
+        "--effort",
+        "max",
+        "--tools",
+        "Read,Glob,Grep",
+        "--allowedTools",
+        "Read,Glob,Grep",
+        "--permission-mode",
+        "dontAsk",
+        "--strict-mcp-config",
+        "--add-dir",
+        "/tmp/xv6-lean-research/fable-source-call-round12",
+        "--output-format",
+        "json"
+      ],
+      "prompt_sha256": "5046ad9b4cd1cf36cf2fea6b8281fceaef3e78891eb4bccbbb6037565ed4b993",
+      "prompt_bytes": 382421,
+      "is_error": false,
+      "subtype": "success",
+      "duration_ms": 1438070,
+      "num_turns": 136,
+      "model_usage_keys": [
+        "claude-haiku-4-5-20251001",
+        "claude-fable-5-1"
+      ],
+      "subagents_spawned": 0,
+      "tools": [
+        "Read",
+        "Glob",
+        "Grep"
+      ],
+      "artifact": "fable-source-call-review.md",
+      "input_manifest": "fable-source-call-inputs.json",
+      "invocation_record": "fable-source-call-invocation.json",
+      "read_coverage": "fable-source-call-read-coverage.json"
     }
   ]
 }

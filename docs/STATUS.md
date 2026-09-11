@@ -745,6 +745,36 @@ bridges, unopened Bare/KPT caller native linkage, full source-entry boot
 inhabitation, physical KPT construction, and all six whole-system roots
 remain open at this publication boundary.
 
+Native unopened source JAL and decoder completion (2026-09-11):
+Bare JAL now has actual identity fetch, decoding, execution, retirement,
+clock/restart and source-capability restoration. JalSconf opens the actual
+source slot and dispatches Bare or KPT without a caller-selected regime;
+MycpuCallSconf composes it with all fourteen actual mycpu cycles, returning
+at PC+4 with saved registers and the original tier and scratch count.
+PushOffDecode certifies actual decoding of all 24 source instructions and
+compressed execution normalization. This does not yet prove their normalized
+bodies or the complete push_off function. All four families have independent
+Codex peer reviews. The complete 1,923-job build passed; the audit checked
+42,918 logical declarations including 20,820 theorems, 60 existing runtime
+companions and zero closed whole-system roots. All twelve compiled audit
+fixtures passed. The first run reached ten passes before the eleventh
+exceeded its 60-second process limit. The per-process limit is now 180
+seconds to accommodate the growing full declaration graph; every rejection
+condition is unchanged, and the complete rerun passed.
+
+Fable round 12 passed its immutable source-JAL/caller snapshot at 99f59b6,
+with no soundness blocker in that scope. Its third-call-site correction is
+already published in acb2531. The main review ran Fable 5.1 at max effort;
+all 365 visible assistant records identify that model. Tool result metadata
+also reports 29 output tokens from auxiliary Haiku 4.5 usage. The new Bare
+JAL, unopened dispatchers and decoder are outside that review snapshot and
+are covered by separate Codex reviews. The exact audit drivers, fixtures and
+freeze manifests must accompany the next review, as requested by Fable.
+
+Complete disabled push_off, enabled/migrating execution, full source-entry
+boot inhabitation, physical KPT construction and all six whole-system roots
+remain open. No whole-system root is added by this batch.
+
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is
 posted from this account.*

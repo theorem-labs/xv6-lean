@@ -18,7 +18,8 @@ def compile_lean(path, cwd, env, output=None):
     if output is not None:
         args += ["-o", str(output)]
     return subprocess.run(args + [str(path)], cwd=cwd, env=env,
-                          capture_output=True, text=True, timeout=60)
+                          # Full graph audits now traverse over 40,000 declarations per fixture.
+                          capture_output=True, text=True, timeout=180)
 
 
 def must_compile(path, cwd, env, output):

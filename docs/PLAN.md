@@ -232,6 +232,14 @@ compose noff/intena updates and the CSR-off instruction with both depth
 branches. The actual boot map/text/PMA allocator is implemented; full
 supervisor configuration and source-entry inhabitation remain separate.
 
+Bare JAL and the unopened Bare/KPT JAL-to-mycpu dispatcher are now native.
+Actual push_off decoding is certified for all 24 instructions. The next
+function work connects the normalized scalar, CSR, four-byte virtual data,
+stack-save and load/store bodies through complete cycles and source resource
+restoration, including both nesting-depth branches. A later milestone must
+handle initially enabled execution and migration. Native boot map/text/PMA
+allocation remains separate from full source-entry boot inhabitation.
+
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is
 posted from this account.*

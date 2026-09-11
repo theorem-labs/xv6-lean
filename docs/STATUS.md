@@ -647,6 +647,26 @@ including19,870 theorems, with unchanged60 reviewed runtime companions and
 empty whole-system root manifest. All twelve compiled audit fixtures pass.
 Full-function/source-wrapper composition and whole-system roots remain open.
 
+Native full shared-Sv39 mycpu and boot-text production (2026-09-11):
+the actual fourteen-cycle function now constructs its phase relation, ordered
+event receipts and complete callee-saved/CPU-address result internally. The
+full-tier source wrapper derives configuration and native fetch windows from
+the exact disabled source capability and kernel text. Its extra same-hart
+boot-PMA ownership is explicit. The configured operational witness does not
+establish inhabitation of this full native source input.
+
+Native boot allocation extracts exactly the sparse 23,748 code bytes from
+the actual boot image, preserves all unselected memory and clients, and
+produces pristine physical text. Fresh static-map allocation now installs its
+name into the actual returned era and attaches identity-text claims while
+preserving the full linear map authority. Physical page-table construction,
+supervisor/translation installation, source entry reachability, JAL callers,
+tier-generic dispatch and all six whole-system roots remain open.
+
+All four families passed complete independent source review and fresh strict
+physical/type/opaque/constructor audits, with standard axioms only and zero
+new exclusions. Their 22 Lean modules add no assumed execution rule.
+
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is
 posted from this account.*

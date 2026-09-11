@@ -6,3 +6,6 @@ import MachCSL.Machine.Observations
 import MachCSL.Machine.JalLoopWitness
 import MachCSL.Machine.ObservationCycles
 import MachCSL.Machine.BootUniversalProofs
+import MachCSL.Machine.BootPmpProofs
+import MachCSL.Machine.JalLoopPlanLink
+import MachCSL.Machine.BootPmpPlan

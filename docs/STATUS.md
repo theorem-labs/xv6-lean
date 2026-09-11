@@ -16,9 +16,9 @@ whole-system safety or filesystem crash consistency.
 | Full generated Lean RISC-V model | Compiled; six execution/reset entry cones audited; real fetched JAL execution proved | Two explicit reservation predicates; full semantic correspondence pending |
 | Machine/device/power language | Concrete language implemented, including Virtio DMA and power | Boot execution and arbitrary-schedule memory/reservation/trace invariants proved; ownership in progress |
 | TSO ownership | Native byte/timestamp, log, view, dirty-set and full heap metadata resources proved and reviewed | Coherent seven-conjunct era boot allocation proved; hardware ownership lifting pending |
-| Register, device and disk ownership | Global dependent registers, device halves, reservations and complete disk-image laws proved | Native register, plain RAM-read and UART worker WPs, reset-disk WP and event-plan fold proved; PLIC and remaining hardware WPs pending |
-| Filesystem image readers | Complete initial fsimg_wf (W1–W9), durable inode and separate link checks proved | Durable used sets, tree projection and four full user ELF file contents proved; resource initialization next |
-| MachCSL adequacy and first closed slice | Actual power-on/fetched schedule; native invariant and full machine resource allocation proved | Repeated symbolic JAL traces and universal reset facts proved; all-successor cycle WPs, boot handler and adequacy pending |
+| Register, device and disk ownership | Global dependent registers, device halves, reservations and complete disk-image laws proved | Native register, plain RAM-read, UART/PLIC worker, reset-disk and restart WPs proved; write/barrier/atomic hardware WPs pending |
+| Filesystem image readers | Complete initial fsimg_wf (W1–W9), durable inode and separate link checks proved | Durable node/state geometry, full boot-image contract, bitmap encoding and native link-count camera proved; full durable snapshot and resource initialization pending |
+| MachCSL adequacy and first closed slice | Closed JAL schedule-safety theorem builds over the actual eight-hart/device/power machine | Universal boot/cycle/worker proofs, eleven-fork handler and native adequacy linked; independent final review passed; two-hart TSO spinlock gate next |
 | Kernel function proof port | Not started | Requires stable abstractions |
 | Concrete input images and ELF parsing | Full hex/packed certificates, ELF loading, independent dumped-map and boot-image equality proved | Initial FS checker proved; Iris FS resource initialization remains open |
 | Whole-system theorem closure | Not started | Requires all dependencies |
@@ -57,6 +57,24 @@ The concrete-machine/initial-ownership checkpoint `41eb69c` [passed GitHub CI](h
 The whole-image correspondence checkpoint `2047134` [passed GitHub CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34546951658).
 
 The native allocation checkpoint `e955086` [passed GitHub CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34549355945).
+
+The native event/filesystem checkpoint `f8a1262` [passed GitHub CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34551920513).
+
+The current JAL integration build passes 822 jobs. Its complete project audit
+checks 23,108 logical declarations, including 8,616 theorems, using only the three
+standard foundational axioms. Forty-six compiler-generated total-recursion
+runtime companions are excluded only as roots and remain forbidden in logical
+cones. The whole-system root manifest remains empty.
+
+`MachCSL.Logic.JalMachineSafety.safe` proves actual reducibility for every thread
+in every finite reachable configuration, together with the model's observation
+consistency predicate. Its only premises are the explicit platform parameters,
+powered-off generation-zero initial state and actual machine schedule. Every
+allowed boot witness, clock choice, CPU/device interleaving and power cycle is
+covered. `concrete_positive_execution` supplies a platform, an initial state and
+a positive fetched-JAL schedule with no premises. The boot medium is preserved.
+This is the first small-program integration gate, not an xv6 or nontrivial TSO
+resource-transfer theorem. See the component status and independent reviews.
 
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is

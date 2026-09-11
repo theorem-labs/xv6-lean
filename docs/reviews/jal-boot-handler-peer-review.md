@@ -1,0 +1,19 @@
+# Eleven-worker JAL boot-handler review
+
+Codex independently reviewed the frozen root-authored `JalBootHandler{Defs,Proofs,Link}` against `PowerWP.bootHandler`, the actual `powerFork`, and the already reviewed boot-resource and worker contracts. The review passes. The reviewer separately implemented the final `JalMachineSafety` linkage; that separate implementation still requires another agent's independent review.
+
+The handler retains the source-style persistent, universally quantified boot contract: every actual `BootFacts` state, allocated era, finite memory representation, and generation certificate are accepted. The hart proof derives `UniversalFamily` from the actual boot facts separately for each of the eight register files. It does not substitute the concrete zero-register execution witness or assume an initial counter value, PMP address, or counter configuration. Conversion from the all-CPU set to the actual `List.ofFn` worker list uses its duplicate-free complete enumeration.
+
+The initial register partition supplies 178 owned cells to each CPU and both full hardware-pin cells to the shared wire invariant. Each hart receives one positive one-eighth share of the actual four-byte JAL window, the persistent pristine timestamp window, and its actual reservation fragment. The generic reservation predicate wraps that fragment without assuming it was empty. The native loop rule consumes these actual resources and retains every clock choice, pin-read result, TSO view, and restart step admitted by its specification.
+
+UART and PLIC state are obtained from the actual boot device fragments. `PlicPlanOK` follows from the precise reset clause in `BootFacts`; the reset-disk rule uses the existential actual previous Virtio state and its reset equality. There is no replacement disk image or additional device transition restriction. The completed list is exactly eight harts followed by UART, disk, and PLIC, matching `powerFork`. The power thread's own continued WP is supplied by the surrounding power proof, rather than confused with an eleventh hart.
+
+The shared observation invariant is retained persistently. The UART callback receives the explicit observations-versus-UART namespace separation proof. UART, PLIC and wire invariants are allocated from their actual full fragments. The client deliberately discards unused metadata, disk, remaining memory, timestamp, initial history, and UART client resources using native Iris affinity after the exact partition helpers have returned them. That is sound for this safety-only JAL client; it does not establish a kernel heap discipline or a durable filesystem invariant.
+
+The concrete link supplies all four worker specifications using their actual implementations at the same 23-slot registry and the ambient `InvGS_gen`. It does not construct another native invariant world or leave an arbitrary worker specification in `registry_boot_handler`. The universal JAL implementation uses the actual event fold with register, memory-read, and restart proofs; the UART, PLIC and reset-disk specifications likewise come from their implemented proofs.
+
+Validation: the frozen handler build passed 509 jobs, and the final gate build including it passed 519 jobs. The fresh physical-origin audit of the handler and gate modules traverses all statement/proof dependencies, including private helpers; it permits only `propext`, `Classical.choice`, and `Quot.sound`, with no unsafe or partial logical dependency and no excluded runtime roots. Records: `/tmp/xv6-lean-research/JalMachineSafetyAudit.lean` and `jal-machine-safety-audit.log`. No handler production file was changed by this reviewer.
+
+*Authorship note: this was researched and written by an AI coding agent
+(OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is
+posted from this account.*

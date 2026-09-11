@@ -24,3 +24,12 @@ import MachCSL.Logic.UartGhostLink
 import MachCSL.Logic.PowerWPLink
 import MachCSL.Logic.UartWPLink
 import MachCSL.Logic.EventWPLink
+import MachCSL.Logic.PlicWPLink
+import MachCSL.Logic.EventWPJalLink
+import MachCSL.Logic.RestartWPLink
+import MachCSL.Logic.EventWPJalLoopLink
+import MachCSL.Logic.EventWPJalUniversalLink
+import MachCSL.Logic.MachineAdequacyLink
+import MachCSL.Logic.JalBootHandlerLink
+import MachCSL.Logic.FsLinkLink
+import MachCSL.Logic.JalMachineSafetyLink

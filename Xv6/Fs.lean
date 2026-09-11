@@ -12,3 +12,7 @@ import Xv6.Fs.DurableInodeImage
 import Xv6.Fs.DurableBlocksImage
 import Xv6.Fs.TreeDiskImage
 import Xv6.Fs.UserFilesImage
+import Xv6.Fs.BootImageImage
+import Xv6.Fs.DurableNodeProofs
+import Xv6.Fs.DurableStateProofs
+import Xv6.Fs.BitmapEncodingProofs

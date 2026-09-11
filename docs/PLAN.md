@@ -183,7 +183,9 @@ the final paper-image theorem use the same machine semantics. See [exact theorem
   Direct-slot TLB-miss composition and fill/lookup are now proved. Arbitrary raw upper pointers, physical tree ownership, shared invariant
   publication, ordinary/exclusive shared read events and pure TLB coherence
   are now proved and peer reviewed. Conditional shared A/D writes, full shared
-  walks and TLB-hit translation are next. The full Bare mycpu function has
+  walks, complete TLB-hit/miss translation and actual lookup dispatch are now
+  proved with native links. Residue-derived outer translation and physical
+  publication from private page-table ownership are next. The full Bare mycpu function has
   passed peer and Fable review; its concrete operational witness is proved
   and peer/Fable reviewed; the narrow Bare operational gate is closed.
   Boot reachability and native Iris entry-resource allocation remain open.

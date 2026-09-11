@@ -489,6 +489,28 @@ matching Lean files, all1324 project modules reachable from audited
 umbrellas, and all87 generated-model pins verified. The whole-system
 root manifest remains empty.
 
+The complete shared translation layer now includes raw three-read tree walks,
+all observed-word A/D branches, full TLB-hit and TLB-miss implementations,
+and the actual lookup/dispatch. Native coherence derives hit residency and
+cached mapping; misses preserve all three walk receipts and subsequent A/D
+event guards. Every branch returns the same clients, its exact reservation,
+all six control cells and coherence of the actual resulting TLB.
+
+The native per-hart residue owns exact SATP, TLB and PMP resources and its
+snapshot/coherence evidence. Shared mapping ownership now derives the three
+address-specific hardware configurations from owned geometry and the explicit
+boot PMA/TOR/disabled-HTIF controls. All eight new prefixes passed independent
+source and full dependency reviews. Outer virtual-address translation and
+private-to-shared physical publication are in progress; translated mycpu and
+all six whole-xv6 roots remain open.
+
+The reviewed shared-translation checkpoint passes 1,602 build jobs and the
+full audit of 38,022 logical declarations, including 18,055 theorems and
+60 reviewed compiler-only companions. All twelve compiled audit fixtures
+passed. The frozen archive has 1,376 matching Lean files, all 1,369 project
+modules reachable from the audit umbrellas, and all 87 model pins verified.
+The whole-system root manifest remains empty.
+
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is
 posted from this account.*

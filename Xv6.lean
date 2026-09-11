@@ -48,3 +48,11 @@ import Xv6.Kernel.TlbCoherenceLink
 import Xv6.Kernel.MycpuBareWitnessPoolProofs
 import Xv6.Kernel.KptWriteEventLink
 import Xv6.Kernel.TlbWindowLink
+import Xv6.Kernel.KptTreeWalkLink
+import Xv6.Kernel.Sv39HitLink
+import Xv6.Kernel.KptADLink
+import Xv6.Kernel.KptResidueLink
+import Xv6.Kernel.KptHitLink
+import Xv6.Kernel.KptMissLink
+import Xv6.Kernel.KptHardwareLink
+import Xv6.Kernel.KptTranslateLink

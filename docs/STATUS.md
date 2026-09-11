@@ -16,11 +16,11 @@ whole-system safety or filesystem crash consistency.
 | Full generated Lean RISC-V model | Compiled; six execution/reset entry cones audited; real fetched JAL execution proved | Two explicit reservation predicates; full semantic correspondence pending |
 | Machine/device/power language | Concrete language implemented, including Virtio DMA and power | Boot execution and arbitrary-schedule memory/reservation/trace invariants proved; ownership in progress |
 | TSO ownership | Native byte/timestamp, log, view, dirty-set and full heap metadata resources proved and reviewed | Coherent seven-conjunct era boot allocation proved; hardware ownership lifting pending |
-| Register, device and disk ownership | Global dependent registers, device halves, reservations and complete disk-image laws proved | Fixed state interpretation and power transitions proved; machine WP lifting pending |
-| Filesystem image readers | W1–W5 and rounded-region predicates ported, actual initial checks proved | All 200 inode checks, 936 distinct used blocks and exact bitmap certified; directory/link checks next |
+| Register, device and disk ownership | Global dependent registers, device halves, reservations and complete disk-image laws proved | Native register and plain RAM-read WPs, reset-disk WP and device update bridges proved; other hardware WPs pending |
+| Filesystem image readers | Complete initial fsimg_wf (W1–W9), durable inode and separate link checks proved | Actual complete disk readers certified; durable used sets, tree/resource initialization next |
 | MachCSL adequacy and first closed slice | Actual power-on/fetched schedule; native invariant and full machine resource allocation proved | Repeated symbolic JAL, hardware lifting, initial WPs and adequacy pending |
 | Kernel function proof port | Not started | Requires stable abstractions |
-| Concrete input images and ELF parsing | Full hex/packed certificates, ELF loading, independent dumped-map and boot-image equality proved | Full FS initialization remains open |
+| Concrete input images and ELF parsing | Full hex/packed certificates, ELF loading, independent dumped-map and boot-image equality proved | Initial FS checker proved; Iris FS resource initialization remains open |
 | Whole-system theorem closure | Not started | Requires all dependencies |
 
 `docs/upstream/inventory.json` is an exhaustive lexical index of source files and
@@ -53,6 +53,8 @@ source mappings and independent reviews are linked from their component status
 files. These are structural and component proofs, not closed whole-system roots.
 
 The concrete-machine/initial-ownership checkpoint `41eb69c` [passed GitHub CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34543983862).
+
+The whole-image correspondence checkpoint `2047134` [passed GitHub CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34546951658).
 
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is

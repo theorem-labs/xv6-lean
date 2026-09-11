@@ -4,3 +4,8 @@ import Xv6.Fs.InodeImage
 import Xv6.Fs.InodeCertificates
 import Xv6.Fs.InodeW3Certificates
 import Xv6.Fs.BitmapImage
+import Xv6.Fs.DirentProofs
+import Xv6.Fs.DirectoryProofs
+import Xv6.Fs.ValidityImage
+import Xv6.Fs.DurableLinksImage
+import Xv6.Fs.DurableInodeImage

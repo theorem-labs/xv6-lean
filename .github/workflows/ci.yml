@@ -44,3 +44,4 @@ jobs:
           python3 tools/kernel_maps.py .upstream/xv6iris --check --self-test
           python3 tools/inode_certificates.py .upstream/xv6iris --check --self-test
           python3 tools/bitmap_certificates.py .upstream/xv6iris --check --self-test
+          python3 tools/directory_certificates.py .upstream/xv6iris --check --self-test

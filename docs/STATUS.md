@@ -19,7 +19,7 @@ whole-system safety or filesystem crash consistency.
 | Register, device and disk ownership | Global dependent registers, device halves, reservations and complete disk-image laws proved | Complete two-hart spinlock gate proved and independently reviewed; supervisor kernel resources next |
 | Filesystem image readers | Complete initial fsimg_wf (W1–W9), durable inode, links and full initial Snapshot.OK proved | Native allocation, readback, source-instance transport and cloning proved; runtime bootstrap and crash preservation in progress |
 | MachCSL adequacy and first closed slice | Closed JAL schedule-safety theorem builds over the actual eight-hart/device/power machine | JAL and inhabited two-hart TSO spinlock gates closed; all six whole-xv6 roots remain open |
-| Kernel function proof port | Full fourteen-cycle Bare mycpu WP and native disabled capability adapter proved | Concrete operational witness in progress; shared KPT, virtual stack and full source contract remain |
+| Kernel function proof port | Full fourteen-cycle Bare mycpu WP and native disabled capability adapter proved | Bare operational gate closed after peer and Fable review; full source translation and virtual stack remain |
 | Concrete input images and ELF parsing | Full hex/packed certificates, ELF loading, independent dumped-map and boot-image equality proved | Initial FS checker and native resource allocation proved; live boot installation remains open |
 | Whole-system theorem closure | Not started | Requires all dependencies |
 
@@ -386,7 +386,7 @@ and performs both real stack saves/reloads. It accepts arbitrary actual clock
 successors and returns the proved PC/RA/SP/S0/A0 and all native resources.
 Independent peer review and Fable's seventh review found no soundness blocker.
 Fable requested a concrete operational execution witness before the Bare gate
-closes; it is in progress. The separate pure reference_result check is proved.
+closes; the witness is now proved and peer/Fable reviewed, including the full twelve-thread pool. The separate pure reference_result check is proved.
 Supervisor entry resource inhabitation remains an actual boot-path obligation.
 
 The direct-slot Sv39 walk now composes three actual ordinary PTE reads and
@@ -415,7 +415,7 @@ source mstatus/off fragments, partitions 53 physical cells into 39 function
 cells plus 14 framed cells, and restores the same capabilities and full GPR
 map after the actual fourteen cycles. Only A0/A5 change in the returned map;
 SIE and TP are derived from ownership. The full source tier/virtual-stack
-contract and concrete operational witness remain separate.
+contract remains separate. The concrete operational witness is now proved.
 
 The pure page-table tree now preserves arbitrary raw upper flags and proves
 shallow maps/blocks, actual semantic pointer validation, A/D variance and
@@ -444,6 +444,50 @@ companions and zero closed whole-system roots). The added KPT ghost layer
 is included in those counts. All12 compiled audit fixtures passed. The
 frozen staged archive has1274 matching Lean files, all1267 project modules
 reachable from audited umbrellas, and all87 generated model pins verified.
+
+The concrete Bare mycpu witness checks all14 actual generated cycles from
+a configured supervisor state over the exact loaded kernel image. It proves
+positive real thread-pool execution, both stack writes and own-log reloads,
+full180-register state equality, restored RA/S0/SP, A0=0x80012568, two log
+messages and unchanged code/device/other-hart state. Independent review and
+the165-declaration audit passed. Fable round eight approved the witness
+and disabled-capability adapter. Its pool wording request is addressed by
+a separate five-declaration module proving the same run with all12 threads
+present. The narrow Bare operational gate is closed. Boot reachability and native Iris entry
+resource allocation remain open; this witness does not close a whole-xv6 root.
+
+Shared kernel page-table ownership now covers all512 slots at each owned
+page, with exact source RAM/alignment geometry, native per-byte pins and
+context-word ownership. Path access restores the complete original tree or
+the exact updated leaf. Shared publication holds the full physical tree,
+canonical snapshot, bound receipt and mapping authority in a native invariant.
+Ordinary reads derive all permitted TSO-view words; exclusive reads derive
+the actual current heap word after advancing to log top. Both restore the
+complete invariant before their memory event and preserve native retry behavior.
+
+The raw-pointer Sv39 walk now accepts the source's actual G/RSW upper flags.
+Pure TLB coherence covers all64 hash slots, foreign tags/ASIDs, global bits,
+origin addresses and arbitrary stale A/D values; actual lookup, fill and
+refresh register plans are proved. These seven prefixes passed independent
+source and complete declaration-dependency reviews. The native conditional shared write now pays the complete physical/TSO
+update inside its successful later and restores every byte anchor and
+canonical snapshot. Two-tree TLB provenance supports the source SATP-switch
+window with mixed per-entry origins. Both passed independent reviews.
+Shared walks, complete TLB-hit translation and boot publication are subsequent.
+
+Checkpoints9e3e36f and7bb978a passed hosted CI:
+[native supervisor/tree prerequisites](https://github.com/theorem-labs/xv6-lean/actions/runs/34598662569),
+[Bare function and direct walk](https://github.com/theorem-labs/xv6-lean/actions/runs/34600206683).
+All six whole-xv6 theorem roots remain open.
+
+The reviewed shared-KPT/Bare-witness checkpoint passes1557 build jobs and
+checks37435 imported logical declarations, including17748 theorems, with
+only the standard three axioms. Sixty verified compiler-only companions
+are excluded as roots and remain forbidden in semantic cones. All12
+compiled audit fixtures passed. The frozen staged archive contains1331
+matching Lean files, all1324 project modules reachable from audited
+umbrellas, and all87 generated-model pins verified. The whole-system
+root manifest remains empty.
 
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is

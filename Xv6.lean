@@ -39,3 +39,12 @@ import Xv6.Kernel.PtTreeExamples
 import Xv6.Kernel.Sv39TlbLink
 import Xv6.Kernel.Sv39MissLink
 import Xv6.Kernel.MycpuOffLink
+import Xv6.Kernel.Sv39TreeWalkLink
+import Xv6.Kernel.KptOwnershipLink
+import Xv6.Kernel.KptSharedLink
+import Xv6.Kernel.KptReadEventLink
+import Xv6.Kernel.KptExclusiveEventLink
+import Xv6.Kernel.TlbCoherenceLink
+import Xv6.Kernel.MycpuBareWitnessPoolProofs
+import Xv6.Kernel.KptWriteEventLink
+import Xv6.Kernel.TlbWindowLink

@@ -97,6 +97,20 @@
       ],
       "artifact": "fable-mycpu-bare.md",
       "input_manifest": "fable-mycpu-bare-inputs.json"
+    },
+    {
+      "round": "mycpu-bare-operational-witness",
+      "session_id": "5c78471b-01db-44d2-bebb-214da861bced",
+      "is_error": false,
+      "subtype": "success",
+      "duration_ms": 361101,
+      "tools": "disabled",
+      "same_session_as": "two-hart-spinlock",
+      "model_usage_keys": [
+        "claude-fable-5-1"
+      ],
+      "artifact": "fable-mycpu-witness.md",
+      "input_manifest": "fable-mycpu-witness-inputs.json"
     }
   ]
 }

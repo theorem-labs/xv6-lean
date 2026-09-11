@@ -34,7 +34,10 @@ all fourteen untouched GPR cells. `reassemble` restores the full pinned
 software map, changing only a0/x10 and a5/x15 from owned returned values.
 It does not read arbitrary unowned projections of the symbolic result.
 The result retains all thirteen ABI software values, RA and the exact
-CPU-address result, without adding TP to the ABI saved set.
+CPU-address result, without adding TP to the ABI saved set. The returnedMap
+Result.saved/Result.ra clauses are bookkeeping facts; physical preservation
+is supplied by body.saved/body.ra/body.stable and consumed by returned_agrees
+and the ownership reassembly.
 
 The native fold invokes the actual fourteen-cycle hart theorem, with all
 fetch, memory, retirement, clock and restart behavior unchanged. It

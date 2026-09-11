@@ -1,6 +1,6 @@
 # Full Lean port: implementation plan
 
-Status: Fable 5.1 max has completed six reviews; their required changes are tracked. This project is incomplete.
+Status: Fable 5.1 max has completed eight reviews; required changes are tracked. This project is incomplete.
 
 ## Target and baseline
 
@@ -180,12 +180,13 @@ the final paper-image theorem use the same machine semantics. See [exact theorem
   actual generated prefixes, pinned byte families, reservations and all event
   branches. Kernel leaf validation and the complete
   direct-slot A/D update now compose natively. The actual direct-slot three-level walk is proved.
-  Direct-slot TLB-miss composition and fill/lookup are now proved. Shared KPT
-  access, arbitrary raw upper pointers and TLB-hit coherence are next. The
-  exact tree and three native ghost cameras are proved; physical tree ownership
-  and invariant publication are in progress. The full Bare mycpu function
-  has passed peer and Fable review; its concrete operational witness is in
-  progress before the Bare integration gate can close.
+  Direct-slot TLB-miss composition and fill/lookup are now proved. Arbitrary raw upper pointers, physical tree ownership, shared invariant
+  publication, ordinary/exclusive shared read events and pure TLB coherence
+  are now proved and peer reviewed. Conditional shared A/D writes, full shared
+  walks and TLB-hit translation are next. The full Bare mycpu function has
+  passed peer and Fable review; its concrete operational witness is proved
+  and peer/Fable reviewed; the narrow Bare operational gate is closed.
+  Boot reachability and native Iris entry-resource allocation remain open.
 - The native logged-byte mint and exact pure filesystem recovery algebra are
   proved. Current physical disk carving and recovered boot installation now preserve
   the actual era and every other client. Native crash history, generation-bound

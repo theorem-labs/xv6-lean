@@ -100,6 +100,15 @@ physical stack accessors support the latter. Resource-level entry inhabitation
 remains a boot-path obligation. The rule is image-parametric under its supplied
 resources; the intended pinned-xv6 instantiation is Xv6.Machine.bootImage.
 
+The narrow Bare milestone now includes a separately proved operational
+witness: fourteen actual cycles from the concrete supervisor entry on the
+pinned loaded image, positive execution with all twelve threads present,
+and the same exported Result/HartResult. Fable round eight and independent
+reviews approved the witness. Its choices and remaining boot/resource
+obligations are recorded in MycpuBareWitnessSTATUS.md and the Fable
+disposition. This does not close the full source KPT/SIE/virtual-stack/JAL
+contract or any of the six whole-xv6 roots.
+
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is
 posted from this account.*

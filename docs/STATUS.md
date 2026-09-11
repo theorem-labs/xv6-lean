@@ -15,10 +15,10 @@ whole-system safety or filesystem crash consistency.
 | Generic event execution and result transport | Proved initial composition/inversion laws | Actual handlers, blocked steps and restart rules implemented; correspondence pending |
 | Full generated Lean RISC-V model | Compiled; six execution/reset entry cones audited; real fetched JAL execution proved | Two explicit reservation predicates; full semantic correspondence pending |
 | Machine/device/power language | Concrete language implemented, including Virtio DMA and power | Boot execution and arbitrary-schedule memory/reservation/trace invariants proved; ownership in progress |
-| TSO ownership | Native Iris byte/timestamp ledger, log, view and dirty-set resources proved and reviewed | Actual-state TSO interpretation and full boot ownership allocation proved; heap metadata and full state composition pending |
-| Register and device ownership | Actual dependent register bridge and three device-half bridges proved and reviewed | Global eight-hart and full reservation ownership proved; whole-state integration pending |
-| Filesystem image readers | Superblock, inode encoding/decoding, W3 and rounded-region predicates ported | Initial superblock/log, live-inode and all rounded-region checks proved; full filesystem initialization pending |
-| MachCSL adequacy and first closed slice | Actual power-on and fetched-instruction schedule proved | Full ownership interpretation, lifting and adequacy pending |
+| TSO ownership | Native byte/timestamp, log, view, dirty-set and full heap metadata resources proved and reviewed | Coherent seven-conjunct era boot allocation proved; hardware ownership lifting pending |
+| Register, device and disk ownership | Global dependent registers, device halves, reservations and complete disk-image laws proved | Fixed state interpretation and power transitions proved; machine WP lifting pending |
+| Filesystem image readers | W1–W5 and rounded-region predicates ported, actual initial checks proved | All 200 inode checks, 936 distinct used blocks and exact bitmap certified; directory/link checks next |
+| MachCSL adequacy and first closed slice | Actual power-on/fetched schedule; native invariant and full machine resource allocation proved | Repeated symbolic JAL, hardware lifting, initial WPs and adequacy pending |
 | Kernel function proof port | Not started | Requires stable abstractions |
 | Concrete input images and ELF parsing | Full hex/packed certificates, ELF loading, independent dumped-map and boot-image equality proved | Full FS initialization remains open |
 | Whole-system theorem closure | Not started | Requires all dependencies |

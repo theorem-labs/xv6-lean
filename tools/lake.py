@@ -48,9 +48,14 @@ def main():
             (limited / ".ready").touch()
     env["LEAN_SYSROOT"] = str(limited)
     env["LAKE_OVERRIDE_LEAN"] = "true"
+    lake_args = sys.argv[1:] or ["build"]
+    # Lake prefixes the real toolchain bin onto PATH for `env`. Explicitly
+    # select our immutable wrapper for direct Lean audit/probe invocations.
+    if lake_args[:2] == ["env", "lean"]:
+        lake_args = ["env", str(limited / "bin/lean"), *lake_args[2:]]
     result = subprocess.run([str(sysroot / "bin/lean"), f"-j{threads}", "--run",
                              str(ROOT / "tools/LakeMain.lean"),
-                             *(sys.argv[1:] or ["build"])], cwd=ROOT, env=env)
+                             *lake_args], cwd=ROOT, env=env)
     raise SystemExit(result.returncode)
 
 

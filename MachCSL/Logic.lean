@@ -7,3 +7,7 @@ import MachCSL.Logic.RegisterLink
 import MachCSL.Logic.ReservationLink
 import MachCSL.Logic.GlobalRegistersLink
 import MachCSL.Logic.TsoInterpProofs
+import MachCSL.Logic.PowerGhostLink
+import MachCSL.Logic.StateInterpLink
+import MachCSL.Logic.InvariantLink
+import MachCSL.Logic.StateAllocationLink

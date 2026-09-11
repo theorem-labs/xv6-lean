@@ -61,12 +61,12 @@ The native allocation checkpoint `e955086` [passed GitHub CI](https://github.com
 The native event/filesystem checkpoint `f8a1262` [passed GitHub CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34551920513).
 
 The complete inhabited spinlock gate and native kernel/filesystem prerequisite
-build passes 1,343 jobs. The complete audit checks 32,752 logical declarations,
-including 14,635 theorems, with only the three standard foundational axioms.
+build passes 1,371 jobs. The complete audit checks 33,138 logical declarations,
+including 14,887 theorems, with only the three standard foundational axioms.
 Fifty-eight compiler-generated total-recursion companions are excluded only as roots and
 remain forbidden in logical cones. The initial-allocation caller check retains
 exactly nine reviewed edges. All twelve compiled audit fixtures pass. The
-reviewed staged source contains 1,110 reachable project modules and passes all
+reviewed staged source contains 1,138 reachable project modules and passes all
 87 generated-model pin checks. The whole-system root manifest remains empty.
 
 All 21 pure initial snapshot clauses are proved against the actual disk bytes.
@@ -294,7 +294,7 @@ check and nextPC preparation are proved, with exactly one ExecuteAs redirection.
 Setup and successful retirement, both clocks and reservation-clearing restart
 compose on that same bundle. The thirteen-register calling convention and
 the source register chain's restored SP/RA/S0 and modular return expression
-are checked separately as pure bookkeeping. Complete active-step/fetched
+are checked separately as pure bookkeeping. Complete fourteen-cycle
 function composition and the source KPT/SIE regime remain open.
 
 Native filesystem invariants now include the exact top-map transaction registry,
@@ -304,12 +304,33 @@ while preserving every earlier capacity. The byte-view invariant has all nine
 source components, actual logged-byte authority at Disk12, cache halves and
 exception authority, with a fixed recovery-value function. Its read crossings
 derive home membership and preserve byte fractions, cache halves and the real
-seal or recovery handle. Region packaging, byte-view allocation, runtime writes,
+seal or recovery handle. Byte-view allocation, runtime writes,
 recovery installation and complete filesystem boot remain open. Independent
 source and full dependency reviews passed all new layers.
 
 Checkpoint `36d4757` [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34580798907).
 All six whole-xv6 roots remain open.
+
+All fourteen indexed mycpu paths now compose actual dispatch, fetch, body,
+retirement, either clock and the real restart on the same28 cells. The
+native final contracts discharge each current body and quantify over both
+next-tick choices. Function chaining and source KPT/SIE ownership remain
+open. Native inode-region invariant packaging now connects the real body,
+logged-byte row and top registry; final allocation consumes supplied clients.
+
+Context-free pinned reads now derive allowed-byte membership at every
+permitted TSO view from the actual publication credentials and per-byte
+anchors. Native pinned stores preserve the original floors/sets and all
+framed heap/timestamp payloads under the actual authored transition. The
+PTE algebra proves exact interior reconstruction, leaf canonical equality,
+and family preservation for every generated A/D update. Actual page-table
+walks and conditional event composition remain open. All six new prefixes
+passed independent source and full dependency reviews.
+
+Checkpoint `b9358cf` [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34582396565).
+The published cycle-prerequisite checkpoint `a047a09` passed its local
+1343-job build, 32752-declaration audit and all12 compiled audit fixtures;
+its hosted run is in progress. All six whole-xv6 roots remain open.
 
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is

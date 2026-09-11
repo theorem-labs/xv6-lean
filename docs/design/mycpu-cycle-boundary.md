@@ -1,0 +1,21 @@
+# Actual mycpu cycle and restart composition
+
+Implemented and frozen modules: `Xv6/Kernel/MycpuCycle{Defs,Spec,Proofs,Link}.lean` and status. The implementation composes the frozen CycleShell and CycleEntry interfaces without changing their resources or generated programs. The target is `MachCSL.Machine.cycle tick`, the actual source `riscv_step` body whose terminal pure node performs the real restart transition. It is not the generated standalone `Functions.loop`, and no new executable cycle interpreter is introduced.
+
+Four native CPS contracts cover all fourteen indexed bodies: nine scalars, two stores, two loads and the final return. They consume the same unique 28-cell bundle, generation certificate, actual running context, the persistent discarded 34-byte boot span and the original reservation fragment. Memory contracts additionally take the actual context word (full old word for a store, arbitrary fraction for a load). Entry Active.Config, actual HART_ACTIVE and the additional body configurations all refer to the original file. No new register ownership, camera or frame is allocated.
+
+The actual setup reads the privilege/counter controls and writes only minstret_increment. Pure transport proves that the source fetch/decoder/interrupt and body configuration fields, SP/data-register values and hart-state are unchanged. CycleEntry then performs dispatch, real owned fetch, nextPC preparation and the actual body. Its exact post-file is computed at `CycleShell.started rs`: scalarAfter, prepared(storeIndex), loadAfter, or returnAfter. These are named before-finish files, not abstract state-preservation assumptions.
+
+CycleShell's successful postlude proves real retirement, PC transfer and both possible current-cycle clock behaviors. Its `completed before after` relation fixes every off-clock register to `SupervisorRetirement.completeAfter before`; only mcycle, mtime and mip have existential final values under this relation. Thus the native continuation receives the actual post-clock symbolic footprint and exact non-clock frame, without falsely fixing clock/pending results. The actual hart remains active. Then the actual restart transition clears the reservation and chooses either next tick Boolean.
+
+Each final continuation quantifies the fetch receipt, any data receipt, the completed register file and both nextTick choices. It receives the same cells/context/span, reservation none, and the new store word or unchanged load word/fraction. Its remaining obligation is the ordinary WP of `cycle nextTick`, allowing later function chaining. It does not prove the current instruction body, fetch result, clock trace or state preservation. No order between the returned view receipts is invented.
+
+There are two explicit guards for scalar/return (the concrete fetch and restart events), and three for store/load (fetch, data event and restart). Setup, decoder, body register operations and clock may add more physical steps, but the public guard budget relies only on these known memory/restart boundaries. Blocking and older-generation behavior remain those of the existing actual native rules. The current tick is arbitrary and the next tick remains universally quantified.
+
+The pure cycle factor retains every waiting, pending-interrupt, fetch-error and unsuccessful execution branch. The native hypotheses and paid owned resources justify the successful branch without deleting those residual programs. Actual one-ExecuteAs semantics and true two/four instruction widths remain as in CycleEntry. No global register snapshot, returned-word assumption, context-free memory oracle or preservation callback is introduced.
+
+The source boundary is `RiscvExec.wp_hart_restart:1007` with source riscv_step, generated try_step/postlude, and the reviewed source/actual fourteen CodeMycpu instructions. This component does not establish supervisor boot/SIE ownership, KPT translation or virtual-stack claims, the complete mycpu function/ABI result, or whole-kernel adequacy. Those remain separate source obligations.
+
+*Authorship note: this was researched and written by an AI coding agent
+(OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is
+posted from this account.*

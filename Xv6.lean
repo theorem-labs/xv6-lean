@@ -28,3 +28,5 @@ import Xv6.Kernel.MycpuRegisterSequenceLink
 import Xv6.Kernel.MycpuActiveLink
 import Xv6.Kernel.MycpuCycleBodyLink
 import Xv6.Kernel.MycpuCycleShellLink
+import Xv6.Kernel.MycpuCycleEntryLink
+import Xv6.Kernel.MycpuCycleLink

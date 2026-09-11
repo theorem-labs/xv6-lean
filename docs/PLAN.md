@@ -62,7 +62,10 @@ are separate upgrades with explicit semantics and artifact comparisons.
    bytes, actual boot text allocation/sharing and full indexed Bare fetch, plus
    all fourteen native body rules on a common cycle footprint, actual dispatch/
    decode/preparation and setup/retirement/clock/restart composition, plus
-   source calling-convention and pure register-sequence proofs.
+   source calling-convention and pure register-sequence proofs. All fourteen
+   actual active-step and full cycle/restart rules now compose on that footprint.
+   Context-free pinned reads, payload-preserving pinned stores and exact PTE
+   canonical byte families are proved; operational KPT access remains open.
    Bare translation and physical permission prefixes are proved; full
    page-table translation, virtual tier ownership and function composition remain open.
 6. **Kernel subsystems.** Boot and allocator; page tables and arbitrary user-mode

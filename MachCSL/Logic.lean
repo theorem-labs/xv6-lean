@@ -108,3 +108,6 @@ import MachCSL.Logic.SupervisorBareWriteLink
 import MachCSL.Logic.SupervisorAddressLink
 import MachCSL.Logic.IcacheTopRetagProofs
 import MachCSL.Logic.FsBytesInvariantLink
+import MachCSL.Logic.TsoPinnedReadLink
+import MachCSL.Logic.TsoPinnedStoreLink
+import MachCSL.Logic.IcacheRegionInvariantLink

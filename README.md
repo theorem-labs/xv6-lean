@@ -12,7 +12,10 @@ event-preserving Lean Sail interface. The machine includes concrete
 UART/PLIC/Virtio DMA and power cycles. Lean checks actual generated boot execution,
 fetched JAL execution, and memory, reservation and observable-trace invariants
 for arbitrary finite thread schedules. The pinned xv6 ELF is connected to boot.
-There is no Lean theorem yet proving xv6 safety or filesystem crash consistency.
+Closed JAL and inhabited two-hart spinlock gates now combine actual execution,
+native safety and non-vacuous witnesses. Kernel supervisor and filesystem
+bootstrap proofs are in progress. There is no Lean theorem yet proving xv6
+safety or filesystem crash consistency.
 
 The baseline is the authors' [`arxiv-v1` snapshot](https://github.com/mit-pdos/xv6iris/tree/fa7f0a01c4b40489fac8ad303f079c2dfc7a1476).
 It is pinned in [upstream.lock.json](upstream.lock.json), alongside the matching
@@ -66,6 +69,8 @@ filesystem initialization are required before the whole-system theorem closes.
 - [Reviews](docs/reviews/): independent artifact, logic and design audits.
 - [RISC-V model](models/riscv/): generated sources, entry-point audits and a concrete execution proof.
 - [Sail generation](docs/Sail-generation.md) and [correspondence obligations](docs/Sail-correspondence.md).
+- [Replayed Rocq baseline](docs/upstream/rocq-replay/): successful original build
+  and all six theorem assumption/statement reports.
 - [Source inventory](docs/upstream/inventory.json): all reference Rocq files;
   an inventory entry is not a completed Lean proof.
 - `MachCSL/`: logic and machine-model foundations.

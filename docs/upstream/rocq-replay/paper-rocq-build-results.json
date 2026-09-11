@@ -1,0 +1,150 @@
+[
+  {
+    "label": "model-xv6iris-makefile",
+    "command": [
+      "opam",
+      "exec",
+      "--root=/tmp/xv6-lean-research/opam-paper-audit",
+      "--switch=paper-9.0.1",
+      "--",
+      "coq_makefile",
+      "-f",
+      "_CoqProject",
+      "-o",
+      "CoqMakefile"
+    ],
+    "directory": "model-xv6iris",
+    "exit_code": 0,
+    "elapsed_seconds": 0.024773836135864258
+  },
+  {
+    "label": "kernel-rocq-makefile",
+    "command": [
+      "opam",
+      "exec",
+      "--root=/tmp/xv6-lean-research/opam-paper-audit",
+      "--switch=paper-9.0.1",
+      "--",
+      "coq_makefile",
+      "-f",
+      "_CoqProject",
+      "-o",
+      "CoqMakefile"
+    ],
+    "directory": "kernel-rocq",
+    "exit_code": 0,
+    "elapsed_seconds": 0.023349285125732422
+  },
+  {
+    "label": "user-rocq-makefile",
+    "command": [
+      "opam",
+      "exec",
+      "--root=/tmp/xv6-lean-research/opam-paper-audit",
+      "--switch=paper-9.0.1",
+      "--",
+      "coq_makefile",
+      "-f",
+      "_CoqProject",
+      "-o",
+      "CoqMakefile"
+    ],
+    "directory": "user-rocq",
+    "exit_code": 0,
+    "elapsed_seconds": 0.024480342864990234
+  },
+  {
+    "label": "iris-makefile",
+    "command": [
+      "opam",
+      "exec",
+      "--root=/tmp/xv6-lean-research/opam-paper-audit",
+      "--switch=paper-9.0.1",
+      "--",
+      "coq_makefile",
+      "-f",
+      "_CoqProject",
+      "-o",
+      "CoqMakefile"
+    ],
+    "directory": "iris",
+    "exit_code": 0,
+    "elapsed_seconds": 0.025335073471069336
+  },
+  {
+    "label": "user-rocq-build",
+    "command": [
+      "opam",
+      "exec",
+      "--root=/tmp/xv6-lean-research/opam-paper-audit",
+      "--switch=paper-9.0.1",
+      "--",
+      "make",
+      "-f",
+      "CoqMakefile",
+      "-j4",
+      "--output-sync=target",
+      "TIMED=1"
+    ],
+    "directory": "user-rocq",
+    "exit_code": 0,
+    "elapsed_seconds": 7.583895206451416
+  },
+  {
+    "label": "model-xv6iris-build",
+    "command": [
+      "opam",
+      "exec",
+      "--root=/tmp/xv6-lean-research/opam-paper-audit",
+      "--switch=paper-9.0.1",
+      "--",
+      "make",
+      "-f",
+      "CoqMakefile",
+      "-j4",
+      "--output-sync=target",
+      "TIMED=1"
+    ],
+    "directory": "model-xv6iris",
+    "exit_code": 0,
+    "elapsed_seconds": 37.27805733680725
+  },
+  {
+    "label": "kernel-rocq-build",
+    "command": [
+      "opam",
+      "exec",
+      "--root=/tmp/xv6-lean-research/opam-paper-audit",
+      "--switch=paper-9.0.1",
+      "--",
+      "make",
+      "-f",
+      "CoqMakefile",
+      "-j4",
+      "--output-sync=target",
+      "TIMED=1"
+    ],
+    "directory": "kernel-rocq",
+    "exit_code": 0,
+    "elapsed_seconds": 47.83881711959839
+  },
+  {
+    "label": "iris-build",
+    "command": [
+      "opam",
+      "exec",
+      "--root=/tmp/xv6-lean-research/opam-paper-audit",
+      "--switch=paper-9.0.1",
+      "--",
+      "make",
+      "-f",
+      "CoqMakefile",
+      "-j4",
+      "--output-sync=target",
+      "TIMED=1"
+    ],
+    "directory": "iris",
+    "exit_code": 0,
+    "elapsed_seconds": 2923.776182413101
+  }
+]

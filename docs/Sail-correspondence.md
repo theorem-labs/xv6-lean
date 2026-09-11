@@ -150,6 +150,23 @@ laws, memory success lemmas and predicate/continuation
 transport proofs use no axioms. No `sorry`, custom axiom or native proof
 shortcut is introduced.
 
+## Observed generated Boolean event differences
+
+Native supervisor proofs exposed additional existing program-lowering
+differences at the pinned sources. Rocq's getPendingSet uses short-circuit
+monadic Boolean helpers and skips the MIE status read under Supervisor;
+the generated Lean expression eagerly emits both mstatus reads. Likewise,
+Rocq should_inc_mcycle/should_inc_minstret skips its configuration read when
+CY/IR is inhibited, while generated Lean emits mcyclecfg/minstretcfg before
+applying Boolean conjunction. Exact sources and read sequences are recorded
+in SupervisorInterruptSTATUS.md and SupervisorClockSTATUS.md.
+
+The Lean proofs retain these actual events and handle every required branch.
+They do not erase ignored reads or infer exact event-tree equality from the
+identical returned value. A simulation accounting for such extra read events,
+or a separately reviewed generator correction with regenerated proofs, is
+still required by the whole-model correspondence obligation. The completed
+Rocq replay and printed assumption reports do not discharge it.
 
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is

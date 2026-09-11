@@ -1,0 +1,2 @@
+Require Import xv6iris.SystemUartAccepted.
+Print Assumptions xv6_out_accepted_from_xv6Σ.

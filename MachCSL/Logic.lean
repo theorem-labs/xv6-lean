@@ -71,3 +71,11 @@ import MachCSL.Logic.TsoContextLink
 import MachCSL.Logic.RegisterPlanProofs
 import MachCSL.Logic.FsDurEraInstallLink
 import MachCSL.Logic.SpinlockGateProofs
+import MachCSL.Logic.TsoContextStoreLink
+import MachCSL.Logic.TsoContextWordLink
+import MachCSL.Logic.StackPhysicalStoreProofs
+import MachCSL.Logic.FsBitmapLink
+import MachCSL.Logic.FsInodeRegionLink
+import MachCSL.Logic.FsInodeRegionBytesProofs
+import MachCSL.Logic.SupervisorPmpLink
+import MachCSL.Logic.SupervisorInterruptLink

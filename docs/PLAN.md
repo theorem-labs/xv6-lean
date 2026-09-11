@@ -1,6 +1,6 @@
 # Full Lean port: implementation plan
 
-Status: Fable 5.1 max has completed five reviews; their required changes are tracked. This project is incomplete.
+Status: Fable 5.1 max has completed six reviews; their required changes are tracked. This project is incomplete.
 
 ## Target and baseline
 
@@ -45,8 +45,9 @@ are separate upgrades with explicit semantics and artifact comparisons.
    events and discharge initialized resource and adequacy obligations for a small
    concurrent program. Include nontrivial interference and memory ordering. This
    is a feasibility gate, not a substitute for the xv6 theorem. The one-instruction
-   JAL initialization/adequacy subgate is closed at `d6e1c89`; the two-hart TSO
-   interference subgate remains open (see docs/design/two-hart-spinlock.md).
+   JAL initialization/adequacy subgate is closed at `d6e1c89`; the inhabited two-hart TSO
+   interference subgate is closed at `f252d3d` (see
+   docs/reviews/fable-spinlock-gate-disposition.md).
 5. **Reusable kernel abstractions.** Port view-relative ownership, suspended
    views, instruction rules, address-translation tiers, interrupt capabilities,
    stack budgets, ABI and nonreturning stack reclamation, spinlocks/sleeplocks,
@@ -144,20 +145,22 @@ the final paper-image theorem use the same machine semantics. See [exact theorem
   Native byte/top/link assembly and initial `P_dur` allocation are also proved,
   with a literal initial-image leaf and an audited initialization-only caller
   policy. Full resource readback is now proved, retaining the exact snapshot
-  while deriving all validity clauses. Source-instance transfer and crash
-  preservation remain required; a fresh snapshot ghost does not reset disk.
+  while deriving all validity clauses. Source-instance transfer and cloning are now proved; crash
+  preservation remains required. A fresh snapshot ghost does not reset disk.
 - The second integration image has checked fetch/decoder and complete
   instruction plans, native lock callbacks, actual boot resource extraction
   and eight-way code sharing. Instruction-family preservation and all-schedule
-  native safety are now proved. Close operational exclusion with unique actual
-  event annotations and the interference witness before broad kernel fanout.
+  native safety, operational exclusion, unique actual event annotations and
+  the inhabited interference witness are now proved. The final combined
+  gate satisfies all requests from Fable's sixth review.
 - The generic interruptible event fold and actual cycle wrapper are now
   checked. The native lock protocol transfers the counter resource only at
   successful conditional-write commit, retaining its actual winning log
   position. Concrete annotation updates are now functional, all selected-hart
   event cases and worker/power cases are proved, and the first actual conflict
-  trace is checked. Other-hart framing and full concrete pool coverage remain
-  required application proofs.
+  trace is checked. Other-hart framing, full concrete pool coverage, actual
+  annotation existence and an inhabited holder checkpoint on the same final
+  seven-message run are all proved. Supervisor kernel composition is next.
 - The upstream xv6iris snapshot has no repository license file. Preserve source
   references and notices; do not invent an upstream license or claim ownership of
   its artifact. Record provenance separately from proof completeness.

@@ -28,3 +28,5 @@ import MachCSL.Machine.SpinlockWitnessHeldPoolProofs
 import MachCSL.Machine.SpinlockPoolReachability
 import MachCSL.Machine.SpinlockWitnessReleasePoolProofs
 import MachCSL.Machine.SpinlockWitnessHolderProofs
+import MachCSL.Machine.SupervisorPmpPlan
+import MachCSL.Machine.SupervisorInterruptPlan

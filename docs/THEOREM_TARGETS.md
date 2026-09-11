@@ -231,8 +231,10 @@ premises. The boot handler covers all eleven forked workers and all permitted
 boot witnesses. The proof and independent audits are recorded in
 `MachCSL/Logic/JalMachineSafetySTATUS.md` and
 `docs/reviews/jal-machine-safety-review.md` (published checkpoint `d6e1c89`).
-This closes the one-instruction gate only. The two-hart TSO interference gate,
-complete cross-prover semantic correspondence, and all six xv6 roots remain open.
+The one-instruction gate and inhabited two-hart TSO interference gate are now
+closed. Complete cross-prover semantic correspondence and all six xv6 roots
+remain open. The latter gate is recorded at `f252d3d` with Fable's final review
+and the combined `SpinlockIntegration.complete_gate` theorem.
 
 ## Active dependency extraction and assumption reports
 
@@ -288,16 +290,27 @@ Concrete extraction procedure, using the snapshot's own build machinery:
    The generic roots' displayed client hypotheses are binders, not axiom entries.
    Capture the command, complete stdout/stderr, exit code, versions and hashes.
 
-At the time these documents were written, the shared pinned checkout had no
-`SystemAdequacy.vo` or compiler-generated `.CoqMakefile.d`, and no newly replayed
-Rocq assumption report had been added to the repository. The available report is
-an **upstream recorded baseline**, described in `SystemAssumptions.v` and
-`claude-notes/durable-notes.md:2661`: thirteen entries for the concrete FS root.
-They are dependent functional extensionality, `xv6iris_extras.resv_matches`,
-`xv6iris_extras.resv_is_valid`, and ten Rocq primitives (`PrimString.string`,
-`PrimString.get`, `PrimString.cat`, `PrimInt63.int`, `PrimInt63.eqb`,
-`PrimInt63.sub`, `PrimInt63.lsl`, `PrimInt63.lsr`, `PrimInt63.land`,
-`PrimInt63.lor`). This is not a claim that the new replay has passed.
+The isolated original source replay completed successfully on 2026-09-11,
+with all 2,104 tracked files unchanged. The compiler-derived import union is
+1,314 local modules (1,292 Iris), and independent review checked every edge
+against the four generated dependency files. All six statement-seed and all
+six proof-assumption queries completed successfully. Every proof report has
+exactly the same thirteen printed entries listed in the upstream baseline;
+the statement reports contain twelve, without functional extensionality.
+Full commands, raw logs, versions, hashes and exact source statements are now
+[archived](upstream/rocq-replay/). This is a newly executed replay, not a pass
+inferred from the recorded upstream report.
+
+The driver executed steps 1, 2, 4 and the six explicit assumption queries of
+step 5 above. It did not request the complete root-proof constant reports of
+step 3 or run the separate audit-only Make target. Its FS query invokes the
+same Print Assumptions root directly against the successful build.
+Print All Dependencies omits ordinary inductive/constructor entries and
+provides no direct edges; its collector does not separately recurse through
+every encountered constant's type. The source statement seed is necessary
+but does not certify an entire declaration type/body graph. These limitations,
+printer-name ambiguity and external-library dependencies remain explicit in
+the [independent review](reviews/paper-rocq-replay-peer-review.md).
 
 The Lean replacements must quantify over the two fixed reservation predicates
 explicitly and instantiate the concrete Iris functor family; no unresolved ghost

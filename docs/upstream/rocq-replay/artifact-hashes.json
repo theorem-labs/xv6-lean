@@ -1,0 +1,207 @@
+[
+  {
+    "path": "PaperAssumptions0.v",
+    "sha256": "e0effaec70a16217480900e98561f4666790589cc872aeaa16aae4b2cf72e3f3",
+    "bytes": 83
+  },
+  {
+    "path": "PaperAssumptions1.v",
+    "sha256": "e9613718783bed41e424c0a6a792a5985a2ed7993fc967cbbc902a9052d4377e",
+    "bytes": 80
+  },
+  {
+    "path": "PaperAssumptions2.v",
+    "sha256": "d4eaba03498f47f421a379aa5b7016f86143b2a60664e7596bd9e6f882c8a7ef",
+    "bytes": 83
+  },
+  {
+    "path": "PaperAssumptions3.v",
+    "sha256": "d129373447688f20afcb1124fe5e387b21e8d91173050914e2910b883617d9ee",
+    "bytes": 75
+  },
+  {
+    "path": "PaperAssumptions4.v",
+    "sha256": "bc7c4dd4b9ff83d12d4e7acd7f136a7c28aea3f993f24f60502200b43c4f0e39",
+    "bytes": 85
+  },
+  {
+    "path": "PaperAssumptions5.v",
+    "sha256": "47253b6530a69bccc05baeb2550c320f9102d31994e9aaca96d6809538f825d1",
+    "bytes": 90
+  },
+  {
+    "path": "PaperStatement0.v",
+    "sha256": "ba495895f6cd5948ac5b2d2df9236da665ccc122651533e808db87ec10268614",
+    "bytes": 229
+  },
+  {
+    "path": "PaperStatement1.v",
+    "sha256": "68ff558b6214ba46636c2a39231e85ab1fd0ef3c24c602869c94a1332b9159ae",
+    "bytes": 226
+  },
+  {
+    "path": "PaperStatement2.v",
+    "sha256": "f9834868f74187b9ecac3632f82279f9b6f751298a7d7eb299c310fa665046cd",
+    "bytes": 229
+  },
+  {
+    "path": "PaperStatement3.v",
+    "sha256": "177f4b5de2a27f6fc68bfff401f07af2e59e05fcfcac5beb0af01400b8de4f1c",
+    "bytes": 221
+  },
+  {
+    "path": "PaperStatement4.v",
+    "sha256": "f137b4d29b729a77315f00aa5823707eb7effc4795dda9bfc9e0fd20a4f61cb1",
+    "bytes": 231
+  },
+  {
+    "path": "PaperStatement5.v",
+    "sha256": "611b38cfb64afcc6965d5b2270cc14f03aab0dbedb4002873df3a258258f0b20",
+    "bytes": 236
+  },
+  {
+    "path": "README.md",
+    "sha256": "b2f4f54323ade9559dd445e19f801b439eb365a9cc1c7a3af178a573a9f71857",
+    "bytes": 4699
+  },
+  {
+    "path": "audit-manifest.json",
+    "sha256": "1e4abbe46aa8acc5b860d0f05d2cd9076e0b87131c8bde4f1ecaf2e803e776e1",
+    "bytes": 8948
+  },
+  {
+    "path": "iris-CoqMakefile.d.gz",
+    "sha256": "941cc859d5c0ee1493fff96647faddc7a6136e5771dbc9f8ee4615299f3defc4",
+    "bytes": 113579
+  },
+  {
+    "path": "kernel-rocq-CoqMakefile.d.gz",
+    "sha256": "364beed9b292ad914a7f2a9e2e70fddd701af932fd8dd41d665412960bf858ac",
+    "bytes": 281
+  },
+  {
+    "path": "model-xv6iris-CoqMakefile.d.gz",
+    "sha256": "b0df26203879ca20fdef52ddfe57abff75efa5a75271e766ca4c84c53007ff4d",
+    "bytes": 262
+  },
+  {
+    "path": "paper-assumptions-0.log",
+    "sha256": "af6a85aa5c6f6c1095cfc0c04780fa40702ef2a27fa9c37929d4627b88b4df88",
+    "bytes": 846
+  },
+  {
+    "path": "paper-assumptions-1.log",
+    "sha256": "af6a85aa5c6f6c1095cfc0c04780fa40702ef2a27fa9c37929d4627b88b4df88",
+    "bytes": 846
+  },
+  {
+    "path": "paper-assumptions-2.log",
+    "sha256": "af6a85aa5c6f6c1095cfc0c04780fa40702ef2a27fa9c37929d4627b88b4df88",
+    "bytes": 846
+  },
+  {
+    "path": "paper-assumptions-3.log",
+    "sha256": "af6a85aa5c6f6c1095cfc0c04780fa40702ef2a27fa9c37929d4627b88b4df88",
+    "bytes": 846
+  },
+  {
+    "path": "paper-assumptions-4.log",
+    "sha256": "af6a85aa5c6f6c1095cfc0c04780fa40702ef2a27fa9c37929d4627b88b4df88",
+    "bytes": 846
+  },
+  {
+    "path": "paper-assumptions-5.log",
+    "sha256": "af6a85aa5c6f6c1095cfc0c04780fa40702ef2a27fa9c37929d4627b88b4df88",
+    "bytes": 846
+  },
+  {
+    "path": "paper-compiler-import-graph.json",
+    "sha256": "00886008d74402ff5de30450af216b24f0d58b176f827bfa2ed9deb2bec9a016",
+    "bytes": 907532
+  },
+  {
+    "path": "paper-opam-export.txt",
+    "sha256": "440ab23cd5d28acd596d198bf050dc5384ebb4440bf5642d089b36e15f794083",
+    "bytes": 1044
+  },
+  {
+    "path": "paper-opam-resolved.txt",
+    "sha256": "f1e1ffe3a12bf63ee87090de003ce06f3f289c2363afdfa1bb5e9cd801f34b1e",
+    "bytes": 761
+  },
+  {
+    "path": "paper-rocq-build-results.json",
+    "sha256": "2d008d5e1468089d0001add237b0046bf48c7b6ffa05b06b5fe806fe04def6d3",
+    "bytes": 3059
+  },
+  {
+    "path": "paper-rocq-iris-build.log.gz",
+    "sha256": "851e79b2a30ee8e8047330cae264140d58d5f5b942a1c041879f6d08a4c76984",
+    "bytes": 51677
+  },
+  {
+    "path": "paper-rocq-kernel-rocq-build.log.gz",
+    "sha256": "0d21ef8a88a8d4ddedabb8d75f5091a9a0f7e1584a64b2cd5946d21d4d24d09c",
+    "bytes": 251
+  },
+  {
+    "path": "paper-rocq-model-xv6iris-build.log.gz",
+    "sha256": "efc14f9e3028c5fa28c2018a319b736586726940cb83237774b1bd61dc82d19d",
+    "bytes": 415
+  },
+  {
+    "path": "paper-rocq-user-rocq-build.log.gz",
+    "sha256": "cb4cfffad672fa25241dfa5212560779c8453b2e459e9d87d49697259ea4ddc5",
+    "bytes": 475
+  },
+  {
+    "path": "paper-source-hashes.json",
+    "sha256": "842035b4e596120a2ebe94d0f1c75ea738b9c6d0a8dd42958ae9997b43d9f0c8",
+    "bytes": 201493
+  },
+  {
+    "path": "paper-source-integrity.json",
+    "sha256": "e8f53a6bf8ef9d946d1335b379dbf2062f003efb65a6ffcf0407ae1b6f5a673c",
+    "bytes": 101
+  },
+  {
+    "path": "paper-statement-0.log",
+    "sha256": "447a05fe93992e2962cbcd90007f8e7d7c4c0ba62da9cc47f9e02344e8bd4657",
+    "bytes": 1087301
+  },
+  {
+    "path": "paper-statement-1.log",
+    "sha256": "a6e8be5d23c7816cf90fc8e13a74051bac6bb5f2c2c86f0d1695b994ed35df02",
+    "bytes": 863442
+  },
+  {
+    "path": "paper-statement-2.log",
+    "sha256": "404f800b0dcfa3e734e0ae0f1105b9e6989b6ca2d0b990b8d06384b7e21a855b",
+    "bytes": 1239394
+  },
+  {
+    "path": "paper-statement-3.log",
+    "sha256": "8327aaf04508160b313d8196331dcb8ff12e4a7d6cb1942e3bf289e6b4eeedba",
+    "bytes": 686609
+  },
+  {
+    "path": "paper-statement-4.log",
+    "sha256": "7cf0e392a3f4569eb33c6c0d4ff67e43e8e3ca6b2db2279708e1dd2463442c31",
+    "bytes": 686739
+  },
+  {
+    "path": "paper-statement-5.log",
+    "sha256": "97d5a3e593f0354f04298ff217a145ac6f5f586173c1c820498b2b894b20e7cd",
+    "bytes": 686581
+  },
+  {
+    "path": "summary.json",
+    "sha256": "3a2bee521487b6bbc9cd8f3622ab95a7870138e08ded82bd47aee284eef60e8c",
+    "bytes": 48080
+  },
+  {
+    "path": "user-rocq-CoqMakefile.d.gz",
+    "sha256": "2a25001526c30d9f0c5a5a6f2e5b2e3851bcd53388231ad1c14535ab16a30b7a",
+    "bytes": 628
+  }
+]

@@ -1,0 +1,16 @@
+Axioms:
+PrimInt63.sub : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+PrimString.string : Set
+xv6iris_extras.resv_matches : forall n : BinNums.Z, Values.mword n -> bool
+xv6iris_extras.resv_is_valid : bool
+PrimInt63.lsr : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+PrimInt63.lsl : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+PrimInt63.lor : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+PrimInt63.land : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+PrimInt63.int : Set
+PrimString.get : PrimString.string -> PrimInt63.int -> PrimString.char63
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+PrimInt63.eqb : PrimInt63.int -> PrimInt63.int -> bool
+PrimString.cat : PrimString.string -> PrimString.string -> PrimString.string

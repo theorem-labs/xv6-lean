@@ -15,11 +15,11 @@ whole-system safety or filesystem crash consistency.
 | Generic event execution and result transport | Proved initial composition/inversion laws | Actual handlers, blocked steps and restart rules implemented; correspondence pending |
 | Full generated Lean RISC-V model | Compiled; six execution/reset entry cones audited; real fetched JAL execution proved | Two explicit reservation predicates; full semantic correspondence pending |
 | Machine/device/power language | Concrete language implemented, including Virtio DMA and power | Boot execution and arbitrary-schedule memory/reservation/trace invariants proved; ownership in progress |
-| TSO ownership | Native byte/timestamp, log, view, dirty-set and full heap metadata resources proved and reviewed | Coherent era allocation and all-view clean/dirty context load proved; registered store and supervisor ownership in progress |
+| TSO ownership | Native byte/timestamp, log, view, dirty-set and full heap metadata resources proved and reviewed | Coherent era allocation and all-view clean/dirty context load proved; registered ordinary store and physical stack laws proved; virtual memory ownership in progress |
 | Register, device and disk ownership | Global dependent registers, device halves, reservations and complete disk-image laws proved | Complete two-hart spinlock gate proved and independently reviewed; supervisor kernel resources next |
 | Filesystem image readers | Complete initial fsimg_wf (W1–W9), durable inode, links and full initial Snapshot.OK proved | Native allocation, readback, source-instance transport and cloning proved; runtime bootstrap and crash preservation in progress |
 | MachCSL adequacy and first closed slice | Closed JAL schedule-safety theorem builds over the actual eight-hart/device/power machine | JAL and inhabited two-hart TSO spinlock gates closed; all six whole-xv6 roots remain open |
-| Kernel function proof port | Exact mycpu bytes/decodes and native context load/register-fold prerequisites proved | Supervisor PMP, context stores, translation, stack and full function WP next |
+| Kernel function proof port | Exact mycpu bytes/decodes and native context load/register-fold prerequisites proved | Native PMP/interrupt rules and physical context stores/stack proved; translation and full function WP next |
 | Concrete input images and ELF parsing | Full hex/packed certificates, ELF loading, independent dumped-map and boot-image equality proved | Initial FS checker and native resource allocation proved; live boot installation remains open |
 | Whole-system theorem closure | Not started | Requires all dependencies |
 
@@ -61,12 +61,12 @@ The native allocation checkpoint `e955086` [passed GitHub CI](https://github.com
 The native event/filesystem checkpoint `f8a1262` [passed GitHub CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34551920513).
 
 The complete inhabited spinlock gate and native kernel/filesystem prerequisite
-build passes 1,093 jobs. The complete audit checks 28,051 logical declarations,
-including 11,845 theorems, with only the three standard foundational axioms.
-Fifty-four compiler-generated total-recursion companions are excluded only as roots and
+build passes 1,135 jobs. The complete audit checks 28,603 logical declarations,
+including 12,202 theorems, with only the three standard foundational axioms.
+Fifty-six compiler-generated total-recursion companions are excluded only as roots and
 remain forbidden in logical cones. The initial-allocation caller check retains
 exactly nine reviewed edges. All twelve compiled audit fixtures pass. The
-reviewed staged source contains 860 reachable project modules and passes all
+reviewed staged source contains 902 reachable project modules and passes all
 87 generated-model pin checks. The whole-system root manifest remains empty.
 
 All 21 pure initial snapshot clauses are proved against the actual disk bytes.
@@ -87,8 +87,9 @@ installation returns the exact unused-byte remainder. Source-instance transport
 reads its minting facts from existing native ownership and preserves that
 source; snapshot cloning retains the original at its original names. Coverage,
 record decoding, exact signed block sets and logged-era installation provide
-checked prerequisites for runtime configuration bootstrap. Its native inode,
-bitmap, cache, log and crash invariants remain later layers.
+checked prerequisites for runtime configuration bootstrap. The native bitmap resource and inode-region record/marker allocation prelude
+are now proved, preserving the actual supplied logged bytes. Full inode slots,
+bitmap/cache/log invariants and crash preservation remain later layers.
 
 The complete seventeen-instruction spinlock family is preserved by the actual
 generated Sail cycle, including both clock choices. Native event callbacks,
@@ -132,8 +133,11 @@ including the actual compressed expansions under source supervisor settings.
 Native running-context loads preserve the full heap/TSO and byte resources
 for every permitted view, including own-author dirty forwarding. The finite
 register fold preserves source fractions and pays actual register subevents.
-Supervisor PMP, translation/A-D/TLB behavior, context stores, stack and clock
-resources remain required before a complete function WP is claimed.
+The actual supervisor PMP and interrupt-suppression subprograms now have
+native finite-register WPs. Ordinary registered context stores and physical
+word/stack save/readback/rejoin rules are proved. Translation/A-D/TLB behavior,
+virtual stack/tier assertions and enclosing cycle composition remain required
+before a complete function WP is claimed.
 
 `MachCSL.Logic.JalMachineSafety.safe` proves actual reducibility for every thread
 in every finite reachable configuration, together with the model's observation
@@ -169,8 +173,21 @@ The full pure filesystem-image checkpoint `c9f2955` [passed hosted CI](https://g
 The event-resource checkpoint `c22a247` [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34563919603).
 The callback checkpoint `72836cb` [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34565105437).
 The closed spinlock-safety checkpoint `6555da6` [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34567416068).
-Later readback and operational-exclusion checkpoints remain pending in hosted
-CI; local proofs and audit results are recorded separately.
+The readback checkpoint `c251f55` [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34568961728).
+The operational-exclusion checkpoint `fa3b8ad` [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34570645072).
+The inhabited gate `f252d3d` remains pending in hosted CI; local validation is
+recorded separately.
+
+The original Rocq artifact has been replayed successfully in an isolated
+OCaml 5.3.0/Rocq 9.0.1 environment. All 2,104 tracked files are unchanged.
+The compiler-derived local import union has 1,314 modules; all six source
+statement queries and all six proof-assumption queries passed. Each proof
+prints the same thirteen assumptions (ten Rocq primitives, two reservation
+parameters and dependent functional extensionality). Raw evidence, hashes,
+versions, exact statements and a portable parser are archived under
+[docs/upstream/rocq-replay](upstream/rocq-replay/). This is a source replay and
+scoped dependency baseline, not a complete declaration graph or Lean/Rocq
+semantic correspondence certificate.
 
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is

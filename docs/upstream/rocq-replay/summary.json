@@ -1,0 +1,1383 @@
+{
+  "schema_version": 1,
+  "source_commit": "fa7f0a01c4b40489fac8ad303f079c2dfc7a1476",
+  "complete_audit_matrix": true,
+  "interpretation": {
+    "printed_names_are_canonical": false,
+    "constructor_inventory_included": false,
+    "constant_type_and_body_closure_certified": false,
+    "semantic_correspondence_to_lean_certified": false,
+    "statement_seed": "body is elaborated theorem type; root proof body is not the seed",
+    "assumptions": "printer frontier includes primitives; categories retained without relabeling",
+    "boundaries": "inferred from Rocq 9.0.1 printer section order; raw text retained",
+    "name_candidates": "column-zero name-colon rendering; not a kernel identifier parser"
+  },
+  "theorem_roots": [
+    {
+      "root": "SystemAdequacy.xv6_power_adequacy_xv6Σ",
+      "source_path": "iris/SystemAdequacy.v",
+      "line": 1137,
+      "scope": "conditional_invariant",
+      "source_file_sha256": "32accd18bd22b89a81e3a66832614864f0f02ddc8b82541e5e00993af655ff55",
+      "statement": "Corollary xv6_power_adequacy_xv6Σ (g : gstate)\n    (phi : gstate -> Prop)\n    (Hphi : forall (Hinv : invGS xv6Σ)\n                   (γgen γstart γreg γd γsw γobs : gname) (T : list mobs)\n                   (g' : gstate),\n       ⊢ @power_interp xv6Σ\n            (boot_fixedGS Hinv γgen γstart γreg γd XV6_DISK_BYTES γsw\n               (P_fs_named γd XV6_DISK_BYTES γsw γreg γstart fsimg_cov\n                  (FsImg.sb_logstart fsimg_sb))\n               γobs T (obs_pred_at γobs)) g' -∗\n         ▷ P_fs_named γd XV6_DISK_BYTES γsw γreg γstart fsimg_cov\n             (FsImg.sb_logstart fsimg_sb) -∗\n         ◇ ⌜phi g'⌝)\n    (Hgen0 : g.(ggen) = 0%nat) (Hpow : g.(gpow) = false)\n    (* THE ONE HYPOTHESIS LEFT, and it is about the HARDWARE SETUP, not the\n       file system: the machine is switched on with the disk mkfs wrote. *)\n    (Hdisk : v_disk (g.(gdev).(dvirtio)) = FsImgDisk.fsimg_dk) :\n  forall t2 g2,\n    rtc erased_step ([PowerLoopE : expr riscv_lang], g) (t2, g2) ->\n    (forall e2, e2 ∈ t2 -> reducible (Λ := riscv_lang) e2 g2) /\\ phi g2.",
+      "statement_sha256": "a4efbcb221eb995ddff3293fd3153b0d88abd12b81440065e8a8532a2031f229"
+    },
+    {
+      "root": "SystemAdequacy.xv6_fs_adequacy_xv6Σ",
+      "source_path": "iris/SystemAdequacy.v",
+      "line": 1190,
+      "scope": "concrete_initial_state",
+      "source_file_sha256": "32accd18bd22b89a81e3a66832614864f0f02ddc8b82541e5e00993af655ff55",
+      "statement": "Corollary xv6_fs_adequacy_xv6Σ (g : gstate)\n    (Hgen0 : g.(ggen) = 0%nat) (Hpow : g.(gpow) = false)\n    (Hdisk : v_disk (g.(gdev).(dvirtio)) = FsImgDisk.fsimg_dk) :\n  forall t2 g2,\n    rtc erased_step ([PowerLoopE : expr riscv_lang], g) (t2, g2) ->\n    (forall e2, e2 ∈ t2 -> reducible (Λ := riscv_lang) e2 g2) /\\\n    xv6_trace_pure fsimg_cov (FsImg.sb_logstart fsimg_sb) g2.",
+      "statement_sha256": "d17f9dc653c22f7d8697f2a51a19dfdbe802104cec5d793d0bef1522ca636456"
+    },
+    {
+      "root": "SystemAdequacy.xv6_trace_adequacy_xv6Σ",
+      "source_path": "iris/SystemAdequacy.v",
+      "line": 1220,
+      "scope": "conditional_trace_resources",
+      "source_file_sha256": "32accd18bd22b89a81e3a66832614864f0f02ddc8b82541e5e00993af655ff55",
+      "statement": "Corollary xv6_trace_adequacy_xv6Σ (g : gstate)\n    (R : list mobs -> iProp xv6Σ) (HRt : forall h, Timeless (R h))\n    (HR0 : ⊢ |==> R [])\n    (Hpow : forall (h : list mobs) (on : bool) (dk : Z -> bv 8),\n       trace_shape h on ->\n       ⊢ R h ==∗ R (h ++ [if on then ObsPowerOff else ObsPowerOn])%list)\n    (Htx : forall (HR : riscvGS xv6Σ) (γ : uart_names),\n       ⊢ □ (∀ (h : list mobs) (b : bv 8) (u u' : uart_state),\n              ⌜uart_tx_pop u = Some (b, u')⌝ -∗ ⌜uart_loopback u = false⌝ -∗\n              ⌜trace_shape h true⌝ -∗ ⌜obs_wire (open_seg h) = u_wire u⌝ -∗\n              uart_ghosts γ u' -∗ R h ={⊤ ∖ ↑uartN ∖ ↑obsN}=∗\n              uart_ghosts γ u' ∗ R (h ++ [ObsUartOut b])%list))\n    (Hrx : forall (HR : riscvGS xv6Σ) (γ : uart_names),\n       ⊢ □ (∀ (h : list mobs) (b : bv 8) (u u' : uart_state),\n              ⌜uart_rx_push u b = Some u'⌝ -∗ ⌜trace_shape h true⌝ -∗\n              uart_ghosts γ u' -∗ R h ={⊤ ∖ ↑uartN ∖ ↑obsN}=∗\n              uart_ghosts γ u' ∗ R (h ++ [ObsUartIn b])%list))\n    (P : list mobs -> Prop) (HR : forall h, R h ⊢ ⌜P h⌝)\n    (Hgen0 : g.(ggen) = 0%nat) (Hpow0 : g.(gpow) = false)\n    (Hdisk : v_disk (g.(gdev).(dvirtio)) = FsImgDisk.fsimg_dk) :\n  forall (n : nat) (κs : list mobs) t2 g2,\n    nsteps n ([PowerLoopE : expr riscv_lang], g) κs (t2, g2) ->\n    (forall e2, e2 ∈ t2 -> reducible (Λ := riscv_lang) e2 g2) /\\ P κs.",
+      "statement_sha256": "8acb31ee770664fe0a2ed00d852fda2c6f7497f48ba61f0a1d8427462620be1f"
+    },
+    {
+      "root": "SystemAdequacy.xv6_obs_wf_xv6Σ",
+      "source_path": "iris/SystemAdequacy.v",
+      "line": 1249,
+      "scope": "concrete_initial_state",
+      "source_file_sha256": "32accd18bd22b89a81e3a66832614864f0f02ddc8b82541e5e00993af655ff55",
+      "statement": "Corollary xv6_obs_wf_xv6Σ (g : gstate)\n    (Hgen0 : g.(ggen) = 0%nat) (Hpow0 : g.(gpow) = false)\n    (Hdisk : v_disk (g.(gdev).(dvirtio)) = FsImgDisk.fsimg_dk) :\n  forall (n : nat) (κs : list mobs) t2 g2,\n    nsteps n ([PowerLoopE : expr riscv_lang], g) κs (t2, g2) ->\n    (forall e2, e2 ∈ t2 -> reducible (Λ := riscv_lang) e2 g2) /\\ obs_wf κs g2.",
+      "statement_sha256": "c51fff733442a44a550919de6fc11a97c569280bfbc4c0f7c431109e184ba6f8"
+    },
+    {
+      "root": "SystemUartAccepted.xv6_out_accepted_xv6Σ",
+      "source_path": "iris/SystemUartAccepted.v",
+      "line": 61,
+      "scope": "concrete_initial_state",
+      "source_file_sha256": "a5679f0fd609976bca7adb77226381ad8eafe3e281cde022522992da1fa0cdbd",
+      "statement": "Corollary xv6_out_accepted_xv6Σ (g : gstate)\n    (Hgen0 : g.(ggen) = 0%nat) (Hpow0 : g.(gpow) = false)\n    (Hdisk : v_disk (g.(gdev).(dvirtio)) = FsImgDisk.fsimg_dk) :\n  forall (n : nat) (κs : list mobs) t2 g2,\n    nsteps (Λ := riscv_lang) n ([PowerLoopE : expr riscv_lang], g) κs (t2, g2) ->\n    (* the machine never gets stuck ... *)\n    (forall e2, e2 ∈ t2 -> reducible (Λ := riscv_lang) e2 g2)\n    (* ... its observable history alternates PowerOn / console I/O /\n       PowerOff, counts the boots and ties the open cycle to the wire ... *)\n    /\\ obs_wf κs g2\n    (* ... and EVERY BYTE THE HOST SAW IN THIS CYCLE WAS ACCEPTED BY THE\n       KERNEL, IN ORDER.  [uart_acc] is exactly the list the campaign's\n       receipts ([WpUart.uart_sent], [UartSentLoc.uart_sent_from]) are\n       lower bounds of. *)\n    /\\ obs_wire (open_seg κs) `sublist_of` uart_acc (duart g2.(gdev)).",
+      "statement_sha256": "13042bbafe2df98b33f00461a8ad99ce65d2d17c1be204c3ab8f60568dde6703"
+    },
+    {
+      "root": "SystemUartAccepted.xv6_out_accepted_from_xv6Σ",
+      "source_path": "iris/SystemUartAccepted.v",
+      "line": 108,
+      "scope": "conditional_located_receipt_residue",
+      "source_file_sha256": "a5679f0fd609976bca7adb77226381ad8eafe3e281cde022522992da1fa0cdbd",
+      "statement": "Corollary xv6_out_accepted_from_xv6Σ (g : gstate)\n    (Hgen0 : g.(ggen) = 0%nat) (Hpow0 : g.(gpow) = false)\n    (Hdisk : v_disk (g.(gdev).(dvirtio)) = FsImgDisk.fsimg_dk) :\n  forall (n : nat) (κs : list mobs) t2 g2,\n    nsteps (Λ := riscv_lang) n ([PowerLoopE : expr riscv_lang], g) κs (t2, g2) ->\n    forall tr0 bs : list (bv 8),\n      tr0 `prefix_of` uart_acc (duart g2.(gdev)) ->\n      bs `sublist_of` drop (length tr0) (uart_acc (duart g2.(gdev))) ->\n      (forall e2, e2 ∈ t2 -> reducible (Λ := riscv_lang) e2 g2)\n      /\\ exists w1 w2,\n           obs_wire (open_seg κs) = w1 ++ w2\n           /\\ w1 `sublist_of` tr0\n           /\\ w2 `sublist_of` drop (length tr0) (uart_acc (duart g2.(gdev)))\n           /\\ bs `sublist_of` drop (length tr0) (uart_acc (duart g2.(gdev))).",
+      "statement_sha256": "6d6eb1014536bd09129c0ebda0fdda7327e0fda35b0a06dad9e16c39da72710c"
+    }
+  ],
+  "audits": [
+    {
+      "root": "SystemAdequacy.xv6_fs_adequacy_xv6Σ",
+      "kind": "proof_assumptions",
+      "exit_code": 0,
+      "elapsed_seconds": 331.25793838500977,
+      "log": "paper-assumptions-1.log",
+      "sha256": "af6a85aa5c6f6c1095cfc0c04780fa40702ef2a27fa9c37929d4627b88b4df88",
+      "responses": [
+        {
+          "command": "Print Assumptions theorem_root",
+          "closed_message": false,
+          "categories": [
+            {
+              "category": "Axioms",
+              "printed_name_candidate_count": 13,
+              "assumption_name_candidates": [
+                {
+                  "printed_name": "PrimInt63.sub",
+                  "line": 2
+                },
+                {
+                  "printed_name": "PrimString.string",
+                  "line": 3
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_matches",
+                  "line": 4
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_is_valid",
+                  "line": 5
+                },
+                {
+                  "printed_name": "PrimInt63.lsr",
+                  "line": 6
+                },
+                {
+                  "printed_name": "PrimInt63.lsl",
+                  "line": 7
+                },
+                {
+                  "printed_name": "PrimInt63.lor",
+                  "line": 8
+                },
+                {
+                  "printed_name": "PrimInt63.land",
+                  "line": 9
+                },
+                {
+                  "printed_name": "PrimInt63.int",
+                  "line": 10
+                },
+                {
+                  "printed_name": "PrimString.get",
+                  "line": 11
+                },
+                {
+                  "printed_name": "FunctionalExtensionality.functional_extensionality_dep",
+                  "line": 12
+                },
+                {
+                  "printed_name": "PrimInt63.eqb",
+                  "line": 15
+                },
+                {
+                  "printed_name": "PrimString.cat",
+                  "line": 16
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "root": "SystemAdequacy.xv6_fs_adequacy_xv6Σ",
+      "kind": "statement_dependencies",
+      "exit_code": 0,
+      "elapsed_seconds": 4.783399820327759,
+      "log": "paper-statement-1.log",
+      "sha256": "a6e8be5d23c7816cf90fc8e13a74051bac6bb5f2c2c86f0d1695b994ed35df02",
+      "responses": [
+        {
+          "command": "Print All Dependencies statement_seed",
+          "closed_message": false,
+          "categories": [
+            {
+              "category": "Transparent constants",
+              "printed_name_candidate_count": 3762,
+              "assumption_name_candidates": null
+            },
+            {
+              "category": "Axioms",
+              "printed_name_candidate_count": 12,
+              "assumption_name_candidates": [
+                {
+                  "printed_name": "PrimInt63.sub",
+                  "line": 7957
+                },
+                {
+                  "printed_name": "PrimString.string",
+                  "line": 7958
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_matches",
+                  "line": 7959
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_is_valid",
+                  "line": 7960
+                },
+                {
+                  "printed_name": "PrimInt63.lsr",
+                  "line": 7961
+                },
+                {
+                  "printed_name": "PrimInt63.lsl",
+                  "line": 7962
+                },
+                {
+                  "printed_name": "PrimInt63.lor",
+                  "line": 7963
+                },
+                {
+                  "printed_name": "PrimInt63.land",
+                  "line": 7964
+                },
+                {
+                  "printed_name": "PrimInt63.int",
+                  "line": 7965
+                },
+                {
+                  "printed_name": "PrimString.get",
+                  "line": 7966
+                },
+                {
+                  "printed_name": "PrimInt63.eqb",
+                  "line": 7967
+                },
+                {
+                  "printed_name": "PrimString.cat",
+                  "line": 7968
+                }
+              ]
+            },
+            {
+              "category": "Opaque constants",
+              "printed_name_candidate_count": 1964,
+              "assumption_name_candidates": null
+            }
+          ]
+        },
+        {
+          "command": "Print Assumptions statement_seed",
+          "closed_message": false,
+          "categories": [
+            {
+              "category": "Axioms",
+              "printed_name_candidate_count": 12,
+              "assumption_name_candidates": [
+                {
+                  "printed_name": "PrimInt63.sub",
+                  "line": 13013
+                },
+                {
+                  "printed_name": "PrimString.string",
+                  "line": 13014
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_matches",
+                  "line": 13015
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_is_valid",
+                  "line": 13016
+                },
+                {
+                  "printed_name": "PrimInt63.lsr",
+                  "line": 13017
+                },
+                {
+                  "printed_name": "PrimInt63.lsl",
+                  "line": 13018
+                },
+                {
+                  "printed_name": "PrimInt63.lor",
+                  "line": 13019
+                },
+                {
+                  "printed_name": "PrimInt63.land",
+                  "line": 13020
+                },
+                {
+                  "printed_name": "PrimInt63.int",
+                  "line": 13021
+                },
+                {
+                  "printed_name": "PrimString.get",
+                  "line": 13022
+                },
+                {
+                  "printed_name": "PrimInt63.eqb",
+                  "line": 13023
+                },
+                {
+                  "printed_name": "PrimString.cat",
+                  "line": 13024
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "root": "SystemAdequacy.xv6_obs_wf_xv6Σ",
+      "kind": "proof_assumptions",
+      "exit_code": 0,
+      "elapsed_seconds": 338.8331825733185,
+      "log": "paper-assumptions-3.log",
+      "sha256": "af6a85aa5c6f6c1095cfc0c04780fa40702ef2a27fa9c37929d4627b88b4df88",
+      "responses": [
+        {
+          "command": "Print Assumptions theorem_root",
+          "closed_message": false,
+          "categories": [
+            {
+              "category": "Axioms",
+              "printed_name_candidate_count": 13,
+              "assumption_name_candidates": [
+                {
+                  "printed_name": "PrimInt63.sub",
+                  "line": 2
+                },
+                {
+                  "printed_name": "PrimString.string",
+                  "line": 3
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_matches",
+                  "line": 4
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_is_valid",
+                  "line": 5
+                },
+                {
+                  "printed_name": "PrimInt63.lsr",
+                  "line": 6
+                },
+                {
+                  "printed_name": "PrimInt63.lsl",
+                  "line": 7
+                },
+                {
+                  "printed_name": "PrimInt63.lor",
+                  "line": 8
+                },
+                {
+                  "printed_name": "PrimInt63.land",
+                  "line": 9
+                },
+                {
+                  "printed_name": "PrimInt63.int",
+                  "line": 10
+                },
+                {
+                  "printed_name": "PrimString.get",
+                  "line": 11
+                },
+                {
+                  "printed_name": "FunctionalExtensionality.functional_extensionality_dep",
+                  "line": 12
+                },
+                {
+                  "printed_name": "PrimInt63.eqb",
+                  "line": 15
+                },
+                {
+                  "printed_name": "PrimString.cat",
+                  "line": 16
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "root": "SystemAdequacy.xv6_obs_wf_xv6Σ",
+      "kind": "statement_dependencies",
+      "exit_code": 0,
+      "elapsed_seconds": 4.428993463516235,
+      "log": "paper-statement-3.log",
+      "sha256": "8327aaf04508160b313d8196331dcb8ff12e4a7d6cb1942e3bf289e6b4eeedba",
+      "responses": [
+        {
+          "command": "Print All Dependencies statement_seed",
+          "closed_message": false,
+          "categories": [
+            {
+              "category": "Transparent constants",
+              "printed_name_candidate_count": 3308,
+              "assumption_name_candidates": null
+            },
+            {
+              "category": "Axioms",
+              "printed_name_candidate_count": 12,
+              "assumption_name_candidates": [
+                {
+                  "printed_name": "PrimInt63.sub",
+                  "line": 6987
+                },
+                {
+                  "printed_name": "PrimString.string",
+                  "line": 6988
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_matches",
+                  "line": 6989
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_is_valid",
+                  "line": 6990
+                },
+                {
+                  "printed_name": "PrimInt63.lsr",
+                  "line": 6991
+                },
+                {
+                  "printed_name": "PrimInt63.lsl",
+                  "line": 6992
+                },
+                {
+                  "printed_name": "PrimInt63.lor",
+                  "line": 6993
+                },
+                {
+                  "printed_name": "PrimInt63.land",
+                  "line": 6994
+                },
+                {
+                  "printed_name": "PrimInt63.int",
+                  "line": 6995
+                },
+                {
+                  "printed_name": "PrimString.get",
+                  "line": 6996
+                },
+                {
+                  "printed_name": "PrimInt63.eqb",
+                  "line": 6997
+                },
+                {
+                  "printed_name": "PrimString.cat",
+                  "line": 6998
+                }
+              ]
+            },
+            {
+              "category": "Opaque constants",
+              "printed_name_candidate_count": 1476,
+              "assumption_name_candidates": null
+            }
+          ]
+        },
+        {
+          "command": "Print Assumptions statement_seed",
+          "closed_message": false,
+          "categories": [
+            {
+              "category": "Axioms",
+              "printed_name_candidate_count": 12,
+              "assumption_name_candidates": [
+                {
+                  "printed_name": "PrimInt63.sub",
+                  "line": 10679
+                },
+                {
+                  "printed_name": "PrimString.string",
+                  "line": 10680
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_matches",
+                  "line": 10681
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_is_valid",
+                  "line": 10682
+                },
+                {
+                  "printed_name": "PrimInt63.lsr",
+                  "line": 10683
+                },
+                {
+                  "printed_name": "PrimInt63.lsl",
+                  "line": 10684
+                },
+                {
+                  "printed_name": "PrimInt63.lor",
+                  "line": 10685
+                },
+                {
+                  "printed_name": "PrimInt63.land",
+                  "line": 10686
+                },
+                {
+                  "printed_name": "PrimInt63.int",
+                  "line": 10687
+                },
+                {
+                  "printed_name": "PrimString.get",
+                  "line": 10688
+                },
+                {
+                  "printed_name": "PrimInt63.eqb",
+                  "line": 10689
+                },
+                {
+                  "printed_name": "PrimString.cat",
+                  "line": 10690
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "root": "SystemAdequacy.xv6_power_adequacy_xv6Σ",
+      "kind": "proof_assumptions",
+      "exit_code": 0,
+      "elapsed_seconds": 333.16786909103394,
+      "log": "paper-assumptions-0.log",
+      "sha256": "af6a85aa5c6f6c1095cfc0c04780fa40702ef2a27fa9c37929d4627b88b4df88",
+      "responses": [
+        {
+          "command": "Print Assumptions theorem_root",
+          "closed_message": false,
+          "categories": [
+            {
+              "category": "Axioms",
+              "printed_name_candidate_count": 13,
+              "assumption_name_candidates": [
+                {
+                  "printed_name": "PrimInt63.sub",
+                  "line": 2
+                },
+                {
+                  "printed_name": "PrimString.string",
+                  "line": 3
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_matches",
+                  "line": 4
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_is_valid",
+                  "line": 5
+                },
+                {
+                  "printed_name": "PrimInt63.lsr",
+                  "line": 6
+                },
+                {
+                  "printed_name": "PrimInt63.lsl",
+                  "line": 7
+                },
+                {
+                  "printed_name": "PrimInt63.lor",
+                  "line": 8
+                },
+                {
+                  "printed_name": "PrimInt63.land",
+                  "line": 9
+                },
+                {
+                  "printed_name": "PrimInt63.int",
+                  "line": 10
+                },
+                {
+                  "printed_name": "PrimString.get",
+                  "line": 11
+                },
+                {
+                  "printed_name": "FunctionalExtensionality.functional_extensionality_dep",
+                  "line": 12
+                },
+                {
+                  "printed_name": "PrimInt63.eqb",
+                  "line": 15
+                },
+                {
+                  "printed_name": "PrimString.cat",
+                  "line": 16
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "root": "SystemAdequacy.xv6_power_adequacy_xv6Σ",
+      "kind": "statement_dependencies",
+      "exit_code": 0,
+      "elapsed_seconds": 4.960444688796997,
+      "log": "paper-statement-0.log",
+      "sha256": "447a05fe93992e2962cbcd90007f8e7d7c4c0ba62da9cc47f9e02344e8bd4657",
+      "responses": [
+        {
+          "command": "Print All Dependencies statement_seed",
+          "closed_message": false,
+          "categories": [
+            {
+              "category": "Transparent constants",
+              "printed_name_candidate_count": 4484,
+              "assumption_name_candidates": null
+            },
+            {
+              "category": "Axioms",
+              "printed_name_candidate_count": 12,
+              "assumption_name_candidates": [
+                {
+                  "printed_name": "PrimInt63.sub",
+                  "line": 9474
+                },
+                {
+                  "printed_name": "PrimString.string",
+                  "line": 9475
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_matches",
+                  "line": 9476
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_is_valid",
+                  "line": 9477
+                },
+                {
+                  "printed_name": "PrimInt63.lsr",
+                  "line": 9478
+                },
+                {
+                  "printed_name": "PrimInt63.lsl",
+                  "line": 9479
+                },
+                {
+                  "printed_name": "PrimInt63.lor",
+                  "line": 9480
+                },
+                {
+                  "printed_name": "PrimInt63.land",
+                  "line": 9481
+                },
+                {
+                  "printed_name": "PrimInt63.int",
+                  "line": 9482
+                },
+                {
+                  "printed_name": "PrimString.get",
+                  "line": 9483
+                },
+                {
+                  "printed_name": "PrimInt63.eqb",
+                  "line": 9484
+                },
+                {
+                  "printed_name": "PrimString.cat",
+                  "line": 9485
+                }
+              ]
+            },
+            {
+              "category": "Opaque constants",
+              "printed_name_candidate_count": 2492,
+              "assumption_name_candidates": null
+            }
+          ]
+        },
+        {
+          "command": "Print Assumptions statement_seed",
+          "closed_message": false,
+          "categories": [
+            {
+              "category": "Axioms",
+              "printed_name_candidate_count": 12,
+              "assumption_name_candidates": [
+                {
+                  "printed_name": "PrimInt63.sub",
+                  "line": 15812
+                },
+                {
+                  "printed_name": "PrimString.string",
+                  "line": 15813
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_matches",
+                  "line": 15814
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_is_valid",
+                  "line": 15815
+                },
+                {
+                  "printed_name": "PrimInt63.lsr",
+                  "line": 15816
+                },
+                {
+                  "printed_name": "PrimInt63.lsl",
+                  "line": 15817
+                },
+                {
+                  "printed_name": "PrimInt63.lor",
+                  "line": 15818
+                },
+                {
+                  "printed_name": "PrimInt63.land",
+                  "line": 15819
+                },
+                {
+                  "printed_name": "PrimInt63.int",
+                  "line": 15820
+                },
+                {
+                  "printed_name": "PrimString.get",
+                  "line": 15821
+                },
+                {
+                  "printed_name": "PrimInt63.eqb",
+                  "line": 15822
+                },
+                {
+                  "printed_name": "PrimString.cat",
+                  "line": 15823
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "root": "SystemAdequacy.xv6_trace_adequacy_xv6Σ",
+      "kind": "proof_assumptions",
+      "exit_code": 0,
+      "elapsed_seconds": 342.7914831638336,
+      "log": "paper-assumptions-2.log",
+      "sha256": "af6a85aa5c6f6c1095cfc0c04780fa40702ef2a27fa9c37929d4627b88b4df88",
+      "responses": [
+        {
+          "command": "Print Assumptions theorem_root",
+          "closed_message": false,
+          "categories": [
+            {
+              "category": "Axioms",
+              "printed_name_candidate_count": 13,
+              "assumption_name_candidates": [
+                {
+                  "printed_name": "PrimInt63.sub",
+                  "line": 2
+                },
+                {
+                  "printed_name": "PrimString.string",
+                  "line": 3
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_matches",
+                  "line": 4
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_is_valid",
+                  "line": 5
+                },
+                {
+                  "printed_name": "PrimInt63.lsr",
+                  "line": 6
+                },
+                {
+                  "printed_name": "PrimInt63.lsl",
+                  "line": 7
+                },
+                {
+                  "printed_name": "PrimInt63.lor",
+                  "line": 8
+                },
+                {
+                  "printed_name": "PrimInt63.land",
+                  "line": 9
+                },
+                {
+                  "printed_name": "PrimInt63.int",
+                  "line": 10
+                },
+                {
+                  "printed_name": "PrimString.get",
+                  "line": 11
+                },
+                {
+                  "printed_name": "FunctionalExtensionality.functional_extensionality_dep",
+                  "line": 12
+                },
+                {
+                  "printed_name": "PrimInt63.eqb",
+                  "line": 15
+                },
+                {
+                  "printed_name": "PrimString.cat",
+                  "line": 16
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "root": "SystemAdequacy.xv6_trace_adequacy_xv6Σ",
+      "kind": "statement_dependencies",
+      "exit_code": 0,
+      "elapsed_seconds": 5.591251850128174,
+      "log": "paper-statement-2.log",
+      "sha256": "404f800b0dcfa3e734e0ae0f1105b9e6989b6ca2d0b990b8d06384b7e21a855b",
+      "responses": [
+        {
+          "command": "Print All Dependencies statement_seed",
+          "closed_message": false,
+          "categories": [
+            {
+              "category": "Transparent constants",
+              "printed_name_candidate_count": 4467,
+              "assumption_name_candidates": null
+            },
+            {
+              "category": "Axioms",
+              "printed_name_candidate_count": 12,
+              "assumption_name_candidates": [
+                {
+                  "printed_name": "PrimInt63.sub",
+                  "line": 9465
+                },
+                {
+                  "printed_name": "PrimString.string",
+                  "line": 9466
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_matches",
+                  "line": 9467
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_is_valid",
+                  "line": 9468
+                },
+                {
+                  "printed_name": "PrimInt63.lsr",
+                  "line": 9469
+                },
+                {
+                  "printed_name": "PrimInt63.lsl",
+                  "line": 9470
+                },
+                {
+                  "printed_name": "PrimInt63.lor",
+                  "line": 9471
+                },
+                {
+                  "printed_name": "PrimInt63.land",
+                  "line": 9472
+                },
+                {
+                  "printed_name": "PrimInt63.int",
+                  "line": 9473
+                },
+                {
+                  "printed_name": "PrimString.get",
+                  "line": 9474
+                },
+                {
+                  "printed_name": "PrimInt63.eqb",
+                  "line": 9475
+                },
+                {
+                  "printed_name": "PrimString.cat",
+                  "line": 9476
+                }
+              ]
+            },
+            {
+              "category": "Opaque constants",
+              "printed_name_candidate_count": 3020,
+              "assumption_name_candidates": null
+            }
+          ]
+        },
+        {
+          "command": "Print Assumptions statement_seed",
+          "closed_message": false,
+          "categories": [
+            {
+              "category": "Axioms",
+              "printed_name_candidate_count": 12,
+              "assumption_name_candidates": [
+                {
+                  "printed_name": "PrimInt63.sub",
+                  "line": 17100
+                },
+                {
+                  "printed_name": "PrimString.string",
+                  "line": 17101
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_matches",
+                  "line": 17102
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_is_valid",
+                  "line": 17103
+                },
+                {
+                  "printed_name": "PrimInt63.lsr",
+                  "line": 17104
+                },
+                {
+                  "printed_name": "PrimInt63.lsl",
+                  "line": 17105
+                },
+                {
+                  "printed_name": "PrimInt63.lor",
+                  "line": 17106
+                },
+                {
+                  "printed_name": "PrimInt63.land",
+                  "line": 17107
+                },
+                {
+                  "printed_name": "PrimInt63.int",
+                  "line": 17108
+                },
+                {
+                  "printed_name": "PrimString.get",
+                  "line": 17109
+                },
+                {
+                  "printed_name": "PrimInt63.eqb",
+                  "line": 17110
+                },
+                {
+                  "printed_name": "PrimString.cat",
+                  "line": 17111
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "root": "SystemUartAccepted.xv6_out_accepted_from_xv6Σ",
+      "kind": "proof_assumptions",
+      "exit_code": 0,
+      "elapsed_seconds": 348.2225625514984,
+      "log": "paper-assumptions-5.log",
+      "sha256": "af6a85aa5c6f6c1095cfc0c04780fa40702ef2a27fa9c37929d4627b88b4df88",
+      "responses": [
+        {
+          "command": "Print Assumptions theorem_root",
+          "closed_message": false,
+          "categories": [
+            {
+              "category": "Axioms",
+              "printed_name_candidate_count": 13,
+              "assumption_name_candidates": [
+                {
+                  "printed_name": "PrimInt63.sub",
+                  "line": 2
+                },
+                {
+                  "printed_name": "PrimString.string",
+                  "line": 3
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_matches",
+                  "line": 4
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_is_valid",
+                  "line": 5
+                },
+                {
+                  "printed_name": "PrimInt63.lsr",
+                  "line": 6
+                },
+                {
+                  "printed_name": "PrimInt63.lsl",
+                  "line": 7
+                },
+                {
+                  "printed_name": "PrimInt63.lor",
+                  "line": 8
+                },
+                {
+                  "printed_name": "PrimInt63.land",
+                  "line": 9
+                },
+                {
+                  "printed_name": "PrimInt63.int",
+                  "line": 10
+                },
+                {
+                  "printed_name": "PrimString.get",
+                  "line": 11
+                },
+                {
+                  "printed_name": "FunctionalExtensionality.functional_extensionality_dep",
+                  "line": 12
+                },
+                {
+                  "printed_name": "PrimInt63.eqb",
+                  "line": 15
+                },
+                {
+                  "printed_name": "PrimString.cat",
+                  "line": 16
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "root": "SystemUartAccepted.xv6_out_accepted_from_xv6Σ",
+      "kind": "statement_dependencies",
+      "exit_code": 0,
+      "elapsed_seconds": 3.6092588901519775,
+      "log": "paper-statement-5.log",
+      "sha256": "97d5a3e593f0354f04298ff217a145ac6f5f586173c1c820498b2b894b20e7cd",
+      "responses": [
+        {
+          "command": "Print All Dependencies statement_seed",
+          "closed_message": false,
+          "categories": [
+            {
+              "category": "Transparent constants",
+              "printed_name_candidate_count": 3306,
+              "assumption_name_candidates": null
+            },
+            {
+              "category": "Axioms",
+              "printed_name_candidate_count": 12,
+              "assumption_name_candidates": [
+                {
+                  "printed_name": "PrimInt63.sub",
+                  "line": 6983
+                },
+                {
+                  "printed_name": "PrimString.string",
+                  "line": 6984
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_matches",
+                  "line": 6985
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_is_valid",
+                  "line": 6986
+                },
+                {
+                  "printed_name": "PrimInt63.lsr",
+                  "line": 6987
+                },
+                {
+                  "printed_name": "PrimInt63.lsl",
+                  "line": 6988
+                },
+                {
+                  "printed_name": "PrimInt63.lor",
+                  "line": 6989
+                },
+                {
+                  "printed_name": "PrimInt63.land",
+                  "line": 6990
+                },
+                {
+                  "printed_name": "PrimInt63.int",
+                  "line": 6991
+                },
+                {
+                  "printed_name": "PrimString.get",
+                  "line": 6992
+                },
+                {
+                  "printed_name": "PrimInt63.eqb",
+                  "line": 6993
+                },
+                {
+                  "printed_name": "PrimString.cat",
+                  "line": 6994
+                }
+              ]
+            },
+            {
+              "category": "Opaque constants",
+              "printed_name_candidate_count": 1476,
+              "assumption_name_candidates": null
+            }
+          ]
+        },
+        {
+          "command": "Print Assumptions statement_seed",
+          "closed_message": false,
+          "categories": [
+            {
+              "category": "Axioms",
+              "printed_name_candidate_count": 12,
+              "assumption_name_candidates": [
+                {
+                  "printed_name": "PrimInt63.sub",
+                  "line": 10675
+                },
+                {
+                  "printed_name": "PrimString.string",
+                  "line": 10676
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_matches",
+                  "line": 10677
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_is_valid",
+                  "line": 10678
+                },
+                {
+                  "printed_name": "PrimInt63.lsr",
+                  "line": 10679
+                },
+                {
+                  "printed_name": "PrimInt63.lsl",
+                  "line": 10680
+                },
+                {
+                  "printed_name": "PrimInt63.lor",
+                  "line": 10681
+                },
+                {
+                  "printed_name": "PrimInt63.land",
+                  "line": 10682
+                },
+                {
+                  "printed_name": "PrimInt63.int",
+                  "line": 10683
+                },
+                {
+                  "printed_name": "PrimString.get",
+                  "line": 10684
+                },
+                {
+                  "printed_name": "PrimInt63.eqb",
+                  "line": 10685
+                },
+                {
+                  "printed_name": "PrimString.cat",
+                  "line": 10686
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "root": "SystemUartAccepted.xv6_out_accepted_xv6Σ",
+      "kind": "proof_assumptions",
+      "exit_code": 0,
+      "elapsed_seconds": 356.0287766456604,
+      "log": "paper-assumptions-4.log",
+      "sha256": "af6a85aa5c6f6c1095cfc0c04780fa40702ef2a27fa9c37929d4627b88b4df88",
+      "responses": [
+        {
+          "command": "Print Assumptions theorem_root",
+          "closed_message": false,
+          "categories": [
+            {
+              "category": "Axioms",
+              "printed_name_candidate_count": 13,
+              "assumption_name_candidates": [
+                {
+                  "printed_name": "PrimInt63.sub",
+                  "line": 2
+                },
+                {
+                  "printed_name": "PrimString.string",
+                  "line": 3
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_matches",
+                  "line": 4
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_is_valid",
+                  "line": 5
+                },
+                {
+                  "printed_name": "PrimInt63.lsr",
+                  "line": 6
+                },
+                {
+                  "printed_name": "PrimInt63.lsl",
+                  "line": 7
+                },
+                {
+                  "printed_name": "PrimInt63.lor",
+                  "line": 8
+                },
+                {
+                  "printed_name": "PrimInt63.land",
+                  "line": 9
+                },
+                {
+                  "printed_name": "PrimInt63.int",
+                  "line": 10
+                },
+                {
+                  "printed_name": "PrimString.get",
+                  "line": 11
+                },
+                {
+                  "printed_name": "FunctionalExtensionality.functional_extensionality_dep",
+                  "line": 12
+                },
+                {
+                  "printed_name": "PrimInt63.eqb",
+                  "line": 15
+                },
+                {
+                  "printed_name": "PrimString.cat",
+                  "line": 16
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "root": "SystemUartAccepted.xv6_out_accepted_xv6Σ",
+      "kind": "statement_dependencies",
+      "exit_code": 0,
+      "elapsed_seconds": 4.619549036026001,
+      "log": "paper-statement-4.log",
+      "sha256": "7cf0e392a3f4569eb33c6c0d4ff67e43e8e3ca6b2db2279708e1dd2463442c31",
+      "responses": [
+        {
+          "command": "Print All Dependencies statement_seed",
+          "closed_message": false,
+          "categories": [
+            {
+              "category": "Transparent constants",
+              "printed_name_candidate_count": 3309,
+              "assumption_name_candidates": null
+            },
+            {
+              "category": "Axioms",
+              "printed_name_candidate_count": 12,
+              "assumption_name_candidates": [
+                {
+                  "printed_name": "PrimInt63.sub",
+                  "line": 6989
+                },
+                {
+                  "printed_name": "PrimString.string",
+                  "line": 6990
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_matches",
+                  "line": 6991
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_is_valid",
+                  "line": 6992
+                },
+                {
+                  "printed_name": "PrimInt63.lsr",
+                  "line": 6993
+                },
+                {
+                  "printed_name": "PrimInt63.lsl",
+                  "line": 6994
+                },
+                {
+                  "printed_name": "PrimInt63.lor",
+                  "line": 6995
+                },
+                {
+                  "printed_name": "PrimInt63.land",
+                  "line": 6996
+                },
+                {
+                  "printed_name": "PrimInt63.int",
+                  "line": 6997
+                },
+                {
+                  "printed_name": "PrimString.get",
+                  "line": 6998
+                },
+                {
+                  "printed_name": "PrimInt63.eqb",
+                  "line": 6999
+                },
+                {
+                  "printed_name": "PrimString.cat",
+                  "line": 7000
+                }
+              ]
+            },
+            {
+              "category": "Opaque constants",
+              "printed_name_candidate_count": 1476,
+              "assumption_name_candidates": null
+            }
+          ]
+        },
+        {
+          "command": "Print Assumptions statement_seed",
+          "closed_message": false,
+          "categories": [
+            {
+              "category": "Axioms",
+              "printed_name_candidate_count": 12,
+              "assumption_name_candidates": [
+                {
+                  "printed_name": "PrimInt63.sub",
+                  "line": 10681
+                },
+                {
+                  "printed_name": "PrimString.string",
+                  "line": 10682
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_matches",
+                  "line": 10683
+                },
+                {
+                  "printed_name": "xv6iris_extras.resv_is_valid",
+                  "line": 10684
+                },
+                {
+                  "printed_name": "PrimInt63.lsr",
+                  "line": 10685
+                },
+                {
+                  "printed_name": "PrimInt63.lsl",
+                  "line": 10686
+                },
+                {
+                  "printed_name": "PrimInt63.lor",
+                  "line": 10687
+                },
+                {
+                  "printed_name": "PrimInt63.land",
+                  "line": 10688
+                },
+                {
+                  "printed_name": "PrimInt63.int",
+                  "line": 10689
+                },
+                {
+                  "printed_name": "PrimString.get",
+                  "line": 10690
+                },
+                {
+                  "printed_name": "PrimInt63.eqb",
+                  "line": 10691
+                },
+                {
+                  "printed_name": "PrimString.cat",
+                  "line": 10692
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "compiler_import_counts": {
+    "iris/SystemAdequacy.vo": 1312,
+    "iris/SystemUartAccepted.vo": 1314
+  },
+  "active_projects": [
+    {
+      "path": "iris/_CoqProject",
+      "sha256": "a2b72f038731a155eb4a484b363e34a48ca48a8dc2ca193b5c68be9194c8a4a1",
+      "listed_source_count": 1427
+    },
+    {
+      "path": "model-xv6iris/_CoqProject",
+      "sha256": "ce6ae1e2e53ea41233da5a9004d68247a78ab68ba794a8cb1afb66b957463841",
+      "listed_source_count": 4
+    },
+    {
+      "path": "kernel-rocq/_CoqProject",
+      "sha256": "639f61d8c3aedfb3957fcdda06cd1df49b3a96d7c47ee349361dada24076ba6f",
+      "listed_source_count": 5
+    },
+    {
+      "path": "user-rocq/_CoqProject",
+      "sha256": "bffe3ea96bf023ab60470a4135e0e3cb8ea90c54ec1d2b7ffa80f9cacc15941f",
+      "listed_source_count": 19
+    }
+  ]
+}

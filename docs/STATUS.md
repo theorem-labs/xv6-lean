@@ -61,12 +61,12 @@ The native allocation checkpoint `e955086` [passed GitHub CI](https://github.com
 The native event/filesystem checkpoint `f8a1262` [passed GitHub CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34551920513).
 
 The complete inhabited spinlock gate and native kernel/filesystem prerequisite
-build passes 1,214 jobs. The complete audit checks 30,493 logical declarations,
-including 13,333 theorems, with only the three standard foundational axioms.
+build passes 1,249 jobs. The complete audit checks 31,130 logical declarations,
+including 13,705 theorems, with only the three standard foundational axioms.
 Fifty-seven compiler-generated total-recursion companions are excluded only as roots and
 remain forbidden in logical cones. The initial-allocation caller check retains
 exactly nine reviewed edges. All twelve compiled audit fixtures pass. The
-reviewed staged source contains 981 reachable project modules and passes all
+reviewed staged source contains 1,016 reachable project modules and passes all
 87 generated-model pin checks. The whole-system root manifest remains empty.
 
 All 21 pure initial snapshot clauses are proved against the actual disk bytes.
@@ -225,20 +225,41 @@ read and ordinary Data-store WPs. Four independently fractional register cells
 pay the five actual register reads; real context-word ownership supplies the
 memory rule, with all permitted read views, blocked write retry, exact error
 continuations, unchanged ordinary-store views and reservation behavior.
-Cross-reviews passed both implementations. Canonical PTE A/D pins, fetch widths,
-outer instruction address checks and virtual translation remain open.
+Cross-reviews passed both implementations. Canonical PTE A/D pins, outer instruction address checks and virtual
+translation remain open; the physical fetch-width rules are now proved below.
 
 Nine arithmetic bodies of the real mycpu instructions now have native
 partial-footprint WPs, including compressed ExecuteAs redirection. Their
 modular return expression and eight actual-hart specializations are proved;
-fetch, four memory bodies, final JR and fetched function composition remain open.
+fetch, four memory bodies and fetched function composition remain open;
+the actual final JR body is now proved below.
 The native inode claim/freeze shelter preserves full transaction/share indices
 through both phases and has checked empty-authority/boot exclusion laws.
 Journal epochs and append-set receipts now use existing mono-nat slot 3 and
 new slot 34, with genuine membership, same-name updates and isolated genesis
-allocation at epoch one. Complete inode epoch/slot custody and journal assembly
-remain subsequent dependencies. All new prefixes have independent full-source
+allocation at epoch one. Full inode-slot and journal assembly remain subsequent dependencies;
+pointwise epoch receipts and inode custody are now proved below. All new prefixes have independent full-source
 and dependency reviews; all six whole-xv6 roots remain open.
+
+The native byte-window rules now cover arbitrary widths, exact matching-fraction
+splitting, persistence of both byte and timestamp resources, and linear subwindow
+extraction/restoration. Checked supervisor fetch reads at widths two and four
+use those windows and retain the generated plain-read event and error tail.
+The actual outer eight-byte read/write wrappers now pay their effective-privilege
+reads and preserve both register bundles and native context resources. The actual
+mycpu final JR body preserves fractional configuration cells, eagerly reads
+misa.C and clears return-address bit zero. These are native instruction/access
+rules; virtual fetch, store announcements, four memory bodies and whole-function
+composition remain open.
+
+Inode custody now includes the exact guarded top fragment, directory-adjusted
+link multiplicity and root's extra link. Epoch receipts use the actual block
+index and same observation names. Escrow tokens preserve the full registry-name
+pair, transaction/share corpse index, exclusive redemption ticket and committed
+lower bound. New slots 35–37 preserve all previous capacities. Full inode slots,
+region boot assembly, pool escrow and journal state remain in progress.
+Independent full-source and complete dependency reviews passed each new prefix.
+The original-replay checkpoint `b0eec6e` also [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34576677193).
 
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is

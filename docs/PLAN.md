@@ -55,9 +55,11 @@ are separate upgrades with explicit semantics and artifact comparisons.
    implementations and proofs.
    Current native prerequisites include partial supervisor PMP/interrupt WPs,
    value-agnostic optional clocks, ordinary context-word read/write event WPs,
-   concrete supervisor checked eight-byte read/write WPs,
+   concrete supervisor checked and outer eight-byte read/write WPs,
+   generic byte-window ownership and checked physical fetch at widths two/four,
    physical stack rules, actual supervisor retirement and exact mycpu decode/fetch
-   bytes plus nine native arithmetic-body rules. Bare translation and physical permission prefixes are proved; full
+   bytes plus nine native arithmetic-body rules and the actual final JR body.
+   Bare translation and physical permission prefixes are proved; full
    page-table translation, virtual tier ownership and function composition remain open.
 6. **Kernel subsystems.** Boot and allocator; page tables and arbitrary user-mode
    execution; process/scheduler/FD/pipe layers; UART/PLIC/virtio drivers and DMA;

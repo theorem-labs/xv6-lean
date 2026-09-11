@@ -144,11 +144,11 @@ the final paper-image theorem use the same machine semantics. See [exact theorem
   Next connect native byte, top-map and link resources into the actual nested
   filesystem interpretation and durable allocation; pure validity does not
   replace `P_dur` or its crash-preservation proof.
-- The second integration image has checked fetch/decoder plans and initial
-  scalar execution plans. Compose actual exclusive reads, conditional writes
-  and barriers through the reviewed event-plan interface, then close the
-  native holder resource protocol, operational exclusion and interference
-  witness before broad kernel proof fanout.
+- The second integration image has checked fetch/decoder and complete
+  instruction plans, native lock callbacks, actual boot resource extraction
+  and eight-way code sharing. Close instruction-family preservation, cyclic
+  safety, operational exclusion and the interference witness before broad
+  kernel proof fanout.
 - The generic interruptible event fold and actual cycle wrapper are now
   checked. The native lock protocol transfers the counter resource only at
   successful conditional-write commit, retaining its actual winning log

@@ -16,8 +16,8 @@ whole-system safety or filesystem crash consistency.
 | Full generated Lean RISC-V model | Compiled; six execution/reset entry cones audited; real fetched JAL execution proved | Two explicit reservation predicates; full semantic correspondence pending |
 | Machine/device/power language | Concrete language implemented, including Virtio DMA and power | Boot execution and arbitrary-schedule memory/reservation/trace invariants proved; ownership in progress |
 | TSO ownership | Native byte/timestamp, log, view, dirty-set and full heap metadata resources proved and reviewed | Coherent seven-conjunct era boot allocation proved; hardware ownership lifting pending |
-| Register, device and disk ownership | Global dependent registers, device halves, reservations and complete disk-image laws proved | Native event WPs and interruptible event composition proved; exact lock camera linked; concrete lock callbacks pending |
-| Filesystem image readers | Complete initial fsimg_wf (W1–W9), durable inode, links and full initial Snapshot.OK proved | Native filesystem hierarchy, link packing/gathering and root-slack camera allocation proved; durable byte carving and crash transport pending |
+| Register, device and disk ownership | Global dependent registers, device halves, reservations and complete disk-image laws proved | Native event WPs and interruptible event composition proved; exact lock camera linked; concrete lock callbacks proved; cyclic instruction-family and pool coverage pending |
+| Filesystem image readers | Complete initial fsimg_wf (W1–W9), durable inode, links and full initial Snapshot.OK proved | Native filesystem hierarchy, link packing/gathering and root-slack camera allocation proved; guarded durable byte ledger proved; slot carving and crash transport pending |
 | MachCSL adequacy and first closed slice | Closed JAL schedule-safety theorem builds over the actual eight-hart/device/power machine | Universal boot/cycle/worker proofs, eleven-fork handler and native adequacy linked; independent final review passed; two-hart TSO spinlock gate next |
 | Kernel function proof port | Not started | Requires stable abstractions |
 | Concrete input images and ELF parsing | Full hex/packed certificates, ELF loading, independent dumped-map and boot-image equality proved | Initial FS checker proved; Iris FS resource initialization remains open |
@@ -60,8 +60,8 @@ The native allocation checkpoint `e955086` [passed GitHub CI](https://github.com
 
 The native event/filesystem checkpoint `f8a1262` [passed GitHub CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34551920513).
 
-The current event/camera integration build passes 908 jobs. Its complete project audit
-checks 24,858 logical declarations, including 9,834 theorems, using only the three
+The current native spinlock integration build passes 938 jobs. Its complete project audit
+checks 25,532 logical declarations, including 10,229 theorems, using only the three
 standard foundational axioms. Forty-six compiler-generated total-recursion
 runtime companions are excluded only as roots and remain forbidden in logical
 cones. The whole-system root manifest remains empty.
@@ -76,16 +76,18 @@ Native exclusive RAM reads and present-payload RAM writes now have checked WPs,
 including actual blocked retries, reservation validity, TSO updates and view
 receipts. The spinlock image has checked bytes, all seventeen actual decoder
 and universal fetch plans, and seven straight-line register instruction plans.
-Remaining instruction plans, lock resource transfer and operational holder
-exclusion remain under implementation. The two-hart gate
+All memory/control instruction plans and native lock resource transfer are now
+proved. Instruction-family preservation and operational holder exclusion remain
+under implementation. The two-hart gate
 requires all-schedule safety, exclusion and a concrete interference witness.
 
 The native event-composition layer is now proved and linked, with explicit
 eligibility for ordinary versus held-snapshot proof rules. The exact lock
 product and top inode cameras occupy slots 24 and 25. Control instruction
 plans and the generated cycle wrapper are checked, as is generic annotation
-transport over the identical actual pool schedule. Concrete protocol callbacks,
-instruction-family preservation and annotation coverage remain to be proved.
+transport over the identical actual pool schedule. Concrete protocol callbacks are proved, including actual log-position receipts
+and failed-swap framing. Instruction-family preservation and annotation coverage
+remain to be proved.
 
 The native filesystem hierarchy now factors into byte footprints and ghosts,
 with exact inode/link packing, same-name gathering and fresh initial link/top
@@ -116,6 +118,11 @@ skipped. Newer runs use the expanded limit; their results remain pending.
 The expanded-timeout `9857e27` [hosted CI run](https://github.com/theorem-labs/xv6-lean/actions/runs/34558122240)
 passed the complete build, proof/model audits, image tests and provenance
 checks. It includes the closed JAL gate. Later commits remain pending in CI.
+
+The actual boot resource extraction accounts for all 76 code/lock/counter bytes,
+returns both exact residual maps, and supplies eight fractional code bundles.
+The native protocol and code resources have separate independent reviews.
+The earlier two-hart foundations commit `9fa51cd` [passed hosted CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34559749537).
 
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is

@@ -69,6 +69,20 @@
         "claude-fable-5-1"
       ],
       "artifact": "fable-spinlock-pool.md"
+    },
+    {
+      "round": "spinlock-complete-gate",
+      "session_id": "5c78471b-01db-44d2-bebb-214da861bced",
+      "permission_mode": "dontAsk",
+      "is_error": false,
+      "subtype": "success",
+      "duration_ms": 792750,
+      "tools": "disabled",
+      "same_session_as": "two-hart-spinlock",
+      "model_usage_keys": [
+        "claude-fable-5-1"
+      ],
+      "artifact": "fable-spinlock-gate.md"
     }
   ]
 }

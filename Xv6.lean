@@ -12,3 +12,6 @@ import Xv6.Kernel.Audit
 import Xv6.Fs
 import Xv6.Generated.EncodingCertificateKernelElf
 import Xv6.Generated.EncodingCertificateFsImg
+import Xv6.Kernel.MycpuDecodeProofs
+import Xv6.Kernel.MycpuDecodeImage
+import Xv6.Fs.SnapshotConfigBlockProofs

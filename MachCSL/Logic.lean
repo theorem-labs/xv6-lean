@@ -62,3 +62,12 @@ import MachCSL.Logic.FsBytesGammaProofs
 import MachCSL.Logic.SpinlockInitProofs
 import MachCSL.Logic.SpinlockWPProofs
 import MachCSL.Logic.SpinlockMachineSafetyProofs
+import MachCSL.Logic.SpinlockIntegrationProofs
+import MachCSL.Logic.FsDurInstallLink
+import MachCSL.Logic.FsDurXferLink
+import MachCSL.Logic.FsDurSnapshotXferLink
+import MachCSL.Logic.LockSetLink
+import MachCSL.Logic.TsoContextLink
+import MachCSL.Logic.RegisterPlanProofs
+import MachCSL.Logic.FsDurEraInstallLink
+import MachCSL.Logic.SpinlockGateProofs

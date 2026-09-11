@@ -44,7 +44,9 @@ are separate upgrades with explicit semantics and artifact comparisons.
 4. **First closed machine-code slice.** Decode actual bytes, execute real Sail
    events and discharge initialized resource and adequacy obligations for a small
    concurrent program. Include nontrivial interference and memory ordering. This
-   is a feasibility gate, not a substitute for the xv6 theorem.
+   is a feasibility gate, not a substitute for the xv6 theorem. The one-instruction
+   JAL initialization/adequacy subgate is closed at `d6e1c89`; the two-hart TSO
+   interference subgate remains open (see docs/design/two-hart-spinlock.md).
 5. **Reusable kernel abstractions.** Port view-relative ownership, suspended
    views, instruction rules, address-translation tiers, interrupt capabilities,
    stack budgets, ABI and nonreturning stack reclamation, spinlocks/sleeplocks,

@@ -220,8 +220,19 @@ Before claiming the xv6 specialization matches the paper, prove the loaded
 image equality and a definition-level correspondence for initial states and each
 transition rule. An alternate simplified language proving the gate, a manually
 chosen reset-state table, or a generic stutter that makes every expression
-reducible does not satisfy this contract. This parametric design and its
-specialization theorems are pending implementation.
+reducible does not satisfy this contract.
+
+The common image-parametric machine and closed JAL specialization are now
+implemented. `MachCSL.Logic.JalMachineSafety.safe` proves reducibility for every
+thread of every actual finite reachable configuration, with the model's
+observation consistency conclusion. `concrete_positive_execution` supplies all
+platform/state assumptions and a real power-on/fetch/retire schedule with no
+premises. The boot handler covers all eleven forked workers and all permitted
+boot witnesses. The proof and independent audits are recorded in
+`MachCSL/Logic/JalMachineSafetySTATUS.md` and
+`docs/reviews/jal-machine-safety-review.md` (published checkpoint `d6e1c89`).
+This closes the one-instruction gate only. The two-hart TSO interference gate,
+complete cross-prover semantic correspondence, and all six xv6 roots remain open.
 
 ## Active dependency extraction and assumption reports
 

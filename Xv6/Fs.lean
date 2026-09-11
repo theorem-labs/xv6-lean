@@ -16,3 +16,8 @@ import Xv6.Fs.BootImageImage
 import Xv6.Fs.DurableNodeProofs
 import Xv6.Fs.DurableStateProofs
 import Xv6.Fs.BitmapEncodingProofs
+import Xv6.Fs.LinkSupplyProofs
+import Xv6.Fs.BitmapArithmeticLink
+import Xv6.Fs.LinkImage
+import Xv6.Fs.SnapshotProofs
+import Xv6.Fs.SnapshotHomeProofs

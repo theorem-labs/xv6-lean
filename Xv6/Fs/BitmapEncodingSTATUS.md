@@ -26,10 +26,10 @@ Validation: `python3 tools/lake.py build Xv6.Fs.BitmapEncodingProofs` passes
 15 jobs. The embedded audit checks all 74 encoding declarations transitively,
 allowing only `propext`, `Classical.choice`, and `Quot.sound`.
 
-The source's separate integer bitwise AND/OR/complement arithmetic lemmas at
-the machine-word seam remain later work. This stage supplies the full byte
-identity needed by durable snapshot construction. It does not establish the
-remaining snapshot byte ties, native link-family validity or allocation.
+The separate BitmapArithmeticProofs/Link layer now proves the source integer
+AND/OR/complement and machine-word value bridges. This encoding stage supplies
+the full byte identity needed by durable snapshot construction. It does not
+establish the remaining snapshot byte ties or native resource allocation.
 No literal image or generated certificate is imported.
 
 *Authorship note: this was researched and written by an AI coding agent

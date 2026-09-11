@@ -7,7 +7,7 @@ whole-system safety or filesystem crash consistency.
 |---|---|---|
 | Full paper reading | Complete (47 pages) | Codex coordinator and audit agents |
 | Baseline audit | Paper tag identified | Exact pins and image hashes recorded |
-| Independent design reviews | Initial plan and revised plan complete; focused JAL review also complete | Claude Code, Fable 5.1, max effort; see reviews/fable-disposition.md and reviews/fable-jal-loop.md |
+| Independent design reviews | Initial plan and revised plan complete; focused JAL and two-hart design reviews also complete | Claude Code, Fable 5.1, max effort; see reviews/fable-disposition.md and reviews/fable-jal-loop.md and reviews/fable-two-hart-disposition.md |
 | Reproducible repository/tooling | Implemented; initial GitHub CI passed | Build, imports, image decoding and source regeneration pass |
 | Native Iris build and integration | Complete initial integration | Generic adequacy axiom audit passed |
 | Production TSO memory port | Core, byte read/write and finite-map/reservation bridges proved | See MachCSL/Memory/STATUS.md for missing layers |
@@ -16,8 +16,8 @@ whole-system safety or filesystem crash consistency.
 | Full generated Lean RISC-V model | Compiled; six execution/reset entry cones audited; real fetched JAL execution proved | Two explicit reservation predicates; full semantic correspondence pending |
 | Machine/device/power language | Concrete language implemented, including Virtio DMA and power | Boot execution and arbitrary-schedule memory/reservation/trace invariants proved; ownership in progress |
 | TSO ownership | Native byte/timestamp, log, view, dirty-set and full heap metadata resources proved and reviewed | Coherent seven-conjunct era boot allocation proved; hardware ownership lifting pending |
-| Register, device and disk ownership | Global dependent registers, device halves, reservations and complete disk-image laws proved | Native register, plain RAM-read, UART/PLIC worker, reset-disk and restart WPs proved; write/barrier/atomic hardware WPs pending |
-| Filesystem image readers | Complete initial fsimg_wf (W1–W9), durable inode and separate link checks proved | Durable node/state geometry, full boot-image contract, bitmap encoding and native link-count camera proved; full durable snapshot and resource initialization pending |
+| Register, device and disk ownership | Global dependent registers, device halves, reservations and complete disk-image laws proved | Native register, plain RAM-read, UART/PLIC worker, reset-disk and restart WPs proved; barrier WP proved; write/atomic hardware WPs pending |
+| Filesystem image readers | Complete initial fsimg_wf (W1–W9), durable inode and separate link checks proved | Durable node/state geometry, full boot-image contract, bitmap encoding and native link-count camera proved; full snapshot contract and image link-family validity proved; initial snapshot byte ties and resource initialization pending |
 | MachCSL adequacy and first closed slice | Closed JAL schedule-safety theorem builds over the actual eight-hart/device/power machine | Universal boot/cycle/worker proofs, eleven-fork handler and native adequacy linked; independent final review passed; two-hart TSO spinlock gate next |
 | Kernel function proof port | Not started | Requires stable abstractions |
 | Concrete input images and ELF parsing | Full hex/packed certificates, ELF loading, independent dumped-map and boot-image equality proved | Initial FS checker proved; Iris FS resource initialization remains open |
@@ -60,11 +60,19 @@ The native allocation checkpoint `e955086` [passed GitHub CI](https://github.com
 
 The native event/filesystem checkpoint `f8a1262` [passed GitHub CI](https://github.com/theorem-labs/xv6-lean/actions/runs/34551920513).
 
-The current JAL integration build passes 822 jobs. Its complete project audit
-checks 23,108 logical declarations, including 8,616 theorems, using only the three
+The current TSO/snapshot integration build passes 849 jobs. Its complete project audit
+checks 23,707 logical declarations, including 9,066 theorems, using only the three
 standard foundational axioms. Forty-six compiler-generated total-recursion
 runtime companions are excluded only as roots and remain forbidden in logical
 cones. The whole-system root manifest remains empty.
+
+The latest reviewed layer adds full native TSO store updates, timestamp/view
+read bridges, exact barrier WPs, universal boot hart IDs, bitmap bitwise
+arithmetic, initial link-family validity including root slack, and all 21 durable
+snapshot clauses with exact signed home-map laws. Actual exclusive-read and
+write WPs, generated spinlock plans and the initial snapshot byte ties remain
+under implementation. The two-hart exclusion architecture is an independently
+reviewed separate proof obligation; no safety-only result closes that gate.
 
 `MachCSL.Logic.JalMachineSafety.safe` proves actual reducibility for every thread
 in every finite reachable configuration, together with the model's observation

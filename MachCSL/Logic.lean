@@ -33,3 +33,7 @@ import MachCSL.Logic.MachineAdequacyLink
 import MachCSL.Logic.JalBootHandlerLink
 import MachCSL.Logic.FsLinkLink
 import MachCSL.Logic.JalMachineSafetyLink
+import MachCSL.Logic.TsoAppendProofs
+import MachCSL.Logic.TsoStoreLink
+import MachCSL.Logic.TsoReadAtLink
+import MachCSL.Logic.BarrierWPLink

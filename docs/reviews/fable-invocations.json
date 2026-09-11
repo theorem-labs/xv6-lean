@@ -41,6 +41,20 @@
         ]
       },
       "artifact": "fable-jal-loop.md"
+    },
+    {
+      "round": "two-hart-spinlock",
+      "session_id": "5c78471b-01db-44d2-bebb-214da861bced",
+      "permission_mode": "dontAsk",
+      "is_error": false,
+      "subtype": "success",
+      "duration_ms": 718919,
+      "tools": "disabled",
+      "model_usage_keys": [
+        "claude-haiku-4-5-20251001",
+        "claude-fable-5-1"
+      ],
+      "artifact": "fable-two-hart.md"
     }
   ]
 }

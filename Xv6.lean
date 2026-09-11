@@ -68,3 +68,11 @@ import Xv6.Kernel.KernelMapStaticLink
 import Xv6.Kernel.MycpuRegimeShellLink
 import Xv6.Kernel.MycpuKptWitnessProofs
 import Xv6.Kernel.KptPublishBarrierLink
+import Xv6.Kernel.HardwareConfigLink
+import Xv6.Kernel.SupervisorTranslationLink
+import Xv6.Kernel.SconfLink
+import Xv6.Kernel.SieOffCapabilityLink
+import Xv6.Kernel.KptFetchLink
+import Xv6.Kernel.MycpuKptMemoryLink
+import Xv6.Kernel.MycpuKptRegisterLink
+import Xv6.Kernel.MycpuKptFetchLink

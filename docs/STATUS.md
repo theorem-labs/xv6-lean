@@ -593,6 +593,34 @@ and empty whole-system root manifest. All twelve compiled audit fixtures
 passed. These checks establish the stated component results, not whole-xv6
 closure.
 
+Native translated instruction and source resource components (2026-09-11):
+shared Sv39 fetch now executes the complete generated fetch, including separate
+translations of a page-crossing instruction. The indexed mycpu adapters own
+all fourteen virtual fetch windows and restore the same fifty-cell packet
+through all four memory bodies and ten register bodies. HardwareConfig,
+SupervisorTranslation, Sconf and SieOffCapability now implement their exact
+source resource bundles and native accessors using existing cameras. The PMA
+class theorem proves the actual boot table's RAM/device obligations.
+
+Every component passed full-file independent review and strict physical/type/
+opaque/constructor audit, with the standard three axioms only and zero new
+exclusions. The complete source hardware assertion retains general PMA classes;
+current translated execution rules still specialize to pmaBoot. This distinction
+is preserved for the subsequent source-resource adapter and execution proof.
+The source's signed atomic-width predicate has a documented Nat-backend
+restriction; complete cross-prover equivalence is not claimed. Whole-cycle,
+whole-function source-capability composition, boot establishment and all six
+whole-xv6 roots remain open.
+
+Validation for the translated instruction/capability batch: the full build
+passed 1,739 jobs. The frozen archive contains 1,513 byte-matched Lean files;
+all 1,506 project modules are reachable and all 87 generated model modules
+and pins pass checks. The global audit checked 40,558 logical declarations,
+including 19,495 theorems, with the unchanged 60 reviewed runtime companions
+and empty whole-system root manifest. All twelve compiled audit fixtures
+passed. These checks establish the stated component results; full function
+composition and all six whole-xv6 roots remain open.
+
 *Authorship note: this was researched and written by an AI coding agent
 (OpenAI Codex), working on Jason Gross's behalf; Jason reviews what is
 posted from this account.*

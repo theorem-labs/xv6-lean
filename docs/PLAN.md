@@ -192,8 +192,12 @@ the final paper-image theorem use the same machine semantics. See [exact theorem
   independently reviewed. Fable round ten closed the missing-source review
   gaps. The regime-parametric shell and configured fourteen-cycle Sv39
   witness are now proved and independently reviewed, as are exact static-map
-  claims and native barrier publication. Actual fetch, translated instruction
-  composition, the full source capability and boot establishment are next. The full Bare mycpu function has
+  claims and native barrier publication. Native shared-Sv39 fetch and indexed
+  fetch/memory/register body adapters are now proved and independently reviewed.
+  The exact hardware, translation slot, sconf and disabled source capability
+  resources are also proved. Fixed-anchor all-fourteen-body composition, actual
+  complete cycles and source-capability adapters are next; general PMA-to-boot
+  execution specialization and boot establishment remain explicit obligations. The full Bare mycpu function has
   passed peer and Fable review; its concrete operational witness is proved
   and peer/Fable reviewed; the narrow Bare operational gate is closed.
   Boot reachability and native Iris entry-resource allocation remain open.

@@ -9,3 +9,4 @@ import MachCSL.Devices
 import MachCSL.Machine
 import MachCSL.Logic.ContextPinMintLink
 import MachCSL.Logic.TimerCapLink
+import MachCSL.Machine.PmaClassProofs
